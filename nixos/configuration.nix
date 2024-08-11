@@ -143,7 +143,8 @@
     shellAliases = {
       la = "eza --icons -la";
       ls = "eza --icons";
-      rebuild = "cd ~/Nix && sudo nixos-rebuild switch --flake .#wndr";
+      rebuildsystem = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
+      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
       cdproj = "cd ~/Documents/git/curProj";
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
@@ -174,6 +175,8 @@
     python3
     #qol stuff
     libsecret
+
+    home-manager
   ];
 
   environment.variables = {

@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim.url = "github:elythh/nixvim";
   };
 
   outputs = {
