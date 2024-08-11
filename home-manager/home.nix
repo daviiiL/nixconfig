@@ -43,29 +43,20 @@
       unzip
       p7zip
       xdg-utils
-      #hyprland specifics
+      gh
       hyprpaper
-
-      #neovim specifics
+      hyprlock
+      hypridle
+      anyrun
       ripgrep
       wl-clipboard
-      # languages 
-      #lspservers
       typescript
-      #formatters
       alejandra
       prettierd
-
-      #editors-gui
       vscode-fhs
       zed-editor
-
-      #communication
       vesktop
-
       inputs.nixvim.packages.${pkgs.system}.default
-
-      #ags
       config.wayland.windowManager.hyprland.package
       coreutils
       dart-sass
@@ -78,6 +69,8 @@
       mission-center
       overskride
       wlogout
+      wdisplays
+      nerdfonts
     ];
   };
 

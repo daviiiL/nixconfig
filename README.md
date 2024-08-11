@@ -19,3 +19,7 @@
 ### note to self :
 
 - for ags: symblink from `/path/to/ags` to `~/.config/ags` for now
+
+### hosts:
+
+- `wndr`: desktop

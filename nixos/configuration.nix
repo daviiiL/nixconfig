@@ -60,19 +60,13 @@
     };
     # Printing CUPS
     printing.enable = true;
-
     # Audio
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
-
     # Keyring
     gnome.gnome-keyring.enable = true;
   };
@@ -81,43 +75,41 @@
   programs = {
     # enable hyprland 
     hyprland.enable = true;
-
     # keyring seahorse
     seahorse.enable = true;
+    zsh.enable = true;
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    # Bluetooth
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    pulseaudio.enable = false;
+  };
+
   security = {
     rtkit.enable = true;
     pam.services.greetd.enableGnomeKeyring = true;
   };
 
   #user definition
-  users.users.rudeus = {
-    name = "rudeus";
-    home = "/home/rudeus/";
-    isNormalUser = true;
-    description = "David Liu";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      #dev tools
-      gh
-      #window manager and stuff
-      # hyprland
-      hyprlock
-      hypridle
-      #terminal
-      kitty
-      #app launcher
-      anyrun
-      #tools
-      wdisplays
-      nerdfonts
-      #keyring
-      pass
-    ];
-    shell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.rudeus = {
+      name = "rudeus";
+      home = "/home/rudeus/";
+      isNormalUser = true;
+      description = "David Liu";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+        kitty
+        pass
+      ];
+      shell = pkgs.zsh;
+    };
   };
 
   #fonts
@@ -126,29 +118,6 @@
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "SpaceMono" ]; })
     ];
-  };
-
-  #zsh shell config.
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "eastwood";
-      plugins = [ ];
-    };
-    shellAliases = {
-      la = "eza --icons -la";
-      ls = "eza --icons";
-      rebuildsystem = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
-      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
-      cdgit = "cd ~/Documents/git";
-      cdproj = "cd ~/Documents/git/curProj";
-      code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-    };
   };
 
   # Allow unfree packages
@@ -173,7 +142,6 @@
     python3
     #qol stuff
     libsecret
-
     home-manager
   ];
 
@@ -181,33 +149,8 @@
     # Set runtime directory
     XDG_RUNTIME_DIR = "/run/user/$UID";
     # Set ozone flag
-    NIXOS_OZONE_WL = "2";
+    NIXOS_OZONE_WL = "1";
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }
