@@ -1,11 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -13,7 +12,7 @@
   ];
 
   # Enable flakes and nix-cmd
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -97,7 +96,7 @@
     home = "/home/rudeus/";
     isNormalUser = true;
     description = "David Liu";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       #browser
       firefox
@@ -124,7 +123,7 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["FiraCode" "SpaceMono"];})
+      (nerdfonts.override { fonts = [ "FiraCode" "SpaceMono" ]; })
     ];
   };
 
@@ -138,13 +137,14 @@
     ohMyZsh = {
       enable = true;
       theme = "eastwood";
-      plugins = [];
+      plugins = [ ];
     };
     shellAliases = {
       la = "eza --icons -la";
       ls = "eza --icons";
       rebuildsystem = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
       switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
+      cdgit = "cd ~/Documents/git";
       cdproj = "cd ~/Documents/git/curProj";
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
