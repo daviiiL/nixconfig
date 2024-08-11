@@ -1,5 +1,7 @@
 ## daviii's dotfiles nixos flake
 
+> configs are slowly being migrated from `$HOME/.configs` to `home-manager`
+
 [nixos](https://nixos.org/)
 [home-manager](https://github.com/nix-community/home-manager)
 
