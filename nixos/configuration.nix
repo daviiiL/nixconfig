@@ -49,16 +49,18 @@
 
   services = {
     # X11 init.
-    xserver.enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-    # X11 configs.
     xserver = {
-      xkb = {
-        layout = "us";
-        variant = "";
+      enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+      # X11 configs.
+      xserver = {
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
       };
     };
     # Printing CUPS
