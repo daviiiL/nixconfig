@@ -72,12 +72,18 @@
       #media-session.enable = true;
     };
 
-    programs.hyprland.enable = true;
     # Keyring
     gnome.gnome-keyring.enable = true;
   };
 
-  programs.seahorse.enable = true;
+  # programs!!!
+  programs = {
+    # enable hyprland 
+    hyprland.enable = true;
+
+    # keyring seahorse
+    seahorse.enable = true;
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

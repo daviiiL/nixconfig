@@ -30,7 +30,6 @@
       allowUnfree = true;
     };
   };
-
   home = {
     username = "rudeus";
     homeDirectory = "/home/rudeus";
@@ -63,6 +62,7 @@
       inputs.nixvim.packages.${pkgs.system}.default
     ];
   };
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
