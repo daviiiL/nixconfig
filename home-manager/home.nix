@@ -48,7 +48,6 @@
       ripgrep
       wl-clipboard
       # languages 
-      sass
       #lspservers
       typescript
       #formatters
@@ -63,6 +62,20 @@
       vesktop
 
       inputs.nixvim.packages.${pkgs.system}.default
+
+      #ags
+      config.wayland.windowManager.hyprland.package
+      coreutils
+      dart-sass
+      gawk
+      imagemagick
+      procps
+      ripgrep
+      util-linux
+      gnome.gnome-control-center
+      mission-center
+      overskride
+      wlogout
     ];
   };
 

@@ -1,5 +1,6 @@
 .bar {
-  background: $bar-bg;
+  /* background: $bar-bg; */
+  background: rgba(0, 0, 0, 1);
   min-height: 32px;
 
   .module {
@@ -12,7 +13,7 @@
   margin: 0.2rem 0.5rem;
 
   button {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(256, 256, 256, 0.3);
     border-radius: 2rem;
     margin: 0.7rem 0.2rem;
     min-width: 1rem;
