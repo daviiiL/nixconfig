@@ -2,8 +2,8 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 { inputs
 , outputs
-, lib
-, config
+  # , lib
+  # , config
 , pkgs
 , ...
 }: {
@@ -17,6 +17,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./packages
   ];
 
   nixpkgs = {
