@@ -94,10 +94,6 @@
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
