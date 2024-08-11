@@ -56,11 +56,9 @@
         wayland = true;
       };
       # X11 configs.
-      xserver = {
-        xkb = {
-          layout = "us";
-          variant = "";
-        };
+      xkb = {
+        layout = "us";
+        variant = "";
       };
     };
     # Printing CUPS
@@ -82,7 +80,7 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      portalPackage = pkgs.xdg_desktop_portal_hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
     # keyring seahorse
     seahorse.enable = true;
