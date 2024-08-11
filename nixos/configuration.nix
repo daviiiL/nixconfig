@@ -79,9 +79,9 @@
   programs.seahorse.enable = true;
 
   # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  # };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -103,7 +103,7 @@
       #dev tools
       gh
       #window manager and stuff
-      hyprland
+      # hyprland
       hyprlock
       hypridle
       #terminal
