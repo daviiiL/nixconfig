@@ -47,6 +47,8 @@
       #neovim specifics
       ripgrep
       wl-clipboard
+      # languages 
+      sass
       #lspservers
       typescript
       #formatters
