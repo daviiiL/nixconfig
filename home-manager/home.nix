@@ -63,7 +63,6 @@
       inputs.nixvim.packages.${pkgs.system}.default
     ];
   };
-  programs.hyprland.enable = true;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

@@ -72,6 +72,7 @@
       #media-session.enable = true;
     };
 
+    programs.hyprland.enable = true;
     # Keyring
     gnome.gnome-keyring.enable = true;
   };
