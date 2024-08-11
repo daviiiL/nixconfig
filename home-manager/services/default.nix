@@ -1,6 +1,6 @@
 {
   imports = [
     ./ags
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 }

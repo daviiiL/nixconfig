@@ -50,7 +50,10 @@
   services = {
     # X11 init.
     xserver.enable = true;
-    displayManager.sddm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
     # X11 configs.
     xserver = {
       xkb = {
@@ -73,8 +76,12 @@
 
   # programs!!!
   programs = {
-    # enable hyprland 
-    hyprland.enable = true;
+    #hyprland
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      portalPackage = pkgs.xdg_desktop_portal_hyprland;
+    };
     # keyring seahorse
     seahorse.enable = true;
     zsh.enable = true;
