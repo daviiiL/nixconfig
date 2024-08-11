@@ -132,7 +132,6 @@
     curl
     tree
     fzf
-    eza
     #shells
     fish
     zsh
