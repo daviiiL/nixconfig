@@ -19,6 +19,7 @@
     # ./nvim.nix
     ./services
     ./programs
+    ./shells
   ];
 
   nixpkgs = {
