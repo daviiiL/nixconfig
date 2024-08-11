@@ -1,4 +1,4 @@
-## daviii's dotfiles nixos flake
+## daviii's nixos flake
 
 > configs are slowly being migrated from `$HOME/.configs` to `home-manager`
 
