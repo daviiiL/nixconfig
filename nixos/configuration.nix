@@ -12,18 +12,18 @@
   ];
 
   # Enable flakes and nix-cmd
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    # might slow down builds in exchange of store being auto matically optimized; 
+    # alternatively, can run garbage collector at internals 
+    auto-optimise-store = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "wndr"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -77,11 +77,6 @@
   };
 
   programs.seahorse.enable = true;
-
-  # Enable Hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  # };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
