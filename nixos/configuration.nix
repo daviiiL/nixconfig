@@ -23,10 +23,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "wndr"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    # system host name 
+    hostName = "wndr";
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -100,8 +101,6 @@
     description = "David Liu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      #browser
-      firefox
       #dev tools
       gh
       #window manager and stuff
@@ -151,9 +150,6 @@
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
