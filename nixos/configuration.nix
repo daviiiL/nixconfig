@@ -1,108 +1,212 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  inputs,
-  outputs,
-  lib,
   config,
   pkgs,
+  inputs,
   ...
 }: {
-  # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+  # Enable flakes and nix-cmd
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
+  networking.hostName = "wndr"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "America/New_York";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
+  services = {
+    # X11 init.
+    xserver.enable = true;
+    displayManager.sddm.enable = true;
+    # X11 configs.
+    xserver = {
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
-    # Opinionated: disable channels
-    channel.enable = false;
+    # Printing CUPS
+    printing.enable = true;
 
-    # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    # Audio
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+
+    # Keyring
+    gnome.gnome-keyring.enable = true;
   };
 
-  # FIXME: Add the rest of your current configuration
+  programs.seahorse.enable = true;
 
-  # TODO: Set your hostname
-  networking.hostName = "your-hostname";
-
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    # FIXME: Replace with your username
-    your-username = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
-    };
-  };
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
+  # Enable Hyprland
+  programs.hyprland = {
     enable = true;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      PasswordAuthentication = false;
+  };
+
+  # Enable sound with pipewire.
+  hardware.pulseaudio.enable = false;
+  security = {
+    rtkit.enable = true;
+    pam.services.greetd.enableGnomeKeyring = true;
+  };
+
+  #user definition
+  users.users.rudeus = {
+    name = "rudeus";
+    home = "/home/rudeus/";
+    isNormalUser = true;
+    description = "David Liu";
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [
+      #browser
+      firefox
+      #dev tools
+      gh
+      #window manager and stuff
+      hyprland
+      hyprlock
+      hypridle
+      #terminal
+      kitty
+      #app launcher
+      anyrun
+      #tools
+      wdisplays
+      nerdfonts
+      #keyring
+      pass
+    ];
+    shell = pkgs.zsh;
+  };
+
+  #fonts
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["FiraCode" "SpaceMono"];})
+    ];
+  };
+
+  #zsh shell config.
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    zsh-autoenv.enable = true;
+    syntaxHighlighting.enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "eastwood";
+      plugins = [];
+    };
+    shellAliases = {
+      la = "eza --icons -la";
+      ls = "eza --icons";
+      rebuild = "cd ~/Nix && sudo nixos-rebuild switch --flake .#wndr";
+      cdproj = "cd ~/Documents/git/curProj";
+      code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # System profile packages
+  environment.systemPackages = with pkgs; [
+    #editors
+    #essentials
+    wget
+    git
+    curl
+    tree
+    fzf
+    eza
+    #shells
+    fish
+    zsh
+    #dev stuff
+    gcc
+    nodejs
+    python3
+    #qol stuff
+    libsecret
+  ];
+
+  environment.variables = {
+    # Set runtime directory
+    XDG_RUNTIME_DIR = "/run/user/$UID";
+    # Set ozone flag
+    NIXOS_OZONE_WL = "2";
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
