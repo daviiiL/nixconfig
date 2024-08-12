@@ -108,8 +108,8 @@
       la = "eza -la";
       ls = "eza";
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-      nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
-      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
+      nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndrportal";
+      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndrportal";
     };
 
     home-manager.enable = true;
