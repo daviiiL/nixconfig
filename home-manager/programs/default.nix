@@ -1,6 +1,7 @@
 {
   imports = [
     ./firefox.nix
+    ./chrome.nix
     ./eza.nix
     ./fastfetch.nix
     ./kitty.nix
