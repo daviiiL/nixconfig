@@ -103,8 +103,18 @@
     };
   };
 
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = {
+    zsh.shellAliases = {
+      la = "eza -la";
+      ls = "eza";
+      code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
+      nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
+      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
+    };
+
+    home-manager.enable = true;
+    git.enable = true;
+  };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
