@@ -115,6 +115,7 @@
       description = "David Liu";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
+        alacritty
         pass
       ];
       shell = pkgs.zsh;
