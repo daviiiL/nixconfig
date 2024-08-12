@@ -63,6 +63,9 @@
     };
     # Printing CUPS
     printing.enable = true;
+    # USB
+    gvfs.enable = true;
+    udisk2.enable = true;
     # Audio
     pipewire = {
       enable = true;
