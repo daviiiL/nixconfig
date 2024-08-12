@@ -43,7 +43,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
-            ./nixos/configuration.nix
+            ./nixos/hosts/wndr/configuration.nix
           ];
         };
       };
