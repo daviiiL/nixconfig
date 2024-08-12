@@ -53,6 +53,8 @@
       typescript
       alejandra
       prettierd
+      black
+      #editors
       vscode-fhs
       zed-editor
       vesktop

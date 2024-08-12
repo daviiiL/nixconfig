@@ -37,6 +37,9 @@
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
+      #communications
+      vesktop
+      #tools
       neofetch
       zip
       xz
@@ -44,20 +47,26 @@
       p7zip
       xdg-utils
       gh
+      wdisplays
+      nerdfonts
+      #wm specifics
+      config.wayland.windowManager.hyprland.package
       hyprpaper
       hyprlock
       hypridle
       anyrun
       ripgrep
       wl-clipboard
+      #lsp&formatter
       typescript
       alejandra
       prettierd
+      black
+      #editors
       vscode-fhs
       zed-editor
-      vesktop
       inputs.nixvim.packages.${pkgs.system}.default
-      config.wayland.windowManager.hyprland.package
+      #ags dependencies 
       coreutils
       dart-sass
       gawk
@@ -69,8 +78,6 @@
       mission-center
       overskride
       wlogout
-      wdisplays
-      nerdfonts
     ];
   };
 
