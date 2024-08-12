@@ -12,8 +12,6 @@
     shellAliases = {
       la = "eza -la";
       ls = "eza";
-      rebuildsystem = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
-      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     };
 

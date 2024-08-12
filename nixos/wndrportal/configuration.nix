@@ -61,9 +61,9 @@
         variant = "";
       };
     };
-    devmon.enable = true; 
-    gvfs.enable = true; 
-    udisks2.enable = true; 
+    devmon.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
     # Printing CUPS
     printing.enable = true;
     # Audio
@@ -115,7 +115,6 @@
       description = "David Liu";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        kitty
         pass
       ];
       shell = pkgs.zsh;
