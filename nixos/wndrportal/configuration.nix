@@ -20,9 +20,10 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
   networking = {
     # system host name 
     hostName = "wndr";
@@ -48,6 +49,12 @@
   };
 
   services = {
+    # enable power management
+    power-profiles-daemon.enable = true;
+
+    #battery info
+    upower.enable = true;
+
     # X11 init.
     xserver = {
       enable = true;
@@ -55,16 +62,15 @@
         enable = true;
         wayland = true;
       };
-      # USB
-      devmon.enable = true;
-      gvfs.enable = true;
-      udisks2.enable = true;
       # X11 configs.
       xkb = {
         layout = "us";
         variant = "";
       };
     };
+    devmon.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
     # Printing CUPS
     printing.enable = true;
     # Audio
@@ -99,6 +105,8 @@
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
+    # smooth brightness control
+    brillo.enable = true;
   };
 
   security = {
@@ -114,9 +122,9 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "video" ];
       packages = with pkgs; [
-        kitty
+        alacritty
         pass
       ];
       shell = pkgs.zsh;
