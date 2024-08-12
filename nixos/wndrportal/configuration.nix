@@ -20,9 +20,10 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
   networking = {
     # system host name 
     hostName = "wndr";
@@ -121,7 +122,7 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "video" ];
       packages = with pkgs; [
         alacritty
         pass
