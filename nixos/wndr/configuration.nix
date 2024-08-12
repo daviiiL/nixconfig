@@ -63,9 +63,6 @@
     };
     # Printing CUPS
     printing.enable = true;
-    # USB
-    gvfs.enable = true;
-    udisk2.enable = true;
     # Audio
     pipewire = {
       enable = true;
@@ -75,8 +72,12 @@
     };
     # Keyring
     gnome.gnome-keyring.enable = true;
-  };
 
+    # USB
+    devmon.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
+  };
   # programs!!!
   programs = {
     #hyprland
