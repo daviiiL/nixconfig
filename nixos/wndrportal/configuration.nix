@@ -56,8 +56,9 @@
         wayland = true;
       };
       # USB
+      devmon.enable = true;
       gvfs.enable = true;
-      udisk2.enable = true;
+      udisks2.enable = true;
       # X11 configs.
       xkb = {
         layout = "us";
