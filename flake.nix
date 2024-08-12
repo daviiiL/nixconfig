@@ -43,9 +43,15 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
-            ./nixos/hosts/wndr/configuration.nix
+            ./nixos/wndr/configuration.nix
           ];
         };
+        wndrportal = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs outputs; };
+            modules = [
+            ];
+          };
       };
 
       # Standalone home-manager
@@ -55,7 +61,14 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/home.nix
+            ./home-manager/hosts/wndr/home.nix
+          ];
+        };
+        "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/hosts/wndrportal/home.nix
           ];
         };
       };
