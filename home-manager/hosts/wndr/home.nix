@@ -78,6 +78,8 @@
       mission-center
       overskride
       wlogout
+      #devbox
+      devbox
     ];
   };
 
