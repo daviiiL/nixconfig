@@ -48,6 +48,12 @@
   };
 
   services = {
+    # enable power management
+    power-profiles-daemon.enable = true;
+
+    #battery info
+    upower.enable = true;
+
     # X11 init.
     xserver = {
       enable = true;
