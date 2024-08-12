@@ -55,16 +55,15 @@
         enable = true;
         wayland = true;
       };
-      # USB
-      devmon.enable = true;
-      gvfs.enable = true;
-      udisks2.enable = true;
       # X11 configs.
       xkb = {
         layout = "us";
         variant = "";
       };
     };
+    devmon.enable = true; 
+    gvfs.enable = true; 
+    udisks2.enable = true; 
     # Printing CUPS
     printing.enable = true;
     # Audio

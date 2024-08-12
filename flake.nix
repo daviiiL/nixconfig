@@ -50,6 +50,7 @@
           {
             specialArgs = { inherit inputs outputs; };
             modules = [
+	    ./nixos/wndrportal/configuration.nix
             ];
           };
       };
