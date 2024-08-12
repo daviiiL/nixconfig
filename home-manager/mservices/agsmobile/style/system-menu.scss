@@ -3,7 +3,7 @@
   @include window;
   margin-top: 4px;
   margin-right: 4px;
-
+  background: rgba(0, 0, 0, 1);
   & > box {
     @include window-box;
   }
