@@ -104,6 +104,8 @@
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
+    # smooth brightness control
+    brillo.enable = true;
   };
 
   security = {
