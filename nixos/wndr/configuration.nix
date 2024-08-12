@@ -103,7 +103,10 @@
 
   security = {
     rtkit.enable = true;
-    pam.services.greetd.enableGnomeKeyring = true;
+    pam.services = {
+      greetd.enableGnomeKeyring = true;
+      gdm-password.enableGnomeKeyring = true;
+    };
   };
 
   #user definition
