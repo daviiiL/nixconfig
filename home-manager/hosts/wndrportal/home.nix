@@ -37,6 +37,7 @@
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
+      git
       neofetch
       zip
       xz
@@ -113,7 +114,6 @@
     };
 
     home-manager.enable = true;
-    git.enable = true;
   };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
