@@ -22,6 +22,4 @@
     nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
   };
-
-
 }
