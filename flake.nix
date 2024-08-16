@@ -63,7 +63,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/hosts/wndr/home.nix
+            ./home-manager/wndr.nix
           ];
         };
         "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {

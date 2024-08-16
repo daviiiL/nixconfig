@@ -8,19 +8,19 @@
 , ...
 }: {
   # You can import other home-manager modules here
-  imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-    ../../programs
-    ../../shells
-    ../../mservices
-  ];
+  # imports = [
+  #   # If you want to use modules your own flake exports (from modules/home-manager):
+  #   # outputs.homeManagerModules.example
+  #
+  #   # Or modules exported from other flakes (such as nix-colors):
+  #   # inputs.nix-colors.homeManagerModules.default
+  #
+  #   # You can also split up your configuration and import pieces of it here:
+  #   # ./nvim.nix
+  #   ../../programs
+  #   ../../shells
+  #   ../../services
+  # ];
 
   nixpkgs = {
     overlays = [
@@ -33,11 +33,14 @@
       allowUnfree = true;
     };
   };
+
   home = {
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
-      git
+      #communications
+      vesktop
+      #tools
       neofetch
       zip
       xz
@@ -45,12 +48,17 @@
       p7zip
       xdg-utils
       gh
+      wdisplays
+      nerdfonts
+      #wm specifics
+      config.wayland.windowManager.hyprland.package
       hyprpaper
       hyprlock
       hypridle
       anyrun
       ripgrep
       wl-clipboard
+      #lsp&formatter
       typescript
       alejandra
       prettierd
@@ -58,9 +66,8 @@
       #editors
       vscode-fhs
       zed-editor
-      vesktop
       inputs.nixvim.packages.${pkgs.system}.default
-      config.wayland.windowManager.hyprland.package
+      #ags dependencies 
       coreutils
       dart-sass
       gawk
@@ -72,8 +79,8 @@
       mission-center
       overskride
       wlogout
-      wdisplays
-      nerdfonts
+      #devbox
+      devbox
     ];
   };
 
@@ -108,12 +115,14 @@
     zsh.shellAliases = {
       la = "eza -la";
       ls = "eza";
+      laa = "eza -l --git -T --hyperlink --header --git-ignore .";
       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-      nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndrportal";
-      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndrportal";
+      nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
+      switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
     };
 
     home-manager.enable = true;
+    git.enable = true;
   };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
