@@ -70,7 +70,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/hosts/wndrportal/home.nix
+            ./home-manager/wndrportal.nix
           ];
         };
       };
