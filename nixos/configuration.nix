@@ -124,12 +124,14 @@
     home-manager
   ];
 
-  environment.variables = {
-    # Set runtime directory
-    XDG_RUNTIME_DIR = "/run/user/$UID";
-    # Set ozone flag
-    NIXOS_OZONE_WL = "1";
+  environment = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+    variables = {
+      # Set runtime directory
+      XDG_RUNTIME_DIR = "/run/user/$UID";
+    };
   };
-
   system.stateVersion = "24.05";
 }
