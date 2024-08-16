@@ -42,15 +42,15 @@
         wndr = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
-            ./nixos/wndr/configuration.nix
+            ./nixos/configuration.nix
+            ./nixos/wndr/wndr.nix
           ];
         };
         wndrportal = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs outputs; };
             modules = [
-	    ./nixos/wndrportal/configuration.nix
+              ./nixos/wndrportal/configuration.nix
             ];
           };
       };

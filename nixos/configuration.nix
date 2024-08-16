@@ -1,38 +1,21 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 { config
 , pkgs
 , inputs
 , ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
-
-  # Enable flakes and nix-cmd
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    # might slow down builds in exchange of store being auto matically optimized; 
-    # alternatively, can run garbage collector at internals 
     auto-optimise-store = true;
   };
 
-  # Bootloader.
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 5;
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking = {
-    # system host name 
-    hostName = "wndr";
-    networkmanager.enable = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+    };
+    efi.canTouchEfiVariables = true;
   };
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
@@ -81,7 +64,7 @@
     gvfs.enable = true;
     udisks2.enable = true;
   };
-  # programs!!!
+
   programs = {
     #hyprland
     hyprland = {
@@ -94,7 +77,6 @@
     zsh.enable = true;
   };
 
-  # Enable sound with pipewire.
   hardware = {
     # Bluetooth
     bluetooth = {
@@ -112,24 +94,6 @@
     };
   };
 
-  #user definition
-  users = {
-    defaultUserShell = pkgs.zsh;
-    users.rudeus = {
-      name = "rudeus";
-      home = "/home/rudeus/";
-      isNormalUser = true;
-      description = "David Liu";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-        alacritty
-        pass
-      ];
-      shell = pkgs.zsh;
-    };
-  };
-
-  #fonts
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
@@ -137,7 +101,6 @@
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # System profile packages
