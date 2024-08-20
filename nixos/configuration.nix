@@ -8,12 +8,18 @@
     auto-optimise-store = true;
   };
 
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 5;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
   };
 
   time.timeZone = "America/New_York";
