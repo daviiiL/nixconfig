@@ -64,7 +64,8 @@
       wlogout
       #devbox
       devbox
-      # hwtest
+      # hardware related
+      btop
       stress
       s-tui
     ];
