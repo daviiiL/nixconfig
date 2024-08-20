@@ -16,7 +16,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  plymouth.enable = true;
+  programs.plymouth.enable = true;
 
   time.timeZone = "America/New_York";
 
