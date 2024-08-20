@@ -16,8 +16,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-  programs.plymouth.enable = true;
-
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
@@ -124,6 +122,8 @@
     #qol stuff
     libsecret
     home-manager
+    plymouth
+    nixos-bgrt-plymouth
   ];
 
   environment = {
