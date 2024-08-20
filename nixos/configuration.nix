@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, inputs
+{
+  # config, 
+  pkgs
+  # , inputs
 , ...
 }: {
   nix.settings = {
@@ -13,6 +14,7 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
+        consoleMode = "auto";
       };
       efi.canTouchEfiVariables = true;
     };
