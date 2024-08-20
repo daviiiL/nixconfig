@@ -64,6 +64,9 @@
       wlogout
       #devbox
       devbox
+      # hwtest
+      stress
+      s-tui
     ];
   };
 
