@@ -83,6 +83,11 @@
     zsh.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
+
   hardware = {
     # Bluetooth
     bluetooth = {
@@ -130,6 +135,7 @@
     home-manager
     plymouth
     nixos-bgrt-plymouth
+    xdg-desktop-portal-gtk
   ];
 
   environment = {

@@ -41,6 +41,8 @@
       anyrun
       ripgrep
       wl-clipboard
+      swww
+      waypaper
       #lsp&formatter
       typescript
       alejandra
@@ -68,6 +70,8 @@
       btop
       stress
       s-tui
+      # qoa 
+      todoist-electron
     ];
   };
 
