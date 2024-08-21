@@ -39,6 +39,7 @@
       hyprlock
       hypridle
       hyprpicker
+      hyprshot
       anyrun
       ripgrep
       wl-clipboard
