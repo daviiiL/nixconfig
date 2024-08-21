@@ -71,7 +71,7 @@
       btop
       stress
       s-tui
-      lm-sensors
+      lm_sensors
       # qoa 
       todoist-electron
     ];
