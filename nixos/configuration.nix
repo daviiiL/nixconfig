@@ -147,6 +147,7 @@
     variables = {
       # Set runtime directory
       XDG_RUNTIME_DIR = "/run/user/$UID";
+      XDG_PICTURES_DIR = "$HOME/Pictures";
     };
   };
   system.stateVersion = "24.05";
