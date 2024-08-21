@@ -5,5 +5,6 @@
     ./eza.nix
     ./fastfetch.nix
     ./kitty.nix
+    ./vscode.nix
   ];
 }
