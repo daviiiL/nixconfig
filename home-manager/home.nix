@@ -40,6 +40,7 @@
       hypridle
       hyprpicker
       hyprshot
+      hyprlandPlugins.hyprexpo
       anyrun
       ripgrep
       wl-clipboard
