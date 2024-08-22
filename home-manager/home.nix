@@ -23,6 +23,7 @@
     packages = with pkgs; [
       #communications
       vesktop
+      zoom-us
       #tools
       neofetch
       zip
