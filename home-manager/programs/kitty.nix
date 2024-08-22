@@ -5,7 +5,7 @@
       name = "FiraMono Nerd";
     };
     settings = {
-      window_padding_width = 20;
+      window_padding_width = 10;
       placement_strategy = "center";
       confirm_os_window_close = 0;
     };

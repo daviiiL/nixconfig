@@ -23,6 +23,7 @@
     packages = with pkgs; [
       #communications
       vesktop
+      zoom-us
       #tools
       neofetch
       zip
@@ -40,6 +41,7 @@
       hypridle
       hyprpicker
       hyprshot
+      hyprlandPlugins.hyprexpo
       anyrun
       ripgrep
       wl-clipboard

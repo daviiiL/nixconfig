@@ -1,6 +1,7 @@
+# { inputs, pkgs }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    settings = { };
+    # plugins = [ inputs.hyprland-plugins.packages."${pkgs.system}".hyperbars ];
   };
 }
