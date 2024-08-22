@@ -72,6 +72,7 @@
       stress
       s-tui
       lm_sensors
+      corectrl
       # qoa 
       todoist-electron
     ];
