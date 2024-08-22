@@ -11,12 +11,18 @@
     };
     nixvim.url = "github:daviiiL/nixvim";
     ags.url = "github:Aylur/ags";
+    # switching to lix 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
+    , lix-module
     , ...
     } @ inputs:
     let
@@ -44,6 +50,7 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/wndr/wndr.nix
+            lix-module.nixosModules.default
           ];
         };
         wndrportal = nixpkgs.lib.nixosSystem
@@ -52,6 +59,7 @@
             modules = [
               ./nixos/configuration.nix
               ./nixos/wndrportal/wndrportal.nix
+              lix-module.nixosModules.default
             ];
           };
       };
