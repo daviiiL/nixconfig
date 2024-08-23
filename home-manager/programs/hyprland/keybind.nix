@@ -33,8 +33,14 @@
       "SUPER, up, movefocus, u"
       "SUPER, down, movefocus, d"
 
-      "SUPER+Shift, t, exec, waypaper || pkill waypaper && waypaper"
+      "SUPER+Shift, t, exec, waypaper"
       "SUPER, l, exec, hyprlock"
+      "SUPER+Shift, f, togglefloating"
+      "SUPER+Shift, t, exec, waypaper"
+      "SUPER+Shift, c, exec, hyprpicker, -n -a"
+      "SUPER, PRINT, exec, hyprshot -m window"
+      "SUPER+Shift, PRINT, exec, hyprshot -m output"
+      ", PRINT, exec, hyprshot -m region"
     ];
 
     bindl = [
