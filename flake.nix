@@ -11,7 +11,11 @@
     };
     nixvim.url = "github:daviiiL/nixvim";
     hyprland = {
-      url = "https://github.com/hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
     ags.url = "github:Aylur/ags";
     # switching to lix 
