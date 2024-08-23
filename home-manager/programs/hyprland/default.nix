@@ -6,5 +6,6 @@
     ./general.nix
     ./windowrule.nix
     ./keybind.nix
+    ./hyprlock.nix
   ];
 }

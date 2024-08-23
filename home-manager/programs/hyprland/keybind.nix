@@ -32,11 +32,19 @@
       "SUPER, right, movefocus, r"
       "SUPER, up, movefocus, u"
       "SUPER, down, movefocus, d"
+
+      "SUPER+Shift, t, exec, waypaper || pkill waypaper && waypaper"
+      "SUPER, l, exec, hyprlock"
     ];
 
     bindl = [
       "Super+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% "
       ", switch:Lid Switch, exec, hyprlock"
+    ];
+
+    bindm = [
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:273, resizewindow"
     ];
 
     bindle = [
