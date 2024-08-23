@@ -7,5 +7,6 @@
     ./kitty.nix
     ./vscode.nix
     # ./hyprland
+    ./hyprland.nix
   ];
 }
