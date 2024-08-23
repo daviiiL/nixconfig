@@ -2,6 +2,6 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo ];
+    # plugins = [ inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo ];
   };
 }
