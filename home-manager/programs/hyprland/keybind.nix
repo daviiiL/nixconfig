@@ -41,6 +41,7 @@
       "SUPER, PRINT, exec, hyprshot -m window"
       "SUPER+Shift, PRINT, exec, hyprshot -m output"
       ", PRINT, exec, hyprshot -m region"
+      "SUPER+Shift, e, hyprexpo:expo, toggle"
     ];
 
     bindl = [
