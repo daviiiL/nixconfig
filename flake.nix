@@ -61,7 +61,6 @@
             ./nixos/configuration.nix
             ./nixos/wndr/wndr.nix
             lix-module.nixosModules.default
-            hyprland.homeManagerModules.default
           ];
         };
         wndrportal = nixpkgs.lib.nixosSystem
