@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
-  wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
-    hyrpexpo
+  wayland.windowManager.hyprland.plugins = [
+    pkgs.hyprlandPlugins.hyprexpo
   ];
+
 }
