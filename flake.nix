@@ -11,7 +11,9 @@
     };
     nixvim.url = "github:daviiiL/nixvim";
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
