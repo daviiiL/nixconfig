@@ -75,8 +75,6 @@
           };
       };
 
-      # Standalone home-manager
-      # 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "rudeus@wndr" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
