@@ -83,7 +83,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndr.nix
-            hyprland.homeManagerModules.default
+            # hyprland.homeManagerModules.default
           ];
         };
         "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
@@ -91,7 +91,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndrportal.nix
-            hyprland.homeManagerModules.default
+            # hyprland.homeManagerModules.default
           ];
         };
       };
