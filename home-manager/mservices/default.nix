@@ -1,6 +1,5 @@
 {
   imports = [
     ./agsmobile
-    # ./hyprland.nix
   ];
 }

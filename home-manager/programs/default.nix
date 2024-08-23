@@ -6,5 +6,6 @@
     ./fastfetch.nix
     ./kitty.nix
     ./vscode.nix
+    ./hyprland.nix
   ];
 }
