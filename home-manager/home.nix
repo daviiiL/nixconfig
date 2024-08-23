@@ -35,14 +35,17 @@
       wdisplays
       nerdfonts
       #wm specifics
-      config.wayland.windowManager.hyprland.package
-      hyprpaper
-      hyprlock
-      hypridle
-      hyprpicker
-      hyprshot
+      # config.wayland.windowManager.hyprland.package
+      # hyprpaper
+      # hyprlock
+      # hypridle
+      # hyprpicker
+      # hyprshot
       # hyprlandPlugins.hyprexpo
       anyrun
+      grim
+      slurp
+      mako
       ripgrep
       wl-clipboard
       swww
@@ -105,6 +108,10 @@
       name = "Sans";
       size = 11;
     };
+  };
+
+  wayland.windowManager.sway = {
+    enable = true;
   };
 
   programs = {
