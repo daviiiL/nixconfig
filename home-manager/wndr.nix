@@ -23,7 +23,7 @@
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
   };
   wayland.windowManager.hyprland.extraConfig = "
-      monitor=HDMI-A-1,3840x2160@120,0x0,1.5,bitdepth,12
+      monitor=HDMI-A-1,3840x2160@120,0x0,1.5,bitdepth,10
       monitor=DP-2,3840x2160@144,2560x297,2,bitdepth,10
     
       workspace = 1, monitor:HDMI-A-1, default:true, rounding:true
