@@ -32,6 +32,7 @@
     , nixpkgs
     , home-manager
     , lix-module
+    , hyprland
     , ...
     } @ inputs:
     let
@@ -60,6 +61,7 @@
             ./nixos/configuration.nix
             ./nixos/wndr/wndr.nix
             lix-module.nixosModules.default
+            hyprland.homeManagerModules.default
           ];
         };
         wndrportal = nixpkgs.lib.nixosSystem
@@ -81,6 +83,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndr.nix
+            hyprland.homeManagerModules.default
           ];
         };
         "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
@@ -88,6 +91,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndrportal.nix
+            hyprland.homeManagerModules.default
           ];
         };
       };
