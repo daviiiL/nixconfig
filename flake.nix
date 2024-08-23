@@ -10,6 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:daviiiL/nixvim";
+    hyprland = {
+      url = "https://github.com/hyprwm/Hyprland/tree/main";
+    };
     ags.url = "github:Aylur/ags";
     # switching to lix 
     lix-module = {
