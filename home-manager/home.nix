@@ -35,7 +35,7 @@
       wdisplays
       nerdfonts
       #wm specifics
-      # config.wayland.windowManager.hyprland.package
+      config.wayland.windowManager.hyprland.package
       hyprpaper
       hyprlock
       hypridle
