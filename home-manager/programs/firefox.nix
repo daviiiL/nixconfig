@@ -76,6 +76,7 @@ in
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
         "signon.rememberSignons" = lock-false;
+        "webgh.force-enabled" = lock-true;
       };
     };
     profiles.default = {
