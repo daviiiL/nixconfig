@@ -3,7 +3,12 @@
   pkgs
 , inputs
 , ...
-}: {
+}:
+let
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  hyprland-session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions";
+in
+{
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
@@ -44,16 +49,28 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs.hyprland.enable = true;
-
   services = {
+    displayManager.sddm = {
+      enable = true;
+      enableHidpi = true;
+      wayland.enable = true;
+    };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+          user = "greeter";
+        };
+      };
+    };
+
     # X11 init.
     xserver = {
       enable = true;
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
+      displayManager.setupCommands = "
+        xrandr --output HDMI-A-1 --primary
+        ";
       # X11 configs.
       xkb = {
         layout = "us";
@@ -78,7 +95,22 @@
     udisks2.enable = true;
   };
 
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
+
   programs = {
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    };
     # keyring seahorse
     zsh.enable = true;
   };

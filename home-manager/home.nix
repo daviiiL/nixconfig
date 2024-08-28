@@ -36,11 +36,11 @@
       nerdfonts
       #wm specifics
       # config.wayland.windowManager.hyprland.package
-      # hyprpaper
-      # hyprlock
-      # hypridle
-      # hyprpicker
-      # hyprshot
+      hyprpaper
+      hyprlock
+      hypridle
+      hyprpicker
+      hyprshot
       # hyprlandPlugins.hyprexpo
       anyrun
       grim
@@ -79,6 +79,7 @@
       corectrl
       # qoa 
       todoist-electron
+      pavucontrol
     ];
   };
 
@@ -106,6 +107,16 @@
     font = {
       name = "Sans";
       size = 11;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
     };
   };
 

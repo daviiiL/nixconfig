@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hyprland.nix
+    ./main.nix
     ./autostart.nix
     ./env.nix
     ./general.nix
