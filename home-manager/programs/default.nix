@@ -4,8 +4,8 @@
     ./chrome.nix
     ./eza.nix
     ./fastfetch.nix
-    ./kitty.nix
+    ./terminals.nix
     ./vscode.nix
-    # ./hyprland
+    ./hyprland
   ];
 }

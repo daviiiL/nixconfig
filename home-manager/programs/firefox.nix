@@ -107,7 +107,7 @@ in
 
       name = "David";
       settings = {
-        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        # "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 
         # For Firefox GNOME theme:
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

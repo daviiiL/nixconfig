@@ -44,6 +44,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  programs.hyprland.enable = true;
+
   services = {
     # X11 init.
     xserver = {
