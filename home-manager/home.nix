@@ -56,7 +56,6 @@
       prettierd
       black
       #editors
-      zed-editor
       inputs.nixvim.packages.${pkgs.system}.default
       #ags dependencies 
       coreutils
