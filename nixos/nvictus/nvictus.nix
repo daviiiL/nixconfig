@@ -9,12 +9,13 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # ../modules/nvidia.nix
   ];
 
   # Networking
   networking = {
     # system host name 
-    hostName = "wndrportal";
+    hostName = "nvictus";
     networkmanager.enable = true;
   };
 
@@ -27,6 +28,7 @@
 
   hardware = {
     brillo.enable = true;
+    opengl.enable = true;
   };
 
   users = {
@@ -42,6 +44,25 @@
         pass
       ];
       shell = pkgs.zsh;
+    };
+  };
+
+  # nvidia settings
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    # will switch to open source driver once its more stable
+    open = false;
+    nvidiaSettings = true;
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:01:00:0";
     };
   };
 }
