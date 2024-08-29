@@ -17,11 +17,7 @@
     };
 
     # hyprland 
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -90,7 +86,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndr.nix
-            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
         "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
@@ -98,7 +93,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndrportal.nix
-            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
         "rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
@@ -106,7 +100,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/nvictus.nix
-            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
       };
