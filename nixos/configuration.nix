@@ -59,7 +59,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+          command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session} --theme container=black;border=yellow;input=yellow";
           user = "greeter";
         };
       };
