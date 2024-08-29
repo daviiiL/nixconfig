@@ -77,6 +77,7 @@
       s-tui
       lm_sensors
       corectrl
+      glxinfo
       # qoa 
       todoist-electron
       pavucontrol
