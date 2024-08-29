@@ -90,6 +90,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndr.nix
+            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
         "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
@@ -97,12 +98,16 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/wndrportal.nix
+            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
         "rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home-manager/nvictus.nix ];
+          modules = [
+            ./home-manager/nvictus.nix
+            { wayland.windowManager.hyprland.enable = true; }
+          ];
         };
       };
     };

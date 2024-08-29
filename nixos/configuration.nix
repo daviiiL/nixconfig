@@ -112,6 +112,7 @@ in
     #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # };
     # keyring seahorse
+    dconf.enable = true;
     zsh.enable = true;
   };
 

@@ -34,6 +34,7 @@
       gh
       wdisplays
       nerdfonts
+      # dconf
       #wm specifics
       # config.wayland.windowManager.hyprland.package
       hyprpaper
@@ -119,10 +120,6 @@
         gtk-application-prefer-dark-theme=1
       '';
     };
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
   };
 
   programs = {
