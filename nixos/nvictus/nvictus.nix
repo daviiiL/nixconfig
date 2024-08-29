@@ -5,7 +5,11 @@
 , pkgs
 , inputs
 , ...
-}: {
+}:
+let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -28,7 +32,11 @@
 
   hardware = {
     brillo.enable = true;
-    opengl.enable = true;
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      # package = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    };
   };
 
   users = {
