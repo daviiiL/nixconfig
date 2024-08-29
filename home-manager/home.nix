@@ -121,7 +121,7 @@
     };
   };
 
-  wayland.windowManager.sway = {
+  wayland.windowManager.hyprland = {
     enable = true;
   };
 

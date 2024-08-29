@@ -107,10 +107,10 @@ in
   };
 
   programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # };
     # keyring seahorse
     zsh.enable = true;
   };
