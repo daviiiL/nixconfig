@@ -73,6 +73,15 @@
               lix-module.nixosModules.default
             ];
           };
+	nvictus = nixpkgs.lib.nixosSystem
+		{
+		specialArgs = { inherit inputs outputs; }; 
+		modules = [
+			./nixos/configuration.nix
+			./nixos/nvictus/nvictus.nix
+			lix-module.nixosModules.default
+			]; 
+		}; 
       };
 
       homeConfigurations = {
@@ -90,6 +99,11 @@
             ./home-manager/wndrportal.nix
           ];
         };
+	"rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
+		pkgs = nixpkgs.legacyPackages.x86_64-linux; 
+		extraSpecialArgs = {inherit inputs outputs; }; 
+		modules = [ ./home-manager/nvictus.nix]; 
+	}; 
       };
     };
 }
