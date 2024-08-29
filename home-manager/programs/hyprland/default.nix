@@ -1,6 +1,6 @@
 {
   imports = [
-    ./main.nix
+    ./plugins.nix
     ./autostart.nix
     ./env.nix
     ./general.nix
