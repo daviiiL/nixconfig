@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 let
   lock-false = {
     Value = false;
@@ -8,8 +7,7 @@ let
     Value = true;
     Status = "locked";
   };
-in
-{
+in {
   home.file."firefox-gnome-theme" = {
     target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
     source = fetchTarball {
@@ -55,9 +53,17 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
+        # dark reader
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/addon/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       Preferences = {
-        "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+        "browser.contentblocking.category" = {
+          Value = "strict";
+          Status = "locked";
+        };
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshots.disabled" = lock-true;
         "browser.topsites.contile.enabled" = lock-false;
@@ -84,10 +90,10 @@ in
         force = true;
         default = "Kagi";
         privateDefault = "DuckDuckGo";
-        order = [ "Kagi" "DuckDuckGo" "Google" ];
+        order = ["Kagi" "DuckDuckGo" "Google"];
         engines = {
           "Kagi" = {
-            urls = [{ template = "https://kagi.com/search?q={searchTerms}"; }];
+            urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
             iconUpdateURL = "https://kagi.com/favicon.ico";
           };
           "Bing".metaData.hidden = true;
@@ -96,7 +102,7 @@ in
       bookmarks = [
         {
           name = "aA Student Portal";
-          tags = [ "aa" ];
+          tags = ["aa"];
           keyword = "aaportal";
           url = "my.appacademy.io";
         }
@@ -117,7 +123,7 @@ in
       };
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
-        @import "firefox-gnome-theme/theme/colors/dark.css"; 
+        @import "firefox-gnome-theme/theme/colors/dark.css";
       '';
     };
   };
