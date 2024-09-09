@@ -4,10 +4,10 @@
 , inputs
 , ...
 }:
-let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-  hyprland-session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions";
-in
+# let
+#   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+#   hyprland-session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions";
+# in
 {
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -55,15 +55,15 @@ in
       enableHidpi = true;
       wayland.enable = true;
     };
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session} --theme container=black;border=yellow;input=yellow";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session} --theme container=black;border=yellow;input=yellow";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     # X11 init.
     xserver = {
@@ -109,8 +109,9 @@ in
   programs = {
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.default;
-      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+
+      # package = inputs.hyprland.packages.${pkgs.system}.default;
+      # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
     # keyring seahorse
     dconf.enable = true;

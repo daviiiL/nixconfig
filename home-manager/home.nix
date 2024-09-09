@@ -36,7 +36,7 @@
       nerdfonts
       # dconf
       #wm specifics
-      # config.wayland.windowManager.hyprland.package
+      config.wayland.windowManager.hyprland.package
       hyprpaper
       hyprlock
       hypridle
@@ -51,6 +51,9 @@
       wl-clipboard
       swww
       waypaper
+      nwg-look
+      qt6ct
+      qt5ct
       #lsp&formatter
       typescript
       alejandra
