@@ -59,6 +59,13 @@
       alejandra
       prettierd
       black
+      isort
+      jq
+      stylua
+      shellcheck
+      shfmt
+      shellharden
+      bicep
       #editors
       inputs.nixvim.packages.${pkgs.system}.default
       #ags dependencies 

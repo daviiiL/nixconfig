@@ -4,10 +4,9 @@
 , inputs
 , ...
 }:
-# let
-#   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-#   hyprland-session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions";
-# in
+let
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+in
 {
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -55,15 +54,15 @@
       enableHidpi = true;
       wayland.enable = true;
     };
-    # greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session} --theme container=black;border=yellow;input=yellow";
-    #       user = "greeter";
-    #     };
-    #   };
-    # };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${tuigreet} --time --remember --cmd Hyprland --theme container=black;border=yellow;input=yellow";
+          user = "greeter";
+        };
+      };
+    };
 
     # X11 init.
     xserver = {
