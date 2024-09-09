@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixvim.url = "github:daviiiL/nixvim";
-    nixvim.url = "github:daviiiL/nixvim";
+    nixvim.url = "github:dc-tec/nixvim";
     ags.url = "github:Aylur/ags";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
