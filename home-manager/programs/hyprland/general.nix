@@ -4,7 +4,7 @@
       gaps_in = 3;
       gaps_out = 5;
       border_size = 2;
-      "col.active_border" = "rgba(9a7b4fee) rgba(fefefeee) 45deg";
+      "col.active_border" = " rgba(74c7ecee) rgba(fefefeee) rgba(1e1e2eee) 270deg";
       "col.inactive_border" = "rgba(595959ee)";
       resize_on_border = false;
       allow_tearing = false;
@@ -60,6 +60,7 @@
         "fadeLayersOut, 1, 4.5, menu_accel"
         "workspaces, 1, 7, menu_decel, slide"
         "specialWorkspace, 1, 3, md3_decel, slidevert"
+        "borderangle, 1, 100, linear, loop"
       ];
     };
     dwindle = {
