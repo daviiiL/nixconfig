@@ -60,7 +60,7 @@
         "fadeLayersOut, 1, 4.5, menu_accel"
         "workspaces, 1, 7, menu_decel, slide"
         "specialWorkspace, 1, 3, md3_decel, slidevert"
-        "borderangle, 1, 100, linear, loop"
+        "borderangle, 1, 200, linear, loop"
       ];
     };
     dwindle = {

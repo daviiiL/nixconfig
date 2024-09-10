@@ -55,7 +55,7 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/wndr/wndr.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
           catppuccin.nixosModules.catppuccin
         ];
       };
@@ -66,7 +66,7 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/wndrportal/wndrportal.nix
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
           ];
         };
       nvictus =
@@ -76,7 +76,7 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/nvictus/nvictus.nix
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
           ];
         };
     };
