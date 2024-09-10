@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim.url = "github:dc-tec/nixvim";
+    nixvim.url = "github:daviiiL/nixvim";
 
     ags.url = "github:Aylur/ags";
 
