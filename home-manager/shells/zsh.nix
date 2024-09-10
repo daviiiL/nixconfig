@@ -6,8 +6,8 @@
     dirHashes = {
       doc = "$HOME/Documents";
       git = "$HOME/Documents/git";
-      proj = "$HOME/Documents/git/curProj";
-      nixconfig = "~/nixconfig";
+      proj = "$HOME/Documents/git/projs";
+      nixconfig = "$HOME/nixconfig";
     };
   };
 }
