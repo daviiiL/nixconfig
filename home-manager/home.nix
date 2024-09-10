@@ -94,6 +94,7 @@
       # qoa
       todoist-electron
       pavucontrol
+      spotify
     ];
   };
 
