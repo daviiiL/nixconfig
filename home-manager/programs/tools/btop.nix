@@ -1,12 +1,9 @@
 {
-  programs.starship = {
+  programs.btop = {
     enable = true;
     catppuccin = {
       enable = true;
       flavor = "mocha";
-    };
-    settings = {
-      add_newline = false;
     };
   };
 }

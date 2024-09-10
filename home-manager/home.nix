@@ -1,9 +1,10 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   nixpkgs = {
     overlays = [
@@ -21,6 +22,7 @@
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
+      git
       #communications
       vesktop
       zoom-us
@@ -68,7 +70,7 @@
       bicep
       #editors
       inputs.nixvim.packages.${pkgs.system}.default
-      #ags dependencies 
+      #ags dependencies
       coreutils
       dart-sass
       gawk
@@ -83,13 +85,13 @@
       #devbox
       devbox
       # hardware related
-      btop
+      # btop
       stress
       s-tui
       lm_sensors
       corectrl
       glxinfo
-      # qoa 
+      # qoa
       todoist-electron
       pavucontrol
     ];
@@ -106,10 +108,17 @@
   gtk = {
     enable = true;
 
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+    catppuccin = {
+      enable = true;
+      accent = "sapphire";
+      flavor = "mocha";
+      size = "compact";
     };
+
+    # theme = {
+    #   package = pkgs.flat-remix-gtk;
+    #   name = "Flat-Remix-GTK-Grey-Darkest";
+    # };
 
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
