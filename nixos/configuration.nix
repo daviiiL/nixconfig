@@ -1,15 +1,12 @@
-{
-  # config, 
-  pkgs
-, inputs
-, ...
-}:
-let
+{pkgs, ...}: let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-in
-{
+in {
+  imports = [
+    ./security.nix
+  ];
+
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
     auto-optimise-store = true;
   };
 
@@ -28,7 +25,7 @@ in
     };
     initrd.verbose = false;
     consoleLogLevel = 0;
-    kernelParams = [ "quiet" "udev.log_level=0" ];
+    kernelParams = ["quiet" "udev.log_level=0"];
   };
 
   time.timeZone = "America/New_York";
@@ -138,7 +135,7 @@ in
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "SpaceMono" ]; })
+      (nerdfonts.override {fonts = ["FiraCode" "SpaceMono"];})
     ];
   };
 
