@@ -32,5 +32,10 @@
       workspace = 3, monitor:HDMI-A-1, rounding: true 
       workspace = 4, monitor:HDMI-A-1, rounding: true 
       workspace = 5, monitor:HDMI-A-1, rounding: true
+      workspace = 6, monitor:DP-1, rounding: true 
+      workspace = 7, monitor:DP-1, rounding: true 
+      workspace = 8, monitor:DP-1, rounding: true 
+      workspace = 9, monitor:DP-1, rounding: true 
+      workspace = 10, monitor:DP-1, rounding: true
     ";
 }
