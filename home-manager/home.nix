@@ -121,15 +121,6 @@
   gtk = {
     enable = true;
 
-    font = {
-      name = "Inter";
-      package =
-        pkgs.google-fonts.override
-        {
-          fonts = ["Inter"];
-        };
-    };
-
     #
     # catppuccin = {
     #   enable = true;
@@ -158,10 +149,10 @@
     #   };
     # };
 
-    # font = {
-    #   name = "Sans";
-    #   size = 11;
-    # };
+    font = {
+      name = "Sans";
+      size = 11;
+    };
     # gtk3.extraConfig = {
     #   Settings = ''
     #     gtk-application-prefer-dark-theme=1
