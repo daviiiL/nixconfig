@@ -112,12 +112,6 @@
     size = 16;
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
-
   gtk = {
     enable = true;
 
@@ -135,8 +129,7 @@
     };
 
     theme = {
-      # https://github.com/catppuccin/gtk
-      name = "catppuccin-macchiato-pink-compact";
+      name = "catppuccin-mocha-sapphire-compact";
       package = pkgs.catppuccin-gtk.override {
         # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
         accents = ["sapphire"];
@@ -145,52 +138,12 @@
       };
     };
   };
-  # gtk = {
-  #   enable = true;
-  #
-  #   #
-  #   # catppuccin = {
-  #   #   enable = true;
-  #   #   accent = "sapphire";
-  #   #   flavor = "mocha";
-  #   #   icon = {
-  #   #     enable = true;
-  #   #     accent = "peach";
-  #   #     flavor = "mocha";
-  #   #   };
-  #   #   size = "compact";
-  #   #   tweaks = [
-  #   #   ];
-  #   # };
-  #   #
-  #   iconTheme = {
-  #     package = pkgs.gnome.adwaita-icon-theme;
-  #     name = "Adwaita";
-  #   };
-  #
-  #   # theme = {
-  #   #   name = "catppuccin";
-  #   #   package = pkgs.catppuccin-gtk.override {
-  #   #     variant = "mocha";
-  #   #     size = "compact";
-  #   #   };
-  #   # };
-  #
-  #   font = {
-  #     name = "Sans";
-  #     size = 11;
-  #   };
-  #   # gtk3.extraConfig = {
-  #   #   Settings = ''
-  #   #     gtk-application-prefer-dark-theme=1
-  #   #   '';
-  #   # };
-  #   # gtk4.extraConfig = {
-  #   #   Settings = ''
-  #   #     gtk-application-prefer-dark-theme=1
-  #   #   '';
-  #   # };
-  # };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   programs = {
     home-manager.enable = true;
