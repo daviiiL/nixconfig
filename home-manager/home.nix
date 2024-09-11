@@ -166,7 +166,7 @@
     # };
   };
 
-  home.sessionVariables.GTK_THEME = "catppuccin";
+  # home.sessionVariables.GTK_THEME = "catppuccin";
 
   programs = {
     home-manager.enable = true;
