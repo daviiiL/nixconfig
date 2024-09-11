@@ -67,6 +67,7 @@
             ./nixos/configuration.nix
             ./nixos/wndrportal/wndrportal.nix
             lix-module.nixosModules.default
+	    catppuccin.nixosModules.catppuccin
           ];
         };
       nvictus =
@@ -95,6 +96,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/wndrportal.nix
+	  catppuccin.homeManagerModules.catppuccin
         ];
       };
       "rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
