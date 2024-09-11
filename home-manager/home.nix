@@ -18,6 +18,12 @@
     };
   };
 
+  catppuccin = {
+    enable = true;
+    accent = "sapphire";
+    flavor = "mocha";
+  };
+
   home = {
     username = "rudeus";
     homeDirectory = "/home/rudeus";
@@ -109,26 +115,27 @@
   gtk = {
     enable = true;
 
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Sapphire-Dark";
-      package =
-        pkgs.catppuccin-gtk.override
-        {
-          accents = ["sapphire"];
-          size = "compact";
-          tweaks = [
-            "rimless"
-            "black"
-          ];
-          variant = "mocha";
-        };
+    catppuccin = {
+      enable = true;
+      accent = "sapphire";
+      flavor = "mocha";
+      icon = {
+        enable = true;
+        accent = "peach";
+        flavor = "mocha";
+      };
+      size = "compact";
+      tweaks = [
+        # "rimless"
+        # "black"
+      ];
     };
-
-    iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-
+    #
+    # iconTheme = {
+    #   package = pkgs.gnome.adwaita-icon-theme;
+    #   name = "Adwaita";
+    # };
+    #
     font = {
       name = "Sans";
       size = 11;
@@ -143,12 +150,6 @@
         gtk-application-prefer-dark-theme=1
       '';
     };
-  };
-
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
 
   programs = {
