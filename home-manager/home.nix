@@ -109,7 +109,7 @@
     x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 24;
+    size = 16;
   };
 
   dconf.settings = {
@@ -121,21 +121,29 @@
   gtk = {
     enable = true;
 
-    catppuccin = {
-      enable = true;
-      accent = "sapphire";
-      flavor = "mocha";
-      icon = {
-        enable = true;
-        accent = "peach";
-        flavor = "mocha";
-      };
-      size = "compact";
-      tweaks = [
-        # "rimless"
-        # "black"
-      ];
+    font = {
+      name = "Inter";
+      package =
+        pkgs.google-fonts.override
+        {
+          fonts = ["Inter"];
+        };
     };
+
+    #
+    # catppuccin = {
+    #   enable = true;
+    #   accent = "sapphire";
+    #   flavor = "mocha";
+    #   icon = {
+    #     enable = true;
+    #     accent = "peach";
+    #     flavor = "mocha";
+    #   };
+    #   size = "compact";
+    #   tweaks = [
+    #   ];
+    # };
     #
     # iconTheme = {
     #   package = pkgs.gnome.adwaita-icon-theme;
@@ -150,10 +158,10 @@
     #   };
     # };
 
-    font = {
-      name = "Sans";
-      size = 11;
-    };
+    # font = {
+    #   name = "Sans";
+    #   size = 11;
+    # };
     # gtk3.extraConfig = {
     #   Settings = ''
     #     gtk-application-prefer-dark-theme=1
@@ -165,8 +173,6 @@
     #   '';
     # };
   };
-
-  # home.sessionVariables.GTK_THEME = "catppuccin";
 
   programs = {
     home-manager.enable = true;
