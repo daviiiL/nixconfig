@@ -112,6 +112,12 @@
     size = 24;
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   gtk = {
     enable = true;
 
@@ -135,22 +141,32 @@
     #   package = pkgs.gnome.adwaita-icon-theme;
     #   name = "Adwaita";
     # };
-    #
+
+    # theme = {
+    #   name = "catppuccin";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     variant = "mocha";
+    #     size = "compact";
+    #   };
+    # };
+
     font = {
       name = "Sans";
       size = 11;
     };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
+    # gtk3.extraConfig = {
+    #   Settings = ''
+    #     gtk-application-prefer-dark-theme=1
+    #   '';
+    # };
+    # gtk4.extraConfig = {
+    #   Settings = ''
+    #     gtk-application-prefer-dark-theme=1
+    #   '';
+    # };
   };
+
+  home.sessionVariables.GTK_THEME = "catppuccin";
 
   programs = {
     home-manager.enable = true;
