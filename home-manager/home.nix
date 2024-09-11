@@ -121,49 +121,76 @@
   gtk = {
     enable = true;
 
-    #
-    # catppuccin = {
-    #   enable = true;
-    #   accent = "sapphire";
-    #   flavor = "mocha";
-    #   icon = {
-    #     enable = true;
-    #     accent = "peach";
-    #     flavor = "mocha";
-    #   };
-    #   size = "compact";
-    #   tweaks = [
-    #   ];
-    # };
-    #
-    # iconTheme = {
-    #   package = pkgs.gnome.adwaita-icon-theme;
-    #   name = "Adwaita";
-    # };
-
-    # theme = {
-    #   name = "catppuccin";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     variant = "mocha";
-    #     size = "compact";
-    #   };
-    # };
-
     font = {
-      name = "Sans";
+      name = "Noto Sans";
+      package = pkgs.noto-fonts;
       size = 11;
     };
-    # gtk3.extraConfig = {
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
-    # gtk4.extraConfig = {
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
+
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      # https://github.com/catppuccin/gtk
+      name = "catppuccin-macchiato-pink-compact";
+      package = pkgs.catppuccin-gtk.override {
+        # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
+        accents = ["sapphire"];
+        size = "compact";
+        variant = "mocha";
+      };
+    };
   };
+  # gtk = {
+  #   enable = true;
+  #
+  #   #
+  #   # catppuccin = {
+  #   #   enable = true;
+  #   #   accent = "sapphire";
+  #   #   flavor = "mocha";
+  #   #   icon = {
+  #   #     enable = true;
+  #   #     accent = "peach";
+  #   #     flavor = "mocha";
+  #   #   };
+  #   #   size = "compact";
+  #   #   tweaks = [
+  #   #   ];
+  #   # };
+  #   #
+  #   iconTheme = {
+  #     package = pkgs.gnome.adwaita-icon-theme;
+  #     name = "Adwaita";
+  #   };
+  #
+  #   # theme = {
+  #   #   name = "catppuccin";
+  #   #   package = pkgs.catppuccin-gtk.override {
+  #   #     variant = "mocha";
+  #   #     size = "compact";
+  #   #   };
+  #   # };
+  #
+  #   font = {
+  #     name = "Sans";
+  #     size = 11;
+  #   };
+  #   # gtk3.extraConfig = {
+  #   #   Settings = ''
+  #   #     gtk-application-prefer-dark-theme=1
+  #   #   '';
+  #   # };
+  #   # gtk4.extraConfig = {
+  #   #   Settings = ''
+  #   #     gtk-application-prefer-dark-theme=1
+  #   #   '';
+  #   # };
+  # };
 
   programs = {
     home-manager.enable = true;
