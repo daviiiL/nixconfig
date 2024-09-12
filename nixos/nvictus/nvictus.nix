@@ -12,7 +12,12 @@
     hostName = "nvictus";
     networkmanager.enable = true;
     useDHCP = false;
-    firewall.allowedTCPPorts = [22];
+    firewall.allowedTCPPorts = [
+      22
+      5173
+      4173
+      8000
+    ];
   };
 
   services = {
