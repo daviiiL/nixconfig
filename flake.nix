@@ -102,7 +102,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/nvictus.nix
-          {wayland.windowManager.hyprland.enable = true;}
+          # {wayland.windowManager.hyprland.enable = true;}
           catppuccin.homeManagerModules.catppuccin
         ];
       };

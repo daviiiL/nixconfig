@@ -17,13 +17,13 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
-    };
-    initrd.verbose = false;
-    consoleLogLevel = 0;
-    kernelParams = ["quiet" "udev.log_level=0"];
+    # plymouth = {
+    #   enable = true;
+    #   theme = "bgrt";
+    # };
+    # initrd.verbose = false;
+    # consoleLogLevel = 0;
+    # kernelParams = ["quiet" "udev.log_level=0"];
   };
 
   time.timeZone = "America/New_York";
