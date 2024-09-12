@@ -1,17 +1,40 @@
-# { inputs
-# , outputs
-# , lib
-# , config
-# , pkgs
-# , ...
-# }:
-{
+{inputs, ...}: {
   imports = [
     ./home.nix
     ./programs
     ./shells
     ./mservices
   ];
+
+  # ...
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      enabled-extensions = [
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "trayIconsReloaded@selfmade.pl"
+        "Vitals@CoreCoding.com"
+        "dash-to-panel@jderose9.github.com"
+        "sound-output-device-chooser@kgshank.net"
+        "space-bar@luchrioh"
+      ];
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "catppuccin-mocha-sapphire-compact";
+    };
+  };
+
+  home.packages = with inputs.nixpkgs.legacyPackages.x86_64-linux; [
+    gnomeExtensions.user-themes
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.vitals
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.space-bar
+  ];
+
   programs.zsh.shellAliases = {
     la = "eza -la";
     ls = "eza";
