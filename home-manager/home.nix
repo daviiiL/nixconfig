@@ -111,6 +111,13 @@
     size = 16;
   };
 
+  home.file = {
+    ".config/anyrun" = {
+      source = config.lib.file.mkOutOfStoreSymlink ../submodules/anyrun;
+      recursive = true;
+    };
+  };
+
   gtk = {
     enable = true;
 
