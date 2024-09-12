@@ -2,8 +2,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../greetd.nix
-    ../sddm.nix
+    ../components/greetd.nix
+    ../components/sddm.nix
   ];
 
   # Networking

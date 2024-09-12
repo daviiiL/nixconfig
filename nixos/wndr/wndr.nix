@@ -1,14 +1,9 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../sddm.nix
-    ../greetd.nix
+    ../components/sddm.nix
+    ../components/greetd.nix
   ];
   networking = {
     # system host name
