@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../components/gdm.nix
     ../components/gnome.nix
+    ../components/ssh.nix
   ];
 
   # Networking
@@ -10,6 +11,8 @@
     # system host name
     hostName = "nvictus";
     networkmanager.enable = true;
+    useDHCP = false;
+    firewall.allowedTCPPorts = [22];
   };
 
   services = {

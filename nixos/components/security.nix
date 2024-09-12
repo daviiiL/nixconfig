@@ -1,9 +1,5 @@
 # kernel params reference => sioodmy's dotfile
 {
-  lib,
-  pkgs,
-  ...
-}: {
   boot = {
     kernel.sysctl = {
       # Hide kernel pointers from processes without the CAP_SYSLOG capability.
