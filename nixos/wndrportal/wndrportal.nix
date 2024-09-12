@@ -1,19 +1,14 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, inputs
-, ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../greetd.nix
+    ../sddm.nix
   ];
 
   # Networking
   networking = {
-    # system host name 
+    # system host name
     hostName = "wndrportal";
     networkmanager.enable = true;
   };
@@ -36,7 +31,7 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = [ "networkmanager" "wheel" "video" "wireshark" ];
+      extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
       packages = with pkgs; [
         alacritty
         pass

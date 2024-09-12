@@ -1,8 +1,7 @@
-{pkgs, ...}: let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-in {
+{pkgs, ...}: {
   imports = [
     ./security.nix
+    ./greetd.nix
   ];
 
   nix.settings = {
@@ -46,28 +45,9 @@ in {
   };
 
   services = {
-    displayManager.sddm = {
-      enable = true;
-      enableHidpi = true;
-      wayland.enable = true;
-    };
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${tuigreet} --time --remember --cmd Hyprland --theme container=black;border=yellow;input=yellow";
-          user = "greeter";
-        };
-      };
-    };
-
     # X11 init.
     xserver = {
       enable = true;
-      displayManager.setupCommands = "
-        xrandr --output HDMI-A-1 --primary
-        ";
-      # X11 configs.
       xkb = {
         layout = "us";
         variant = "";

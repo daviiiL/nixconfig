@@ -1,14 +1,17 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../sddm.nix
+    ../greetd.nix
   ];
   networking = {
-    # system host name 
+    # system host name
     hostName = "wndr";
     networkmanager.enable = true;
   };
@@ -19,7 +22,7 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
         alacritty
         pass
