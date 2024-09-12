@@ -6,7 +6,7 @@
       22
     ];
     PasswordAuthentication = true;
-    AllowUsers = ["rudues"];
+    settings.AllowUsers = ["rudeus"];
     X11Forwarding = false;
     PermitRootLogin = "no";
   };
