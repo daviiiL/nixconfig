@@ -113,7 +113,7 @@
 
   home.file = {
     ".config/anyrun" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../submodules/anyrun;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/submodules/anyrun";
       recursive = true;
     };
   };
