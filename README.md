@@ -9,12 +9,15 @@
 
 ## recent changelogs
 
+- most necessary dotfiles are now managed by the home manager
+- switched to Lix from the core nix language
+- included the new nixvim flake based on dc-tec's nixvim config
 - migrated home-manager from nixosModules to standalone
-- organized nixvim config following elythh's awesome template
 
 ## credits
 
 - [elythh](https://github.com/elythh/nixvim)'s nixvim template
+- [dc-tec](https://github.com/dc-tec/nixvim)'s nixvim configs
 - [fufexan](https://github.com/fufexan/dotfiles)'s ags module
 - [Misterio77](https://github.com/Misterio77/nix-starter-configs)'s flake template for easier organization
 
