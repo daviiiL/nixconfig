@@ -50,7 +50,7 @@
       hyprpicker
       hyprshot
       # hyprlandPlugins.hyprexpo
-      anyrun
+      inputs.anyrun.packages.${system}.anyrun
       grim
       slurp
       mako

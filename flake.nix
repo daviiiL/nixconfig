@@ -21,6 +21,12 @@
 
     # Catppuccin but for nix!
     catppuccin.url = "github:catppuccin/nix";
+
+    # Anyrun for the win!
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
