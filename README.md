@@ -16,9 +16,9 @@
 
 ## credits
 
-- [elythh](https://github.com/elythh/nixvim)'s nixvim template
-- [dc-tec](https://github.com/dc-tec/nixvim)'s nixvim configs
-- [fufexan](https://github.com/fufexan/dotfiles)'s ags module
+- [elythh](https://github.com/elythh/nixvim)'s nixvim template for a noice ui
+- [dc-tec](https://github.com/dc-tec/nixvim)'s nixvim configs for the keymaps n plugins that i dig 
+- [fufexan](https://github.com/fufexan/dotfiles)'s ags module clean and functional
 - [Misterio77](https://github.com/Misterio77/nix-starter-configs)'s flake template for easier organization
 
 ## dotfiles
