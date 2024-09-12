@@ -1,3 +1,4 @@
 [submodule "submodules/anyrun"]
 	path = submodules/anyrun
-	url = https://github.com/daviiiL/anyrun
+  url = https://github.com/daviiiL/anyrun
+  branch = catppuccin
