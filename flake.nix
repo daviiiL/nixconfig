@@ -52,7 +52,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix
-          ./nixos/wndr/wndr.nix
+          ./nixos/hosts/wndr/wndr.nix
           lix-module.nixosModules.default
           catppuccin.nixosModules.catppuccin
         ];
@@ -63,7 +63,7 @@
           specialArgs = {inherit inputs outputs;};
           modules = [
             ./nixos/configuration.nix
-            ./nixos/wndrportal/wndrportal.nix
+            ./nixos/hosts/wndrportal/wndrportal.nix
             lix-module.nixosModules.default
             catppuccin.nixosModules.catppuccin
           ];
@@ -74,7 +74,7 @@
           specialArgs = {inherit inputs outputs;};
           modules = [
             ./nixos/configuration.nix
-            ./nixos/nvictus/nvictus.nix
+            ./nixos/hosts/nvictus/nvictus.nix
             lix-module.nixosModules.default
           ];
         };

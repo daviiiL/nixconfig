@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../components/gdm.nix
-    ../components/gnome.nix
-    ../components/ssh.nix
+    ../../components/gdm.nix
+    ../../components/gnome.nix
+    ../../components/ssh.nix
   ];
 
   # Networking

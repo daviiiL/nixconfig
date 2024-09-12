@@ -2,28 +2,14 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../components/greetd.nix
-    ../components/sddm.nix
+    ../../components/sddm.nix
+    ../../components/greetd.nix
   ];
-
-  # Networking
   networking = {
     # system host name
-    hostName = "wndrportal";
+    hostName = "wndr";
     networkmanager.enable = true;
   };
-
-  services = {
-    # enable power management
-    power-profiles-daemon.enable = true;
-    #battery info
-    upower.enable = true;
-  };
-
-  hardware = {
-    brillo.enable = true;
-  };
-
   users = {
     defaultUserShell = pkgs.zsh;
     users.rudeus = {
@@ -31,7 +17,7 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
+      extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
         alacritty
         pass
