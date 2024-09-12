@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../components/gdm.nix
+    ../components/gnome.nix
   ];
 
   # Networking

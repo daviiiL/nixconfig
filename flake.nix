@@ -20,7 +20,6 @@
     };
 
     # Catppuccin but for nix!
-
     catppuccin.url = "github:catppuccin/nix";
   };
 
@@ -33,7 +32,6 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
       "i686-linux"
@@ -67,7 +65,7 @@
             ./nixos/configuration.nix
             ./nixos/wndrportal/wndrportal.nix
             lix-module.nixosModules.default
-	    catppuccin.nixosModules.catppuccin
+            catppuccin.nixosModules.catppuccin
           ];
         };
       nvictus =
@@ -96,7 +94,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/wndrportal.nix
-	  catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeManagerModules.catppuccin
         ];
       };
       "rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
@@ -105,7 +103,7 @@
         modules = [
           ./home-manager/nvictus.nix
           {wayland.windowManager.hyprland.enable = true;}
-	  catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeManagerModules.catppuccin
         ];
       };
     };
