@@ -1,7 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  outputs,
+  ...
+}: {
   imports = [
     ./components/security.nix
   ];
+
+  nixpkgs = {
+    config.allowUnfree = true;
+
+    overlays = [
+      outputs.overlays.additions
+    ];
+  };
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
@@ -84,9 +96,6 @@
   programs = {
     hyprland = {
       enable = true;
-
-      # package = inputs.hyprland.packages.${pkgs.system}.default;
-      # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
     # keyring seahorse
     dconf.enable = true;
@@ -118,8 +127,6 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   # System profile packages
   environment.systemPackages = with pkgs; [
     #editors
@@ -140,6 +147,7 @@
     libsecret
     home-manager
     plymouth
+    liquidctl
   ];
 
   environment = {
