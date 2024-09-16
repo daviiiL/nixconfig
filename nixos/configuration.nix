@@ -76,7 +76,6 @@
     };
     # Keyring
     gnome.gnome-keyring.enable = true;
-
     # USB
     devmon.enable = true;
     gvfs.enable = true;
@@ -99,7 +98,6 @@
       enable = true;
       package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.hyprland;
     };
-    # keyring seahorse
     dconf.enable = true;
     zsh.enable = true;
   };
@@ -150,6 +148,7 @@
     home-manager
     plymouth
     liquidctl
+    gnome.seahorse
   ];
 
   environment = {
