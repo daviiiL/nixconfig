@@ -10,7 +10,7 @@
     #   hyprbars
     #   hyprexpo
     # ];
-    plugins = with pkgs; [
+    plugins = with inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}; [
       hyprlandPlugins.hyprbars
       hyprlandPlugins.hyprexpo
     ];

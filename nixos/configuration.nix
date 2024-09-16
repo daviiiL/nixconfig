@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   outputs,
   ...
@@ -96,6 +97,7 @@
   programs = {
     hyprland = {
       enable = true;
+      package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.hyprland;
     };
     # keyring seahorse
     dconf.enable = true;

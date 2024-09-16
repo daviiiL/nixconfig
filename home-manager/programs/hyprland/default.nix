@@ -1,6 +1,11 @@
+# {
+#   inputs,
+#   pkgs,
+#   ...
+# }:
 {
   imports = [
-    ./plugins.nix
+    # ./plugins.nix
     ./autostart.nix
     ./env.nix
     ./general.nix
@@ -10,5 +15,8 @@
     ./hypridle.nix
   ];
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.hyprland;
+  };
 }
