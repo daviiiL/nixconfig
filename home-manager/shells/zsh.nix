@@ -7,6 +7,7 @@
       doc = "$HOME/Documents";
       git = "$HOME/Documents/git";
       proj = "$HOME/Documents/git/projs";
+      dsa = "$HOME/Documents/git/dsa";
       nixconfig = "$HOME/nixconfig";
     };
   };
