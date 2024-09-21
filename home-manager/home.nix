@@ -27,6 +27,7 @@
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
+      inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zed-editor
       git
       #communications
       vesktop
