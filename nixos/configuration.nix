@@ -96,7 +96,8 @@
   programs = {
     hyprland = {
       enable = true;
-      package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     dconf.enable = true;
     zsh.enable = true;

@@ -17,6 +17,5 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.hyprland;
   };
 }
