@@ -115,6 +115,11 @@ in {
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
+    opengl = {
+      package = pkgs-unstable.mesa.drivers; 
+      driSupport32Bit = true;
+      package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    };
   };
 
   security = {

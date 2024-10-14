@@ -24,11 +24,11 @@
       description = "David Liu";
       extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
-        alacritty
+        foot
         pass
+        helix
       ];
       shell = pkgs.zsh;
     };
   };
-  # boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/43e54fb8-afd1-445f-82d8-bf6e16ed576b";
 }

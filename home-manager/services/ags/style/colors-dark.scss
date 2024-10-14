@@ -1,28 +1,125 @@
+$wallpaper: "/home/rudeus//Wallpapers/pywal_wall/solarized.png";
+
+
+$background: #0e1415;
+
+$error: #ffb4ab;
+
+$error_container: #93000a;
+
+$inverse_on_surface: #2b3132;
+
+$inverse_primary: #006973;
+
+$inverse_surface: #dee4e4;
+
+$on_background: #dee4e4;
+
+$on_error: #690005;
+
+$on_error_container: #ffdad6;
+
+$on_primary: #00363c;
+
+$on_primary_container: #9df0fc;
+
+$on_primary_fixed: #001f23;
+
+$on_primary_fixed_variant: #004f57;
+
+$on_secondary: #1c3438;
+
+$on_secondary_container: #cde7eb;
+
+$on_secondary_fixed: #051f22;
+
+$on_secondary_fixed_variant: #324b4e;
+
+$on_surface: #dee4e4;
+
+$on_surface_variant: #bec8ca;
+
+$on_tertiary: #23304d;
+
+$on_tertiary_container: #d9e2ff;
+
+$on_tertiary_fixed: #0d1b37;
+
+$on_tertiary_fixed_variant: #3a4664;
+
+$outline: #899294;
+
+$outline_variant: #3f484a;
+
+$primary: #81d3df;
+
+$primary_container: #004f57;
+
+$primary_fixed: #9df0fc;
+
+$primary_fixed_dim: #81d3df;
+
+$scrim: #000000;
+
+$secondary: #b1cbcf;
+
+$secondary_container: #b1cbcf;
+
+$secondary_fixed: #cde7eb;
+
+$secondary_fixed_dim: #b1cbcf;
+
+$shadow: #000000;
+
+$source_color: #245a61;
+
+$surface: #0e1415;
+
+$surface_bright: #343a3b;
+
+$surface_container: #1b2122;
+
+$surface_container_high: #252b2c;
+
+$surface_container_highest: #303637;
+
+$surface_container_low: #171d1e;
+
+$surface_container_lowest: #090f10;
+
+$surface_dim: #0e1415;
+
+$surface_variant: #3f484a;
+
+$tertiary: #b9c6ea;
+
+$tertiary_container: #3a4664;
+
+$tertiary_fixed: #d9e2ff;
+
+$tertiary_fixed_dim: #b9c6ea;
+
+
 $red: #f38ba8;
 $yellow: #f9e2af;
 $green: #a6e3a1;
 $blue: #89b4fa;
 
-$tooltip-bg: #000000;
-$fg: #ffffff;
-$bg: rgba(0, 0, 0, 1);
-$bar-bg: rgba(0, 0, 0, 0.21);
+$tooltip-bg: #ffffff;
+$fg: #dee4e4;
+$bg: #0e1415;
+$bar-bg: #00363c;
 
-$surface: rgba(255, 255, 255, 0.15);
-$overlay: rgba(255, 255, 255, 0.7);
+$surface: #0e1415;
+$overlay: #b1cbcf;
 
-$accent: #9d5b7a;
+$accent: #81d3df;
 
-/* buttons */
-$button-enabled: $accent;
-$button-enabled-hover: adjust_color($button-enabled, $lightness: -10%);
+$button-enabled-hover: $accent;
+$button-enabled: adjust_color($button-enabled-hover, $lightness: -10%);
 
 $button-disabled: $surface;
 $button-disabled-hover: adjust_color($button-disabled, $alpha: +0.1);
-
-* {
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
 
 @mixin border {
   // border: 1px solid rgba(0, 0, 0, 0.1);

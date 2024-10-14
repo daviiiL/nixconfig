@@ -68,7 +68,6 @@
       smart_resizing = true;
       pseudotile = true;
       preserve_split = true;
-      no_gaps_when_only = 2;
     };
 
     master = {

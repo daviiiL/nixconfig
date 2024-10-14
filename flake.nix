@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     nixvim.url = "github:daviiiL/nixvim";
 
@@ -19,6 +19,10 @@
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    matugen = {
+      url = "github:/InioX/Matugen";
     };
 
     # Catppuccin but for nix!

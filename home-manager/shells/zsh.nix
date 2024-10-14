@@ -4,10 +4,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     dirHashes = {
-      doc = "$HOME/Documents";
-      git = "$HOME/Documents/git";
-      proj = "$HOME/Documents/git/projs";
-      dsa = "$HOME/Documents/git/dsa";
+      git = "$HOME/Git";
       nixconfig = "$HOME/nixconfig";
     };
   };

@@ -104,6 +104,7 @@
       todoist-electron
       pavucontrol
       spotify
+      matugen
     ];
   };
 
@@ -118,6 +119,10 @@
   home.file = {
     ".config/anyrun" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/submodules/anyrun";
+      recursive = true;
+    };
+    ".config/ags" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/services/ags";
       recursive = true;
     };
   };

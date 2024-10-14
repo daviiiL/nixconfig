@@ -1,10 +1,10 @@
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      # basics 
-      "SUPER, Return, exec, kitty"
+      # basics
+      "SUPER, Return, exec, foot"
       "SUPER, Q, killactive, "
-      # app launcher 
+      # app launcher
       "SUPER, Space, exec, anyrun || pkill anyrun"
       # workspaces
       "SUPER, 1, workspace, 1"
