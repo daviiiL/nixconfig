@@ -3,7 +3,9 @@
   pkgs,
   outputs,
   ...
-}: {
+}: let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   imports = [
     ./components/security.nix
   ];

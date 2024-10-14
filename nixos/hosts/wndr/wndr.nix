@@ -1,9 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../components/sddm.nix
     ../../components/greetd.nix
+    inputs.hyprland.nixosModules.default
   ];
   networking = {
     # system host name

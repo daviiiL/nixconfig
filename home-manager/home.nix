@@ -5,6 +5,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.hyprland.homeManagerModules.default
+  ];
+
   nixpkgs = {
     overlays = [
       outputs.overlays.additions
@@ -44,7 +48,6 @@
       nerdfonts
       # dconf
       #wm specifics
-      config.wayland.windowManager.hyprland.package
       hyprpaper
       hyprlock
       hypridle
