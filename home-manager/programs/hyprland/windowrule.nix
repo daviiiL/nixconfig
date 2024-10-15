@@ -7,5 +7,8 @@
     layerrule = [
       "noanim, anyrun"
     ];
+    # windowrule = [
+    # "noblur,^(?!(dev\.zed\.Zed))$"
+    # ];
   };
 }

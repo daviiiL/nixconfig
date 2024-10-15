@@ -8,6 +8,7 @@
 in {
   imports = [
     ./components/security.nix
+    # ./components/graphics.nix
   ];
 
   nixpkgs = {
