@@ -787,11 +787,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1729025760,
-        "narHash": "sha256-tbVyvuhLiNb4ylfdX9oS92bfSMPfOiC9FLFeNdZssLc=",
+        "lastModified": 1729027198,
+        "narHash": "sha256-e1DuSKQYvNu//J4anN15ioOyF5fL1Mjft/Ov5fbIQlE=",
         "owner": "daviiiL",
         "repo": "nixvim",
-        "rev": "49512a3986784a9da5b65743fa8c9a484a40dbc9",
+        "rev": "cb45646fee4474b11fccf7ec4841a4fce8615ce7",
         "type": "github"
       },
       "original": {
