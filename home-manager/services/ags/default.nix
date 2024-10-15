@@ -1,10 +1,10 @@
-{ inputs
-, pkgs
-, lib
-, config
-, ...
-}:
-let
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   requiredDeps = with pkgs; [
     config.wayland.windowManager.hyprland.package
     bash
@@ -27,8 +27,7 @@ let
   dependencies = requiredDeps ++ guiDeps;
 
   cfg = config.programs.ags;
-in
-{
+in {
   imports = [
     inputs.ags.homeManagerModules.default
   ];
@@ -48,6 +47,6 @@ in
       ExecStart = "${cfg.package}/bin/ags";
       Restart = "on-failure";
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+    Install.WantedBy = ["graphical-session.target"];
   };
 }

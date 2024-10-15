@@ -44,9 +44,9 @@
       valign = top
     }
 
-    # DATE 
+    # DATE
     label {
-      monitor = 
+      monitor =
       text = cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"
       color = $text
       font_size = 18
@@ -59,7 +59,7 @@
     # USER AVATAR
 
     image {
-      monitor = 
+      monitor =
       path = ~/Pictures/pp/pp.png
       size = 125
       border_color = $accent
