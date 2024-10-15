@@ -7,6 +7,8 @@
       "col.active_border" = " rgba(74c7ecee) rgba(fefefeee) rgba(1e1e2eee) 270deg";
       "col.inactive_border" = "rgba(595959ee)";
       resize_on_border = true;
+      resize_corner = 3;
+      extend_border_grab_area = 30;
       allow_tearing = false;
       layout = "dwindle";
     };

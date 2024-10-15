@@ -28,6 +28,11 @@
       "SUPER+Shift, 9, movetoworkspace, 9"
       "SUPER+Shift, 0, movetoworkspace, 10"
 
+      "SUPER+Shift, right, resizeactive, 20 0"
+      "SUPER+Shift, left, resizeactive, -20 0"
+      "SUPER+Shift, up,   resizeactive, 0 -20"
+      "SUPER+Shift, down,  resizeactive, 0 20"
+
       "SUPER, left, movefocus, l"
       "SUPER, right, movefocus, r"
       "SUPER, up, movefocus, u"
