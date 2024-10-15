@@ -66,8 +66,8 @@
       ];
     };
     dwindle = {
-      smart_split = true;
-      smart_resizing = true;
+      # smart_split = true;
+      # smart_resizing = true;
       pseudotile = true;
       preserve_split = true;
     };
