@@ -135,6 +135,10 @@ in {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/services/ags";
       recursive = true;
     };
+    ".config/wofi" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/submodules/wofi";
+      recursive = true;
+    };
   };
 
   gtk = {
