@@ -33,6 +33,8 @@
       "SUPER+Shift, up,   resizeactive, 0 -20"
       "SUPER+Shift, down,  resizeactive, 0 20"
 
+      "SUPER, f, fullscreen"
+
       "SUPER, left, movefocus, l"
       "SUPER, right, movefocus, r"
       "SUPER, up, movefocus, u"
