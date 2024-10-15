@@ -55,8 +55,8 @@
 
 .info {
   // border: 1px solid red;
-  border-radius: $round;
-  // background: rgba(0, 0, 0, 0.2);
+  border-radius: $round * 2;
+  background: #11111bee;
   padding: 1rem;
-  // box-shadow: 0 1px 2px -1px $bg;
+  box-shadow: 0 1px 2px -1px $bg;
 }
