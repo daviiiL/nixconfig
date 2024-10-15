@@ -35,7 +35,7 @@
       git
       #communications
       vesktop
-      zoom-us
+      inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zoom-us
       element-desktop
       #tools
       neofetch

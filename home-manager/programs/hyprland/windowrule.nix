@@ -4,5 +4,8 @@
       "suppressevent maximize, class:.*"
       "noborder, onworkspace:w[t1]"
     ];
+    layerrule = [
+      "noanim, anyrun"
+    ];
   };
 }
