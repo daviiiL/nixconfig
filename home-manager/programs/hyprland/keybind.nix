@@ -45,7 +45,7 @@
       "SUPER, PRINT, exec, hyprshot -m window"
       "SUPER+Shift, PRINT, exec, hyprshot -m output"
       ", PRINT, exec, hyprshot -m region"
-      "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins libstdin.so | cliphist decode | wl-copy"
+      "SUPER, V, exec, cliphist list | wofi --show dmenu | cliphist decode | wl-copy"
       # "SUPER+Shift, e, hyprexpo:expo, toggle"
     ];
 
