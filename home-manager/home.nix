@@ -4,7 +4,14 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  unstable-pkgs = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+in {
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
@@ -31,11 +38,11 @@
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
-      inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zed-editor
+      unstable-pkgs.zed-editor
       git
       #communications
       vesktop
-      inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zoom-us
+      unstable-pkgs.zoom-us
       element-desktop
       #tools
       neofetch
