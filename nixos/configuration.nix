@@ -32,13 +32,13 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    # plymouth = {
-    #   enable = true;
-    #   theme = "bgrt";
-    # };
-    # initrd.verbose = false;
-    # consoleLogLevel = 0;
-    # kernelParams = ["quiet" "udev.log_level=0"];
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+    initrd.verbose = false;
+    consoleLogLevel = 0;
+    kernelParams = ["quiet" "udev.log_level=0"];
   };
 
   time.timeZone = "America/New_York";
@@ -116,7 +116,7 @@ in {
     };
     pulseaudio.enable = false;
     opengl = {
-      package = pkgs-unstable.mesa.drivers; 
+      package = pkgs-unstable.mesa.drivers;
       driSupport32Bit = true;
       package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
     };

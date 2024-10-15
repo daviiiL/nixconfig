@@ -104,7 +104,6 @@
       todoist-electron
       pavucontrol
       spotify
-      matugen
     ];
   };
 
