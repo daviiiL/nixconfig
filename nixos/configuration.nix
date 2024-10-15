@@ -83,6 +83,8 @@ in {
     devmon.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
+    # notify
+    systembus-notify.enable = true;
   };
 
   systemd.services.greetd.serviceConfig = {

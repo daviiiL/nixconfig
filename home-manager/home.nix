@@ -57,7 +57,7 @@ in {
       # dconf
       #wm specifics
       hyprpaper
-      hyprlock
+      unstable-pkgs.hyprlock
       hypridle
       hyprpicker
       hyprshot
