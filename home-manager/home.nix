@@ -106,6 +106,8 @@
       pavucontrol
       spotify
       obsidian
+      wofi
+      cliphist
     ];
   };
 

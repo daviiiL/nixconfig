@@ -82,7 +82,7 @@ in {
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
         "signon.rememberSignons" = lock-false;
-        "widget.gtk.global-menu.wayland.enable" = lock-true;
+        # "widget.gtk.global-menu.wayland.enable" = lock-true;
         "widget.wayland.fractional-scale.enable" = lock-true;
       };
     };

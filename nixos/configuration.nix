@@ -97,9 +97,7 @@ in {
 
   programs.hyprland = {
     enable = true;
-    # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # make sure to also set the portal package, so that they are in sync
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
@@ -116,6 +114,7 @@ in {
     };
     pulseaudio.enable = false;
     opengl = {
+      enable = true;
       package = pkgs-unstable.mesa.drivers;
       driSupport32Bit = true;
       package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;

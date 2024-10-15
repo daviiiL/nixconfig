@@ -26,9 +26,8 @@
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
   };
   wayland.windowManager.hyprland.extraConfig = "
-      monitor=HDMI-A-1,3840x2160@120,0x0,1.5
-      monitor=DP-1,3840x2160@144,2560x297,2
-      exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      monitor=HDMI-A-2,3840x2160@120,0x0,1.5
+      monitor=DP-2, 3840x2160@144, 2560x297,2
     
       workspace = 1, monitor:HDMI-A-1, default:true, rounding:true
       workspace = 2, monitor:HDMI-A-1, rounding: true 
