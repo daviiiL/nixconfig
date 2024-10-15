@@ -16,13 +16,27 @@
     ./colorschemes
   ];
   programs.zsh.shellAliases = {
-    la = "eza -la";
-    ls = "eza";
+    # qol
+    la = "lsd -la";
+    ls = "lsd";
     laa = "eza -l --git -T --hyperlink --header --git-ignore .";
+    tree = "lsd --tree";
+    treed = "lsd --tree --depth";
+
+    # editors
     zed = "zeditor";
     code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
+
+    # devbox
+    cdpy = "cd $HOME/Codespace/python/ && devbox shell";
+    cdjs = "cd $HOME/Codespace/javascript/ && devbox shell";
+    cddsa = "cd $HOME/Codespace/python/ && devbox init && cd dsa-template";
+
+    # git shortcuts
     fetchsubmodule = "git submodule update --init --recursive";
     updatesubmodule = "git submodule update --recursive --remote";
+
+    # nix shortcuts
     nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
   };

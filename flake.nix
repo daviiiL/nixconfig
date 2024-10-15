@@ -59,7 +59,7 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/hosts/wndr/wndr.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
           catppuccin.nixosModules.catppuccin
         ];
       };

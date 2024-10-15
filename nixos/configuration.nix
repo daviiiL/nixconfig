@@ -145,7 +145,7 @@ in {
     wget
     git
     curl
-    tree
+    lsd
     fzf
     #shells
     fish
