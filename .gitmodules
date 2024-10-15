@@ -2,3 +2,7 @@
 	path = submodules/anyrun
   url = https://github.com/daviiiL/anyrun
   branch = catppuccin
+
+[submodule "submodules/wofi"]
+	path = submodules/wofi
+	url = https://github.com/daviiiL/wofi
