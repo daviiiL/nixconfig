@@ -19,6 +19,7 @@
     la = "eza -la";
     ls = "eza";
     laa = "eza -l --git -T --hyperlink --header --git-ignore .";
+    zed = "zeditor";
     code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
     fetchsubmodule = "git submodule update --init --recursive";
     updatesubmodule = "git submodule update --recursive --remote";
