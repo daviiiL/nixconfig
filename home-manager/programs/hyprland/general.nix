@@ -6,7 +6,7 @@
       border_size = 1;
       "col.active_border" = " rgba(74c7ecee) rgba(fefefeee) rgba(1e1e2eee) 270deg";
       "col.inactive_border" = "rgba(595959ee)";
-      resize_on_border = false;
+      resize_on_border = true;
       allow_tearing = false;
       layout = "dwindle";
     };
