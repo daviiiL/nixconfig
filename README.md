@@ -1,7 +1,5 @@
 ## daviii's nixos flake
 
-> configs are now migrated from `$HOME/.configs` to `home-manager`
-
 > must be cloned to the user home directory for dotfiles to correctly populate
 
 [nixos](https://nixos.org/)
@@ -14,6 +12,7 @@
 
 ## recent changelogs
 
+- dotfiles migration complete
 - back to nixos from distro hopping. home sweet home.
 - updated nixvim dependencies
 - updated hyprland to latest
