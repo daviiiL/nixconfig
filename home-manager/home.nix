@@ -36,6 +36,7 @@
       #communications
       vesktop
       zoom-us
+      element-desktop
       #tools
       neofetch
       zip
@@ -104,6 +105,7 @@
       todoist-electron
       pavucontrol
       spotify
+      obsidian
     ];
   };
 

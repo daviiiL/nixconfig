@@ -20,13 +20,14 @@
     ls = "eza";
     laa = "eza -l --git -T --hyperlink --header --git-ignore .";
     code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
+    fetchsubmodule = "git submodule update --init --recursive";
+    updatesubmodule = "git submodule update --recursive --remote";
     nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndr";
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndr";
   };
   wayland.windowManager.hyprland.extraConfig = "
-      monitor=HDMI-A-1,3840x2160@120,0x0,1.5,bitdepth,10
-      monitor=DP-1,3840x2160@144,2560x297,2,bitdepth,10
-
+      monitor=HDMI-A-1,3840x2160@120,0x0,1.5
+      monitor=DP-1,3840x2160@144,2560x297,2
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     
       workspace = 1, monitor:HDMI-A-1, default:true, rounding:true
