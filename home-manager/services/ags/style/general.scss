@@ -12,7 +12,7 @@ $scale: 0.5rem;
 }
 
 * {
-  color: $fg;
+  color: #cdd6f4;
 }
 
 /* mixins */
@@ -55,26 +55,26 @@ scale,
 progressbar {
   trough {
     background-color: $surface;
-    border-radius: $scale;
+    border-radius: $scale * 2;
     min-width: calc($scale * 10);
     padding: 0 calc($scale / 2);
   }
 
   highlight,
   progress {
-    background: $overlay;
-    border-radius: $scale;
+    background: #7f849c;
+    border-radius: $scale * 2;
     margin: 0 calc(0px - $scale / 2);
-    min-height: $scale;
+    min-height: $scale * 1;
   }
 }
 
 @mixin button-active {
   @include animate;
-  background: $button-enabled;
+  background: #89b4fa;
   border-radius: 5rem;
   padding: 0.4rem;
-
+  color: #181825;
   &:hover {
     background: $button-enabled-hover;
   }
@@ -82,7 +82,7 @@ progressbar {
 
 @mixin button {
   @include animate;
-  background: $button-disabled;
+  background: #89b4fa;
   border-radius: 5rem;
   padding: 0.4rem;
 
@@ -97,4 +97,5 @@ progressbar {
 
 .button.disabled {
   @include button;
+  background: #181825;
 }

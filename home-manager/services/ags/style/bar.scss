@@ -1,8 +1,8 @@
 .bar {
   /* background: $bar-bg; */
-  background: rgba(0, 0, 0, 1);
+  background: #11111b;
   min-height: 32px;
-
+  color: #cdd6f4;
   .module {
     margin: 0 0.5rem;
   }
@@ -25,10 +25,10 @@
   }
 
   .monitor0 {
-    background: $red;
+    background: #f38ba8;
   }
   .monitor1 {
-    background: $yellow;
+    background: #f9e2af;
   }
   .monitor2 {
     background: $green;

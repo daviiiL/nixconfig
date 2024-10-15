@@ -1,12 +1,13 @@
 /* general */
 .system-menu {
   @include window;
-  background: #000000;
+  background: #11111b;
   margin-top: 4px;
   margin-right: 4px;
 
   & > box {
     @include window-box;
+    background: #313244;
   }
 }
 
