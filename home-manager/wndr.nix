@@ -30,7 +30,7 @@
     # devbox
     cdpy = "cd $HOME/Codespace/python/ && devbox shell";
     cdjs = "cd $HOME/Codespace/javascript/ && devbox shell";
-    cddsa = "cd $HOME/Codespace/python/ && devbox init && cd dsa-template";
+    cddsa = "cd $HOME/Codespace/python/dsa-template && devbox shell";
 
     # git shortcuts
     fetchsubmodule = "git submodule update --init --recursive";
