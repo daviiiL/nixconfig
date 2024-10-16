@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ../../components/sddm.nix
     ../../components/greetd.nix
+    ../../components/gaming.nix
     inputs.hyprland.nixosModules.default
   ];
   networking = {
