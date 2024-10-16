@@ -26,7 +26,7 @@ in {
     element-desktop
 
     # wm specifics
-    unstable-pkgs.hyprlock
+    inputs.hyprlock.packages.${pkgs.system}.default
     hypridle
     hyprpicker
     hyprshot
@@ -44,6 +44,7 @@ in {
     wdisplays
     waybar
     autotiling-rs
+    swayidle
 
     # lsps & formatters
     typescript

@@ -11,7 +11,7 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
+    hyprlock.url = "github:hyprwm/hyprlock";
     nixvim.url = "github:daviiiL/nixvim";
 
     ags.url = "github:Aylur/ags";
