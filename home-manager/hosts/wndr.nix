@@ -13,7 +13,6 @@
     ../modules/services
     ../modules/shells
     ../modules/programs
-    ../modules/colorschemes
   ];
   programs.zsh.shellAliases = {
     # qol
