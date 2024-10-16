@@ -113,7 +113,7 @@ in {
     # Bluetooth
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = false;
     };
     pulseaudio.enable = false;
     opengl = {
