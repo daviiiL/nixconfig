@@ -4,7 +4,7 @@
     timeouts = [
       {
         timeout = 60;
-        command = "${pkgs.swaylock}/bin/swaylock -fF";
+        command = "hyprlock";
       }
       {
         timeout = 90;
