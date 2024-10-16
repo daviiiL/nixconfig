@@ -5,6 +5,7 @@
   pkgs,
   ...
 }: let
+  # TODO: maybe create an overlay for this
   unstable-pkgs = import inputs.nixpkgs-unstable {
     system = pkgs.system;
     config = {
@@ -38,13 +39,8 @@ in {
     username = "rudeus";
     homeDirectory = "/home/rudeus";
     packages = with pkgs; [
-      unstable-pkgs.zed-editor
+      # essentials
       git
-      #communications
-      vesktop
-      unstable-pkgs.zoom-us
-      element-desktop
-      #tools
       neofetch
       zip
       xz
@@ -52,16 +48,19 @@ in {
       p7zip
       xdg-utils
       gh
-      wdisplays
       nerdfonts
-      # dconf
-      #wm specifics
+
+      # communications
+      vesktop
+      unstable-pkgs.zoom-us
+      element-desktop
+
+      # wm specifics
       hyprpaper
       unstable-pkgs.hyprlock
       hypridle
       hyprpicker
       hyprshot
-      # hyprlandPlugins.hyprexpo
       anyrun
       grim
       slurp
@@ -73,7 +72,9 @@ in {
       nwg-look
       qt6ct
       qt5ct
-      #lsp&formatter
+      wdisplays
+
+      # lsps & formatters
       typescript
       alejandra
       prettierd
@@ -85,8 +86,11 @@ in {
       shfmt
       shellharden
       bicep
-      #editors
+
+      # editors
       inputs.nixvim.packages.${pkgs.system}.default
+      unstable-pkgs.zed-editor
+
       #ags dependencies
       coreutils
       dart-sass
@@ -99,31 +103,70 @@ in {
       mission-center
       overskride
       wlogout
-      #devbox
+
+      # dev environment
       devbox
+
       # hardware related
-      # btop
       stress
       s-tui
       lm_sensors
       corectrl
       glxinfo
-      # qoa
+
+      # productivity & entertainment
       todoist-electron
       pavucontrol
       spotify
       obsidian
+
+      # clipboard management
       wofi
       cliphist
     ];
   };
 
+  # cursor
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 16;
+  };
+
+  gtk = {
+    enable = true;
+
+    font = {
+      name = "Noto Sans";
+      package = pkgs.noto-fonts;
+      size = 11;
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "catppuccin-mocha-sapphire-compact";
+      package = pkgs.catppuccin-gtk.override {
+        # NOTE:
+        # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
+        accents = ["sapphire"];
+        size = "compact";
+        variant = "mocha";
+      };
+    };
+
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 
   home.file = {
@@ -141,45 +184,14 @@ in {
     };
   };
 
-  gtk = {
-    enable = true;
-
-    font = {
-      name = "Noto Sans";
-      package = pkgs.noto-fonts;
-      size = 11;
-    };
-
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "catppuccin-mocha-sapphire-compact";
-      package = pkgs.catppuccin-gtk.override {
-        # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
-        accents = ["sapphire"];
-        size = "compact";
-        variant = "mocha";
-      };
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
-
   programs = {
     home-manager.enable = true;
   };
-  # Nicely reload system units when changing configs
+
+  # reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # NOTE:
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }
