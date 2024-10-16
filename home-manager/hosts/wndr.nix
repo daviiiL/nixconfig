@@ -9,11 +9,11 @@
 # }:
 {
   imports = [
-    ./home.nix
-    ./services
-    ./shells
-    ./programs
-    ./colorschemes
+    ../home.nix
+    ../modules/services
+    ../modules/shells
+    ../modules/programs
+    ../modules/colorschemes
   ];
   programs.zsh.shellAliases = {
     # qol

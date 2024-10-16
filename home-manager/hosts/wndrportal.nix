@@ -7,10 +7,10 @@
 # }:
 {
   imports = [
-    ./home.nix
-    ./programs
-    ./shells
-    ./mservices
+    ../home.nix
+    ../modules/programs
+    ../modules/shells
+    ../modules/mservices
   ];
   programs.zsh.shellAliases = {
     la = "eza -la";

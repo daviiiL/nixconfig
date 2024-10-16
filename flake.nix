@@ -91,7 +91,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/wndr.nix
+          ./home-manager/hosts/wndr.nix
           catppuccin.homeManagerModules.catppuccin
         ];
       };
@@ -99,7 +99,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/wndrportal.nix
+          ./home-manager/hosts/wndrportal.nix
           catppuccin.homeManagerModules.catppuccin
         ];
       };
@@ -107,7 +107,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/nvictus.nix
+          ./home-manager/hosts/nvictus.nix
           # {wayland.windowManager.hyprland.enable = true;}
           catppuccin.homeManagerModules.catppuccin
         ];

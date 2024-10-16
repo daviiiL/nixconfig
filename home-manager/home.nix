@@ -5,7 +5,6 @@
   pkgs,
   ...
 }: let
-  # TODO: maybe create an overlay for this
   unstable-pkgs = import inputs.nixpkgs-unstable {
     system = pkgs.system;
     config = {
@@ -152,7 +151,6 @@ in {
     theme = {
       name = "catppuccin-mocha-sapphire-compact";
       package = pkgs.catppuccin-gtk.override {
-        # NOTE:
         # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
         accents = ["sapphire"];
         size = "compact";
@@ -169,13 +167,14 @@ in {
     };
   };
 
+  # FIX: move this somewhere else
   home.file = {
     ".config/anyrun" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/submodules/anyrun";
       recursive = true;
     };
     ".config/ags" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/services/ags";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/modules/services/ags";
       recursive = true;
     };
     ".config/wofi" = {
@@ -191,7 +190,6 @@ in {
   # reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # NOTE:
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }
