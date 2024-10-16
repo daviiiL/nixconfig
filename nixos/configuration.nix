@@ -25,6 +25,7 @@ in {
   };
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot = {
         enable = true;
@@ -33,13 +34,13 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
-    };
-    initrd.verbose = false;
-    consoleLogLevel = 0;
-    kernelParams = ["quiet" "udev.log_level=0"];
+    # plymouth = {
+    #   enable = true;
+    #   theme = "bgrt";
+    # };
+    # initrd.verbose = false;
+    # consoleLogLevel = 0;
+    # kernelParams = ["quiet" "udev.log_level=0"];
   };
 
   time.timeZone = "America/New_York";
@@ -98,11 +99,11 @@ in {
     TTYVTDisallocate = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # };
 
   programs = {
     dconf.enable = true;
@@ -116,12 +117,12 @@ in {
       powerOnBoot = false;
     };
     pulseaudio.enable = false;
-    opengl = {
-      enable = true;
-      package = pkgs-unstable.mesa.drivers;
-      driSupport32Bit = true;
-      package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-    };
+    # opengl = {
+    #   enable = true;
+    #   package = pkgs-unstable.mesa.drivers;
+    #   driSupport32Bit = true;
+    #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    # };
   };
 
   security = {

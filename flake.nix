@@ -70,7 +70,6 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/hosts/wndrportal/wndrportal.nix
-            lix-module.nixosModules.default
             catppuccin.nixosModules.catppuccin
           ];
         };

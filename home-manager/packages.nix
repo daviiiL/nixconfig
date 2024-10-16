@@ -26,7 +26,6 @@ in {
     element-desktop
 
     # wm specifics
-    hyprpaper
     unstable-pkgs.hyprlock
     hypridle
     hyprpicker
@@ -43,6 +42,8 @@ in {
     qt6ct
     qt5ct
     wdisplays
+    waybar
+    autotiling-rs
 
     # lsps & formatters
     typescript

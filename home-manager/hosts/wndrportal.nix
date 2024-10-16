@@ -12,6 +12,7 @@
     ../modules/shells
     ../modules/mservices
   ];
+
   programs.zsh.shellAliases = {
     la = "eza -la";
     ls = "eza";
@@ -20,4 +21,8 @@
     nixrebuild = "cd ~/nixconfig && sudo nixos-rebuild switch --flake .#wndrportal";
     switchhome = "cd ~/nixconfig && home-manager switch --flake .#rudeus@wndrportal";
   };
+
+  wayland.windowManager.hyprland.extraConfig = "
+    monitor = , preferred, auto, 2
+    ";
 }

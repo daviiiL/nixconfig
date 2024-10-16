@@ -6,7 +6,7 @@
       flavor = "mocha";
     };
     settings = {
-      add_newline = false;
+      add_newline = true;
     };
   };
 }

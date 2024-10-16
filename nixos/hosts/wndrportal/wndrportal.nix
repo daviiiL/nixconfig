@@ -2,8 +2,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../components/greetd.nix
-    ../../components/sddm.nix
+    ../../components/greetd-sway.nix
+    ../../components/sway.nix
   ];
 
   # Networking
@@ -35,6 +35,7 @@
       packages = with pkgs; [
         alacritty
         pass
+        foot
       ];
       shell = pkgs.zsh;
     };

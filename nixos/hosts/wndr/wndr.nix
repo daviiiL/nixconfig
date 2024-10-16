@@ -6,6 +6,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../components/hyprland.nix
     ../../components/sddm.nix
     ../../components/greetd.nix
     ../../components/gaming.nix

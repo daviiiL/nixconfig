@@ -13,6 +13,7 @@
     ../modules/services
     ../modules/shells
     ../modules/programs
+    ../modules/wm/hyprland
   ];
   programs.zsh.shellAliases = {
     # qol
