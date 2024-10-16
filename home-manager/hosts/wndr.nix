@@ -17,11 +17,11 @@
   ];
   programs.zsh.shellAliases = {
     # qol
-    la = "lsd -la";
-    ls = "lsd";
+    la = "lsd -la --group-directories-first";
+    ls = "lsd --group-directories-first";
     laa = "eza -l --git -T --hyperlink --header --git-ignore .";
-    tree = "lsd --tree";
-    treed = "lsd --tree --depth";
+    tree = "lsd --tree --group-directories-first";
+    treed = "lsd --tree --group-directories-first --depth";
 
     # editors
     zed = "zeditor";
