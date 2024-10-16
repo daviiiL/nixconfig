@@ -9,7 +9,7 @@
       resize_on_border = true;
       resize_corner = 3;
       extend_border_grab_area = 30;
-      allow_tearing = false;
+      allow_tearing = true;
       layout = "dwindle";
     };
 
