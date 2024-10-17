@@ -2,7 +2,7 @@
   services.mako = {
     enable = true;
     anchor = "top-right";
-    defaultTimeout = "30000";
+    defaultTimeout = 30000;
     # visual
     backgroundColor = lib.mkForce "#11111bee";
     borderColor = lib.mkForce "#89B4FA";
