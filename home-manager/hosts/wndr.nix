@@ -1,7 +1,7 @@
 {config, ...}: {
   imports = [
     ../home.nix
-    ../modules/services
+    ../modules/ui
     ../modules/shells
     ../modules/programs
     ../modules/wm/hyprland
@@ -9,7 +9,7 @@
 
   home.file = {
     ".config/ags" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/modules/services/ags";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/modules/ui/ags";
       recursive = true;
     };
   };

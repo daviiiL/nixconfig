@@ -10,7 +10,7 @@
     ../home.nix
     ../modules/programs
     ../modules/shells
-    ../modules/mservices
+    ../modules/services
     ../modules/wm/sway
   ];
 

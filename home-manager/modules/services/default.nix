@@ -1,5 +1,5 @@
 {
   imports = [
-    ./ags
+    ./mako.nix
   ];
 }

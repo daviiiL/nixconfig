@@ -1,5 +1,5 @@
 {
   imports = [
-    ./agsmobile
+    ./ags
   ];
 }

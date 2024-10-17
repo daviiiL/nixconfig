@@ -162,6 +162,7 @@ in {
     home-manager
     plymouth
     powertop
+    mako
   ];
 
   environment = {

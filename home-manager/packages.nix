@@ -20,7 +20,7 @@ in {
     gh
     nerdfonts
     gnome.seahorse
-
+    libnotify
     # communications
     vesktop
     unstable-pkgs.zoom-us
@@ -34,7 +34,6 @@ in {
     anyrun
     grim
     slurp
-    ripgrep
     wl-clipboard
     swww
     waypaper
