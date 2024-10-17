@@ -1,13 +1,4 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-# { inputs
-# , outputs
-# , lib
-# , config
-# , pkgs
-# , ...
-# }:
-{
+{config, ...}: {
   imports = [
     ../home.nix
     ../modules/services
@@ -15,6 +6,14 @@
     ../modules/programs
     ../modules/wm/hyprland
   ];
+
+  home.file = {
+    ".config/ags" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/home-manager/modules/services/ags";
+      recursive = true;
+    };
+  };
+
   programs.zsh.shellAliases = {
     # qol
     la = "lsd -la --group-directories-first";

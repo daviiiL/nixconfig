@@ -62,6 +62,7 @@ in {
     # editors
     inputs.nixvim.packages.${pkgs.system}.default
     unstable-pkgs.zed-editor
+    helix
 
     #ags dependencies
     coreutils
