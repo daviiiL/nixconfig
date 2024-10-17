@@ -161,8 +161,7 @@ in {
     libsecret
     home-manager
     plymouth
-    liquidctl
-    gnome.seahorse
+    powertop
   ];
 
   environment = {

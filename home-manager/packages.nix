@@ -19,6 +19,7 @@ in {
     xdg-utils
     gh
     nerdfonts
+    gnome.seahorse
 
     # communications
     vesktop
@@ -33,7 +34,6 @@ in {
     anyrun
     grim
     slurp
-    mako
     ripgrep
     wl-clipboard
     swww
