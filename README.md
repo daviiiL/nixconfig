@@ -9,6 +9,7 @@
 
 - [ ] hyprland plugins for 0.44
 - [ ] migrate matugen dotfile into hm
+- [ ] Google's Inter font... that is still manually done
 
 ## recent changelogs
 

@@ -74,6 +74,7 @@ in {
     # Audio
     pipewire = {
       enable = true;
+      audio.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
@@ -116,13 +117,7 @@ in {
       enable = true;
       powerOnBoot = false;
     };
-    pulseaudio.enable = false;
-    # opengl = {
-    #   enable = true;
-    #   package = pkgs-unstable.mesa.drivers;
-    #   driSupport32Bit = true;
-    #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-    # };
+    # pulseaudio.enable = true;
   };
 
   security = {

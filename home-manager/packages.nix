@@ -21,6 +21,9 @@ in {
     nerdfonts
     gnome.seahorse
     libnotify
+    alsa-utils
+    playerctl
+
     # communications
     vesktop
     unstable-pkgs.zoom-us
