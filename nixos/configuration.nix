@@ -117,7 +117,7 @@ in {
       enable = true;
       powerOnBoot = false;
     };
-    # pulseaudio.enable = true;
+    pulseaudio.enable = false;
   };
 
   security = {

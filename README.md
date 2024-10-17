@@ -1,7 +1,5 @@
 ## daviii's nixos flake
 
-> must be cloned to the user home directory for dotfiles to correctly populate
-
 [nixos](https://nixos.org/)
 [home-manager](https://github.com/nix-community/home-manager)
 
