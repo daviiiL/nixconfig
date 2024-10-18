@@ -1,5 +1,5 @@
 {
   imports = [
-    ./notifications
+    ./mako.nix
   ];
 }
