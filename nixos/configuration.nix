@@ -89,12 +89,11 @@ in {
     systembus-notify.enable = true;
     # kmscon replaces gettys
     kmscon.enable = true;
+    # mouse support in tty virtual console
+    gpm.enable = true;
   };
 
   systemd = {
-    # mouse support in tty virtual console
-    gpm.enable = true;
-
     #enable emergency mode when something goes wrong
     enableEmergencyMode = true;
 
