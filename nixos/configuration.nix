@@ -88,7 +88,7 @@ in {
     # notify
     systembus-notify.enable = true;
     # kmscon replaces gettys
-    services.kmscon.enable = true;
+    kmscon.enable = true;
   };
 
   systemd = {
