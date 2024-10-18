@@ -42,9 +42,9 @@
       "SUPER, down, movefocus, d"
 
       # misc keys
-      "XF86AudioPlay, exec, playerctl play-pause"
-      "XF86AudioPrev, exec, playerctl previous"
-      "XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioPrev, exec, playerctl previous"
+      ",XF86AudioNext, exec, playerctl next"
 
       # wallpaper selector
       "SUPER+Shift, t, exec, waypaper"

@@ -4,7 +4,7 @@
     ../modules/ui
     ../modules/shells
     ../modules/programs
-    ../modules/wm/hyprland
+    ../modules/wm/hypr
   ];
 
   home.file = {

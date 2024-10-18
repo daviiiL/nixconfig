@@ -10,8 +10,6 @@
     ./general.nix
     ./windowrule.nix
     ./keybind.nix
-    ./hyprlock.nix
-    ./hypridle.nix
   ];
 
   wayland.windowManager.hyprland = {

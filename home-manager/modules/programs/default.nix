@@ -3,6 +3,6 @@
     ./tools
     ./browsers
     ./editors
-    ./terminals.nix
+    ./terminals
   ];
 }
