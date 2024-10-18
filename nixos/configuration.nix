@@ -1,14 +1,10 @@
 {
-  inputs,
   pkgs,
   outputs,
   ...
-}: let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   imports = [
     ./components/security.nix
-    # ./components/graphics.nix
   ];
 
   nixpkgs = {
@@ -80,14 +76,14 @@ in {
     # notify
     systembus-notify.enable = true;
 
-    # replaces gettys
-    kmscon = {
-      enable = true;
-      hwRender = true;
-      extraConfig = "
-        font-size=18
-        ";
-    };
+    # # replaces gettys
+    # kmscon = {
+    #   enable = true;
+    #   # hwRender = true;
+    #   extraConfig = "
+    #     font-size=18
+    #     ";
+    # };
     # mouse support in tty virtual console
     gpm.enable = true;
   };
@@ -147,6 +143,7 @@ in {
     curl
     lsd
     fzf
+    fbterm
     #shells
     fish
     zsh
