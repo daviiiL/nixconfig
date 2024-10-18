@@ -4,14 +4,7 @@
   config,
   pkgs,
   ...
-}: let
-  unstable-pkgs = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in {
+}: {
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./packages.nix

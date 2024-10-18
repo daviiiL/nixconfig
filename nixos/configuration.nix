@@ -87,24 +87,29 @@ in {
     udisks2.enable = true;
     # notify
     systembus-notify.enable = true;
+    # kmscon replaces gettys
+    services.kmscon.enable = true;
   };
 
-  systemd.services.greetd.serviceConfig = {
-    Type = "idle";
-    StandardInput = "tty";
-    StandardOutput = "tty";
-    StandardError = "journal"; # Without this errors will spam on screen
-    # Without these bootlogs will spam on screen
-    TTYReset = true;
-    TTYVHangup = true;
-    TTYVTDisallocate = true;
-  };
+  systemd = {
+    # mouse support in tty virtual console
+    gpm.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  # };
+    #enable emergency mode when something goes wrong
+    enableEmergencyMode = true;
+
+    # greetd disable error messages on screen
+    services.greetd.serviceConfig = {
+      Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal"; # Without this errors will spam on screen
+      # Without these bootlogs will spam on screen
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYVTDisallocate = true;
+    };
+  };
 
   programs = {
     dconf.enable = true;
@@ -112,11 +117,11 @@ in {
   };
 
   hardware = {
-    # Bluetooth
     bluetooth = {
       enable = true;
       powerOnBoot = false;
     };
+    # pipewire enabled
     pulseaudio.enable = false;
   };
 
@@ -138,7 +143,6 @@ in {
 
   # System profile packages
   environment.systemPackages = with pkgs; [
-    #editors
     #essentials
     wget
     git
@@ -165,7 +169,6 @@ in {
       NIXOS_OZONE_WL = "1";
     };
     variables = {
-      # Set runtime directory
       XDG_RUNTIME_DIR = "/run/user/$UID";
       XDG_PICTURES_DIR = "$HOME/Pictures";
     };
