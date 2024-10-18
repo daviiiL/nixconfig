@@ -34,18 +34,10 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    # plymouth = {
-    #   enable = true;
-    #   theme = "bgrt";
-    # };
-    # initrd.verbose = false;
-    # consoleLogLevel = 0;
-    # kernelParams = ["quiet" "udev.log_level=0"];
   };
 
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -87,7 +79,8 @@ in {
     udisks2.enable = true;
     # notify
     systembus-notify.enable = true;
-    # kmscon replaces gettys
+
+    # replaces gettys
     kmscon = {
       enable = true;
       hwRender = true;
