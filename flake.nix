@@ -25,6 +25,8 @@
       url = "github:/InioX/Matugen";
     };
 
+    #trying out zen
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     # Catppuccin but for nix!
     catppuccin.url = "github:catppuccin/nix";
   };

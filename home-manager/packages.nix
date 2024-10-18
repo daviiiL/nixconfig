@@ -81,7 +81,7 @@ in {
     wlogout
 
     # dev environment
-    devbox
+    # devbox
 
     # hardware related
     stress
