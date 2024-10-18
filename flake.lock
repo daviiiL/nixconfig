@@ -418,11 +418,11 @@
         "rev": "0e630e9e74ad34683194a07cfe6afe55a2c0685f",
         "revCount": 5352,
         "type": "git",
-        "url": "https://github.com/hyprwm/Hyprland?subModules=1"
+        "url": "https://github.com/hyprwm/Hyprland"
       },
       "original": {
         "type": "git",
-        "url": "https://github.com/hyprwm/Hyprland?subModules=1"
+        "url": "https://github.com/hyprwm/Hyprland"
       }
     },
     "hyprland-protocols": {
