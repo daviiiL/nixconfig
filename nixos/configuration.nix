@@ -88,7 +88,13 @@ in {
     # notify
     systembus-notify.enable = true;
     # kmscon replaces gettys
-    kmscon.enable = true;
+    kmscon = {
+      enable = true;
+      hwRender = true;
+      extraConfig = "
+        font-size=18
+        ";
+    };
     # mouse support in tty virtual console
     gpm.enable = true;
   };
