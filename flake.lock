@@ -994,7 +994,8 @@
         "matugen": "matugen",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "zen-browser": "zen-browser"
       }
     },
     "systems": {
@@ -1147,6 +1148,26 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729041431,
+        "narHash": "sha256-X/z68x0FsBmmb8usu+X+ViLw5M6mdVDDB2JLCXiPpG4=",
+        "owner": "fufexan",
+        "repo": "zen-browser-flake",
+        "rev": "b46602e979662038f938765e13dbe409fe461831",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
