@@ -77,15 +77,15 @@
     systembus-notify.enable = true;
 
     # # replaces gettys
-    # kmscon = {
-    #   enable = true;
-    #   # hwRender = true;
-    #   extraConfig = "
-    #     font-size=18
-    #     ";
-    # };
+    kmscon = {
+      enable = true;
+      # hwRender = true;
+      extraConfig = "
+        font-size=18
+        ";
+    };
     # mouse support in tty virtual console
-    gpm.enable = true;
+    # gpm.enable = true;
   };
 
   systemd = {
@@ -143,7 +143,6 @@
     curl
     lsd
     fzf
-    fbterm
     #shells
     fish
     zsh
