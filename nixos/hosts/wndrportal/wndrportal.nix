@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../components/greetd-sway.nix
     ../../components/sway.nix
+    ../../components/tlp.nix
   ];
 
   # Networking
@@ -14,10 +15,12 @@
   };
 
   services = {
-    # enable power management
-    power-profiles-daemon.enable = true;
+    # see tlp: power management
+    power-profiles-daemon.enable = false;
     #battery info
     upower.enable = true;
+    #lvfs
+    fwupd.enable = true;
   };
 
   hardware = {
