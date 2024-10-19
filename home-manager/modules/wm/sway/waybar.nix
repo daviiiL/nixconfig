@@ -3,122 +3,120 @@
     enable = true;
     settings = [
       {
-        mainBar = {
-          "layer" = "bottom";
-          "position" = "top";
-          "height" = 20;
-          "modules-left" = [
-            "sway/workspaces"
-            "sway/mode"
-            "tray"
+        "layer" = "bottom";
+        "position" = "top";
+        "height" = 20;
+        "modules-left" = [
+          "sway/workspaces"
+          "sway/mode"
+          "tray"
+        ];
+        "modules-center" = [
+          "sway/window"
+        ];
+        "modules-right" = [
+          "battery"
+          "backlight"
+          "pulseaudio"
+          "network"
+          "clock"
+        ];
+        "sway/mode" = {
+          "format" = " {}";
+        };
+        "sway/workspaces" = {
+          "format" = "";
+          "on-click" = "activate";
+          "format-icons" = {
+            "default" = " ";
+            "focused" = " ";
+          };
+          "sort-by-number" = true;
+          "disable-scroll" = true;
+          "persistent-workspaces" = {
+            "1" = ["eDP-1"];
+            "2" = ["eDP-1"];
+            "3" = ["eDP-1"];
+            "4" = ["eDP-1"];
+            "5" = ["eDP-1"];
+          };
+        };
+        "sway/window" = {
+          "format" = "{title}";
+          "max-length" = 20;
+          "tooltip" = false;
+        };
+        "clock" = {
+          "format" = "{:%a %d %b %H:%M}";
+          "tooltip" = false;
+          "on-click" = "gnome-clocks";
+        };
+        "battery" = {
+          "format" = "{icon}  {capacity}%";
+          "format-alt" = "{time} remaining";
+          "format-icons" = [
+            "󰁺"
+            "󰁼"
+            "󰁾"
+            "󰂀"
+            "󰁹"
           ];
-          "modules-center" = [
-            "sway/window"
-          ];
-          "modules-right" = [
-            "battery"
-            "backlight"
-            "pulseaudio"
-            "network"
-            "clock"
-          ];
-          "sway/mode" = {
-            "format" = " {}";
+          "format-charging" = "󰂄  {capacity}%";
+          "interval" = 30;
+          "states" = {
+            "full" = 100;
+            "good" = 90;
+            "warning" = 35;
+            "critical" = 15;
           };
-          "sway/workspaces" = {
-            "format" = "";
-            "on-click" = "activate";
-            "format-icons" = {
-              "default" = " ";
-              "focused" = " ";
-            };
-            "sort-by-number" = true;
-            "disable-scroll" = true;
-            "persistent-workspaces" = {
-              "1" = ["eDP-1"];
-              "2" = ["eDP-1"];
-              "3" = ["eDP-1"];
-              "4" = ["eDP-1"];
-              "5" = ["eDP-1"];
-            };
-          };
-          "sway/window" = {
-            "format" = "{title}";
-            "max-length" = 20;
-            "tooltip" = false;
-          };
-          "clock" = {
-            "format" = "{:%a %d %b %H:%M}";
-            "tooltip" = false;
-            "on-click" = "gnome-clocks";
-          };
-          "battery" = {
-            "format" = "{icon}  {capacity}%";
-            "format-alt" = "{time} remaining";
-            "format-icons" = [
-              "󰁺"
-              "󰁼"
-              "󰁾"
-              "󰂀"
-              "󰁹"
+          "tooltip" = true;
+        };
+        "network" = {
+          "format" = "{icon}";
+          "format-alt" = "{ipaddr}/{cidr} {icon}";
+          "format-alt-click" = "click-right";
+          "format-icons" = {
+            "wifi" = [
+              "󰤟"
+              "󰤢"
+              "󰤥"
+              "󰤨"
             ];
-            "format-charging" = "󰂄  {capacity}%";
-            "interval" = 30;
-            "states" = {
-              "full" = 100;
-              "good" = 90;
-              "warning" = 35;
-              "critical" = 15;
-            };
-            "tooltip" = true;
+            "ethernet" = [""];
+            "disconnected" = ["󰤭"];
           };
-          "network" = {
-            "format" = "{icon}";
-            "format-alt" = "{ipaddr}/{cidr} {icon}";
-            "format-alt-click" = "click-right";
-            "format-icons" = {
-              "wifi" = [
-                "󰤟"
-                "󰤢"
-                "󰤥"
-                "󰤨"
-              ];
-              "ethernet" = [""];
-              "disconnected" = ["󰤭"];
-            };
-            "on-click" = "XDG_CURRENT_DESKTOP=gnome gnome-control-center";
-            "tooltip" = false;
-          };
-          "pulseaudio" = {
-            "format" = " {icon} {volume}% ";
-            "format-muted" = "SOUND OFF";
-            "format-icons" = {
-              "phone" = [
-                "  "
-                "  "
-                "   "
-              ];
-              "default" = [
-                "  "
-                "  "
-                "  "
-              ];
-            };
-            "scroll-step" = 10;
-            "on-click" = "pavucontrol";
-            "tooltip" = false;
-          };
-          "backlight" = {
-            "format" = "{icon}  {percent}%";
-            "format-icons" = [
-              "󰃞 "
-              "󰃟 "
-              "󰃠 "
+          "on-click" = "XDG_CURRENT_DESKTOP=gnome gnome-control-center";
+          "tooltip" = false;
+        };
+        "pulseaudio" = {
+          "format" = " {icon} {volume}% ";
+          "format-muted" = "SOUND OFF";
+          "format-icons" = {
+            "phone" = [
+              "  "
+              "  "
+              "   "
+            ];
+            "default" = [
+              "  "
+              "  "
+              "  "
             ];
           };
-          "tray" = {
-            "icon-size" = 18;
-          };
+          "scroll-step" = 10;
+          "on-click" = "pavucontrol";
+          "tooltip" = false;
+        };
+        "backlight" = {
+          "format" = "{icon}  {percent}%";
+          "format-icons" = [
+            "󰃞 "
+            "󰃟 "
+            "󰃠 "
+          ];
+        };
+        "tray" = {
+          "icon-size" = 18;
         };
       }
     ];
