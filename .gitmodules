@@ -5,4 +5,9 @@
 
 [submodule "submodules/wofi"]
 	path = submodules/wofi
-	url = https://github.com/daviiiL/wofi
+  url = https://github.com/daviiiL/wofi
+
+[submodule "submodules/waybar"]
+	path = submodules/waybar
+	url = https://github.com/daviiiL/waybar
+	branch = laptop
