@@ -46,7 +46,6 @@
       RESTORE_DEVICE_STATE_ON_STARTUP = 0;
       DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
       DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-      DEVICES_TO_DISABLE_ON_SHUTDOWN = "bluetooth wifi wwan";
       DEVICES_TO_ENABLE_ON_AC = "bluetooth wifi wwan";
       DEVICES_TO_DISABLE_ON_BAT = "bluetooth wwan";
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi wwan";
@@ -63,7 +62,6 @@
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_AUDIO = 1;
       USB_EXCLUDE_BTUSB = 1;
-      USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN = 1;
     };
   };
 }

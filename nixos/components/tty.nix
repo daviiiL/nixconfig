@@ -2,6 +2,10 @@
   console = {
     enable = true;
     earlySetup = true;
-    useXbkConfig = true;
+    # useXkbConfig = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+    };
   };
 }

@@ -5,8 +5,13 @@
     ../../components/greetd-sway.nix
     ../../components/sway.nix
     ../../components/tlp.nix
+    ../../components/tty.nix
+  ];
+  environment.systemPackages = with pkgs; [
+    fbterm
   ];
 
+  # boot.initrd.kernelModules = ["fbcon"];
   # Networking
   networking = {
     # system host name
@@ -21,6 +26,10 @@
     upower.enable = true;
     #lvfs
     fwupd.enable = true;
+    # kmscon = {
+    #   enable = true;
+    #   hwRender = true;
+    # };
   };
 
   hardware = {
