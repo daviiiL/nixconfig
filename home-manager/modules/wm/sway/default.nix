@@ -1,3 +1,6 @@
 {
-  imports = [./swayidle.nix];
+  imports = [
+    ./swayidle.nix
+    ./waybar.nix
+  ];
 }

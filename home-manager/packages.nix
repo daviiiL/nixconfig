@@ -61,6 +61,7 @@ in {
     shellharden
     bicep
     nil
+    nixd
 
     # editors
     inputs.nixvim.packages.${pkgs.system}.default
