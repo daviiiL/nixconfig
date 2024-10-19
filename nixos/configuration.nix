@@ -66,6 +66,18 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber = {
+        enable = true;
+        configPackages = [
+          (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/10-disable-webcam.conf" ''
+            wireplumber.profiles = {
+              main = {
+                monitor.libcamera = disabled
+              }
+            }
+          '')
+        ];
+      };
     };
     # Keyring
     gnome.gnome-keyring.enable = true;
