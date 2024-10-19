@@ -80,6 +80,7 @@ in {
     mission-center
     overskride
     wlogout
+    sway-contrib.grimshot
 
     # dev environment
     # devbox
