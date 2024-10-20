@@ -23,6 +23,7 @@ in {
     libnotify
     alsa-utils
     playerctl
+    gnome.nautilus
 
     # communications
     vesktop
