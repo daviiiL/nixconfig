@@ -68,7 +68,7 @@ in {
     unstable-pkgs.zed-editor
     helix
 
-    #ags dependencies
+    # ags dependencies
     coreutils
     dart-sass
     gawk
@@ -82,7 +82,7 @@ in {
     wlogout
     sway-contrib.grimshot
 
-    # dev environment
+    # devbox tooling
     # devbox
 
     # hardware related
