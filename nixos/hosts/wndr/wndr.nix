@@ -11,6 +11,7 @@
     ../../components/greetd.nix
     ../../components/gaming.nix
     ../../components/tty.nix
+    ../../components/dev.nix
     inputs.hyprland.nixosModules.default
   ];
   networking = {
