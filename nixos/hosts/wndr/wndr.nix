@@ -10,6 +10,7 @@
     ../../components/sddm.nix
     ../../components/greetd.nix
     ../../components/gaming.nix
+    ../../components/tty.nix
     inputs.hyprland.nixosModules.default
   ];
   networking = {
@@ -17,6 +18,15 @@
     hostName = "wndr";
     networkmanager.enable = true;
   };
+
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    extraConfig = "
+        font-size=18
+        ";
+  };
+
   users = {
     defaultUserShell = pkgs.zsh;
     users.rudeus = {
