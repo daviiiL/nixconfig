@@ -15,6 +15,9 @@
     settings = {
       experimental-features = "nix-command flakes";
     };
+    extraOptions = ''
+      trusted-users = root davidliu
+    '';
     # package = pkgs.nix;
   };
 
@@ -51,10 +54,9 @@
     ];
     casks = [
       "notchnook"
-
-      # "nikitabobko/tap/aerospace"
-      # "rio"
-      # "kitty"
+      "zen-browser"
+      "element"
+      "sf-symbols"
     ];
   };
 

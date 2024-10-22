@@ -90,7 +90,9 @@
             lix-module.nixosModules.default
           ];
         };
+    };
 
+    darwinConfigurations = {
       DsMacbook = nix-darwin.lib.darwinSystem {
         modules = [
           ./darwin/nix/configuration.nix

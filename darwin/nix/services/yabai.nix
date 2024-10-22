@@ -34,7 +34,7 @@
       window_gap = 10;
       window_animation_duration = 0.35;
       # hide built in menubar permanently
-      # menubar_opacity = 0.0;
+      menubar_opacity = 0.0;
     };
 
     extraConfig = ''
