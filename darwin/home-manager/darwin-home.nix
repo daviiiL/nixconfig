@@ -15,10 +15,6 @@
 
   # write dotfiles to the home directory
   home.file = {
-    # ".config/sketchybar" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/darwin/dotfiles/sketchybar";
-    #   recursive = true;
-    # };
     ".config/alacritty" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconfig/darwin/dotfiles/alacritty";
       recursive = true;

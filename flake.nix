@@ -93,21 +93,21 @@
     };
 
     darwinConfigurations = {
-      DsMacbook = nix-darwin.lib.darwinSystem {
+      neptune = nix-darwin.lib.darwinSystem {
         modules = [
           ./darwin/nix/configuration.nix
 
           home-manager.darwinModules.home-manager
           {
             home-manager = {
-              users.davidliu = import ./darwin/home-manager/darwin-home.nix;
+              users.rudeus = import ./darwin/home-manager/darwin-home.nix;
               extraSpecialArgs = {
                 inherit inputs;
               };
             };
-            users.users.davidliu = {
-              name = "davidliu";
-              home = "/Users/davidliu";
+            users.users.rudeus = {
+              name = "rudeus";
+              home = "/Users/rudeus";
             };
           }
         ];

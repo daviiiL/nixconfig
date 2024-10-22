@@ -14,9 +14,10 @@
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
     };
     extraOptions = ''
-      trusted-users = root davidliu
+      trusted-users = root rudeus
     '';
     # package = pkgs.nix;
   };
@@ -37,9 +38,8 @@
   };
 
   programs = {
-    zsh = {
-      enable = true;
-    };
+    zsh.enable = true;
+    nix-index.enable = true;
   };
 
   homebrew = {
