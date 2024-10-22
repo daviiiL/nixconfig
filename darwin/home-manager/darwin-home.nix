@@ -5,12 +5,7 @@
 }: {
   imports = [
     ./shell
-    # ./terminals
-  ];
-
-  home.packages = with pkgs; [
-    eza
-    devenv
+    ./packages.nix
   ];
 
   # write dotfiles to the home directory

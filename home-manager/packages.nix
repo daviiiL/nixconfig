@@ -31,7 +31,6 @@ in {
     element-desktop
 
     # wm specifics
-    inputs.hyprlock.packages.${pkgs.system}.default
     hypridle
     hyprpicker
     hyprshot

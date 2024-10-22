@@ -12,6 +12,10 @@
     ./keybind.nix
   ];
 
+  home.packages = [
+    inputs.hyprlock.packages.${pkgs.system}.default
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
   };
