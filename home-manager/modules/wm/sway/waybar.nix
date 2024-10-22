@@ -127,6 +127,7 @@
       @define-color color2 #89b4fa;
       @define-color color8 #313244;
       @define-color sapphire #74c7ec;
+      @define-color color9 #202024;
       
       * {
         font-family: 'Noto Sans';
@@ -149,6 +150,11 @@
         border-radius: 0.5rem;
         margin: 0 5px;
         padding: 0rem;
+        transition: background 0.3s ease-in-out;
+      }
+
+      #workspaces button.empty {
+        background: @color9;
         transition: background 0.3s ease-in-out;
       }
       
