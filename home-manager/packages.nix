@@ -97,6 +97,7 @@ in {
     pavucontrol
     spotify
     obsidian
+    zathura
 
     # clipboard management
     wofi
