@@ -24,7 +24,7 @@
     enable = true;
     hwRender = true;
     extraConfig = "
-        font-size=18
+        font-size=22
         ";
   };
 
