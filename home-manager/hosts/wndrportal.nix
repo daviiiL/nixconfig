@@ -16,8 +16,8 @@
 
   programs.zsh.shellAliases = {
     # qol
-    la = "lsd -la --group-directories-first";
-    ls = "lsd --group-directories-first";
+    la = "eza -la --group-directories-first";
+    ls = "eza --group-directories-first";
     laa = "eza -l --git -T --hyperlink --header --git-ignore .";
     tree = "lsd --tree --group-directories-first";
     treed = "lsd --tree --group-directories-first --depth";
