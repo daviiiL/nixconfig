@@ -154,10 +154,10 @@
       }
 
       #workspaces button.empty {
-        background: @color9;
-        transition: background 0.3s ease-in-out;
-      }
-      
+         background: @color9;
+         transition: background 0.3s ease-in-out;
+       } 
+
       #workspaces button.focused {
         background: @color2;
       }
