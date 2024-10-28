@@ -16,6 +16,7 @@ in {
     unzip
     p7zip
     gh
+    eza
 
     # lsps & formatters
     typescript
@@ -38,5 +39,7 @@ in {
     # dev tools
     dart-sass
     ripgrep
+    unstable-pkgs.devenv
+    unstable-pkgs.direnv
   ];
 }
