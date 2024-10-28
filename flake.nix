@@ -25,9 +25,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    matugen = {
-      url = "github:/InioX/Matugen";
-    };
+    # matugen = {
+    #   url = "github:/InioX/Matugen";
+    # };
 
     #trying out zen
     zen-browser.url = "github:MarceColl/zen-browser-flake";

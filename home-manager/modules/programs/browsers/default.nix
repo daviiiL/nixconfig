@@ -5,7 +5,7 @@
 }: {
   imports = [
     # ./firefox.nix
-    # ./chrome.nix
+    ./chrome.nix
   ];
 
   home.packages = [
