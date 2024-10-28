@@ -4,7 +4,7 @@
     settings = [
       {
         "layer" = "bottom";
-        "position" = "top";
+        "position" = "bottom";
         "height" = 20;
         "modules-left" = [
           "sway/workspaces"

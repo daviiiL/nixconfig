@@ -2,6 +2,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../components/secureboot.nix
     ../../components/greetd-sway.nix
     ../../components/sway.nix
     ../../components/tlp.nix

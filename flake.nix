@@ -81,6 +81,7 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/hosts/wndrportal/wndrportal.nix
+            lanzaboote.nixosModules.lanzaboote
             catppuccin.nixosModules.catppuccin
           ];
         };
