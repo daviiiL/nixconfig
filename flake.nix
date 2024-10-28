@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # secure boot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,10 +31,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # matugen = {
-    #   url = "github:/InioX/Matugen";
-    # };
-
     #trying out zen
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     # Catppuccin but for nix!
@@ -41,6 +43,7 @@
     home-manager,
     lix-module,
     catppuccin,
+    lanzaboote,
     nix-darwin,
     ...
   } @ inputs: let
@@ -66,6 +69,7 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/hosts/wndr/wndr.nix
+          lanzaboote.nixosModules.lanzaboote
           # lix-module.nixosModules.default
           catppuccin.nixosModules.catppuccin
         ];
