@@ -47,6 +47,7 @@ in {
     waybar
     autotiling-rs
     swayidle
+    unstable-pkgs.hyprlock
 
     # lsps & formatters
     typescript

@@ -5,7 +5,7 @@
       {
         "layer" = "bottom";
         "position" = "bottom";
-        "height" = 20;
+        "height" = 34;
         "modules-left" = [
           "sway/workspaces"
           "sway/mode"
@@ -25,21 +25,24 @@
           "format" = " {}";
         };
         "sway/workspaces" = {
-          "format" = "";
+          "format" = "{icon}";
           "on-click" = "activate";
           "format-icons" = {
-            "default" = " ";
-            "focused" = " ";
+            "1" = "I";
+            "2" = "II";
+            "3" = "III";
+            "4" = "IV";
+            "5" = "V";
           };
           "sort-by-number" = true;
           "disable-scroll" = true;
-          "persistent-workspaces" = {
-            "1" = ["eDP-1"];
-            "2" = ["eDP-1"];
-            "3" = ["eDP-1"];
-            "4" = ["eDP-1"];
-            "5" = ["eDP-1"];
-          };
+          # "persistent-workspaces" = {
+          #   "1" = ["eDP-1"];
+          #   "2" = ["eDP-1"];
+          #   "3" = ["eDP-1"];
+          #   "4" = ["eDP-1"];
+          #   "5" = ["eDP-1"];
+          # };
         };
         "sway/window" = {
           "format" = "{title}";
@@ -165,6 +168,10 @@
       #workspaces button:hover {
         background: #45475a;
         transition: background 0.2s ease-in-out;
+      }
+
+      #workspaces button.focused:hover {
+        background: @color2;
       }
       
       #battery {
