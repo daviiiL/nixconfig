@@ -150,6 +150,7 @@
 
       #workspaces button {
         background: @color8;
+        color: @background;
         border-radius: 0.5rem;
         margin: 0 5px;
         padding: 0rem;
