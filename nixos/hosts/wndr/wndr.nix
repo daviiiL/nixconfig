@@ -21,13 +21,13 @@
     networkmanager.enable = true;
   };
 
-  services.kmscon = {
-    enable = true;
-    hwRender = true;
-    extraConfig = "
-        font-size=22
-        ";
-  };
+  # services.kmscon = {
+  #   enable = true;
+  #   hwRender = true;
+  #   extraConfig = "
+  #       font-size=22
+  #       ";
+  # };
 
   users = {
     defaultUserShell = pkgs.zsh;
@@ -36,11 +36,12 @@
       home = "/home/rudeus/";
       isNormalUser = true;
       description = "David Liu";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "video"];
       packages = with pkgs; [
         foot
         pass
         helix
+        fbterm
       ];
       shell = pkgs.zsh;
     };
