@@ -12,6 +12,7 @@
     ../modules/shells
     ../modules/services
     ../modules/wm/sway
+    ../modules/framework
   ];
 
   programs.zsh.shellAliases = {
