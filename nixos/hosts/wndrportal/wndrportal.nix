@@ -27,10 +27,6 @@
     upower.enable = true;
     #lvfs
     fwupd.enable = true;
-    # kmscon = {
-    #   enable = true;
-    #   hwRender = true;
-    # };
 
     # fingerprint
     # fprintd.enable = true;

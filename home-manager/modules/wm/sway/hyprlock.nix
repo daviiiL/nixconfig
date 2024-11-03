@@ -1,14 +1,4 @@
 {
-  # programs.hyprlock = {
-  #   enable = true;
-  #   settings = {
-  #     general = {
-  #       disable_loading_bar = true;
-  #       hide_cursor = true;
-  #     };
-  #
-  #   };
-  # };
   xdg.configFile."hypr/hyprlock.conf".text = ''
     # BACKGROUND
     background {
