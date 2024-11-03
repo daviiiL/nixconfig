@@ -6,3 +6,7 @@
 	path = submodules/anyrun
 	url = https://github.com/daviiiL/anyrun
 	branch = catppuccin
+[submodule "submodules/sway"]
+	path = submodules/sway
+  url = https://github.com/daviiiL/sway
+  branch = laptop
