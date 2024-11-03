@@ -28,6 +28,7 @@
         grace = 0
         disable_loading_bar = true
         fractional_scaling = 1
+        enable_fingerprint = true
     }
 
     # INPUT FIELD

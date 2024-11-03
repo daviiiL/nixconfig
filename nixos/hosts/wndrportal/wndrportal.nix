@@ -31,6 +31,9 @@
     #   enable = true;
     #   hwRender = true;
     # };
+
+    # fingerprint
+    fprintd.enable = true;
   };
 
   hardware = {

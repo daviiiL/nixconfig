@@ -25,6 +25,7 @@ in {
     playerctl
     gnome.nautilus
     steam
+
     # communications
     vesktop
     unstable-pkgs.zoom-us

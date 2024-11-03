@@ -54,11 +54,11 @@
     },
     "catppuccin": {
       "locked": {
-        "lastModified": 1730036420,
-        "narHash": "sha256-rv2bz7J6Wo7AenPiu4+ptCB1AFyaMcS77y89zbRAtI8=",
+        "lastModified": 1730458408,
+        "narHash": "sha256-JQ+SphQn13bdibKUrBBBznYehXX4xJrxD1ifBp6vSWw=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "0b7bf04628414a402d255924f65e9a0d1a53d92b",
+        "rev": "191fbf2d81a63fad8f62f1233c0051f09b75d0ad",
         "type": "github"
       },
       "original": {
@@ -510,11 +510,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1730143527,
-        "narHash": "sha256-oAHpNAIa6EKt3uTIxCbIbEsuPdvE8en1iIXlgLHDbps=",
+        "lastModified": 1730561205,
+        "narHash": "sha256-xZvUZ7m5lMj2w4YclEIYlZwrMc9/TbOOOma7O3XmiWA=",
         "ref": "refs/heads/main",
-        "rev": "d679d200299ed4670f0d0f138c793d5f507b7cec",
-        "revCount": 5390,
+        "rev": "40081cb330fa838ad9c0a7b87c20b2300ea7fb38",
+        "revCount": 5403,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
       },
@@ -614,11 +614,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1730053985,
-        "narHash": "sha256-jh7PhejwT+XqkkYnpZ6K/Gkqy4tvjN7g/ZBTvlS+Q9Y=",
+        "lastModified": 1730590959,
+        "narHash": "sha256-ss3lT96WFdiNxI4mtrmRtV1XsfxIs2BtYLiU9BKu7Uo=",
         "owner": "hyprwm",
         "repo": "hyprlock",
-        "rev": "edbecc87081756b45bdbea16b63e413473659dcd",
+        "rev": "f225e23e5b275dd5b3f7b2cc007ab4b559d8a9d9",
         "type": "github"
       },
       "original": {
@@ -771,11 +771,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730184279,
-        "narHash": "sha256-6OB+WWR6gnaWiqSS28aMJypKeK7Pjc2Wm6L0MtOrTuA=",
+        "lastModified": 1730589595,
+        "narHash": "sha256-QI//TRTTmkUM0bz+KhdanRcwzlYib6PjMTvhC3dwUWA=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "b379bd4d872d159e5189053ce9a4adf86d56db4b",
+        "rev": "146629a54364f6b54e7f3d15c44fea69ed0bf476",
         "type": "github"
       },
       "original": {
@@ -884,11 +884,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1729880355,
-        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
+        "lastModified": 1730200266,
+        "narHash": "sha256-l253w0XMT8nWHGXuXqyiIC/bMvh1VRszGXgdpQlfhvU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
         "type": "github"
       },
       "original": {
@@ -932,11 +932,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1730137625,
-        "narHash": "sha256-9z8oOgFZiaguj+bbi3k4QhAD6JabWrnv7fscC/mt0KE=",
+        "lastModified": 1730327045,
+        "narHash": "sha256-xKel5kd1AbExymxoIfQ7pgcX6hjw9jCgbiBjiUfSVJ8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "64b80bfb316b57cdb8919a9110ef63393d74382a",
+        "rev": "080166c15633801df010977d9d7474b4a6c549d7",
         "type": "github"
       },
       "original": {
@@ -996,11 +996,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1727348695,
-        "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
+        "lastModified": 1725634671,
+        "narHash": "sha256-v3rIhsJBOMLR8e/RNWxr828tB+WywYIoajrZKFM+0Gg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1925c603f17fc89f4c8f6bf6f631a802ad85d784",
+        "rev": "574d1eac1c200690e27b8eb4e24887f8df7ac27c",
         "type": "github"
       },
       "original": {
@@ -1351,15 +1351,15 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1727721329,
-        "narHash": "sha256-QYlWZwUSwrM7BuO+dXclZIwoPvBIuJr6GpFKv9XKFPI=",
-        "owner": "MarceColl",
+        "lastModified": 1730510125,
+        "narHash": "sha256-XcjaaFJB6KHGEZZm0Lc4BeL1oET3l69WmgMJLrclSkQ=",
+        "owner": "fufexan",
         "repo": "zen-browser-flake",
-        "rev": "e6ab73f405e9a2896cce5956c549a9cc359e5fcc",
+        "rev": "eebf4cf57f21e9c88867c789e5949087a66e1277",
         "type": "github"
       },
       "original": {
-        "owner": "MarceColl",
+        "owner": "fufexan",
         "repo": "zen-browser-flake",
         "type": "github"
       }

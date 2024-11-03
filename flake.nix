@@ -32,7 +32,7 @@
     };
 
     #trying out zen
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:fufexan/zen-browser-flake";
     # Catppuccin but for nix!
     catppuccin.url = "github:catppuccin/nix";
   };
