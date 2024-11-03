@@ -33,7 +33,7 @@
     # };
 
     # fingerprint
-    fprintd.enable = true;
+    # fprintd.enable = true;
   };
 
   hardware = {
