@@ -5,6 +5,7 @@
 }: {
   programs.tmux = {
     enable = true;
+    catppuccin.enable = true;
     clock24 = true;
     disableConfirmationPrompt = true;
     keyMode = "vi";

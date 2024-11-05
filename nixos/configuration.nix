@@ -153,6 +153,9 @@
     curl
     lsd
     fzf
+    tmux
+    util-linux
+    usbutils
     #shells
     fish
     zsh
@@ -163,10 +166,7 @@
     #qol stuff
     libsecret
     home-manager
-    plymouth
     powertop
-    mako
-    tmux
   ];
 
   environment = {

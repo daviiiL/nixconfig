@@ -46,13 +46,13 @@
         };
         "sway/window" = {
           "format" = "{title}";
-          "max-length" = 20;
+          "max-length" = 30;
           "tooltip" = false;
         };
         "clock" = {
           "format" = "{:%a %d %b %H:%M}";
           "tooltip" = false;
-          "on-click" = "gnome-clocks";
+          "on-click" = "gnome-calendar";
         };
         "battery" = {
           "format" = "{icon}  {capacity}%";

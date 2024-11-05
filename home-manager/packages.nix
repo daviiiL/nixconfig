@@ -25,6 +25,7 @@ in {
     playerctl
     gnome.nautilus
     steam
+    gnome.gnome-calendar
 
     # communications
     vesktop

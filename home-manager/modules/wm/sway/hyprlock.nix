@@ -19,6 +19,7 @@
         disable_loading_bar = true
         fractional_scaling = 1
         enable_fingerprint = true
+        hide_cursor = true
     }
 
     # INPUT FIELD
