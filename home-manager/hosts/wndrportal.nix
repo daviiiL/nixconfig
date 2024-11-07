@@ -5,9 +5,7 @@
     ../modules/shells
     ../modules/services
     ../modules/wm/sway
-    ../modules/wm/hypr
     ../modules/framework
-    ../modules/laptop
   ];
 
   programs.zsh.shellAliases = {
@@ -38,5 +36,6 @@
 
   wayland.windowManager.hyprland.extraConfig = "
     monitor = ,preferred, auto, 2
+    exec-once = hyprpanel
     ";
 }

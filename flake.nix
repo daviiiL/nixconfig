@@ -30,6 +30,7 @@
 
     # aylurs gtk shell
     ags.url = "github:Aylur/ags";
+    hyprpanel.url = "github:daviiiL/HyprPanel";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";

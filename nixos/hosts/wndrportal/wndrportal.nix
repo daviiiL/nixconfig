@@ -5,11 +5,10 @@
     ../../components/secureboot.nix
     ../../components/greetd-sway.nix
     ../../components/sway.nix
-    ../../components/hyprland.nix
     ../../components/tlp.nix
     ../../components/tty.nix
-    # ../../components/shikane.nix
   ];
+
   environment.systemPackages = with pkgs; [
     fbterm
   ];
