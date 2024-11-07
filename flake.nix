@@ -15,15 +15,20 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    # hm
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # wm
     hyprland.url = "git+https://github.com/hyprwm/Hyprland";
     hyprlock.url = "github:hyprwm/hyprlock";
+
+    # neovim
     nixvim.url = "github:daviiiL/nixvim";
 
+    # aylurs gtk shell
     ags.url = "github:Aylur/ags";
 
     lix-module = {

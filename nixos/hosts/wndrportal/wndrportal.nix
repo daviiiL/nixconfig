@@ -8,6 +8,7 @@
     ../../components/hyprland.nix
     ../../components/tlp.nix
     ../../components/tty.nix
+    # ../../components/shikane.nix
   ];
   environment.systemPackages = with pkgs; [
     fbterm

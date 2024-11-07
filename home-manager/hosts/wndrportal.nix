@@ -7,6 +7,7 @@
     ../modules/wm/sway
     ../modules/wm/hypr
     ../modules/framework
+    ../modules/laptop
   ];
 
   programs.zsh.shellAliases = {
@@ -36,6 +37,6 @@
   };
 
   wayland.windowManager.hyprland.extraConfig = "
-    monitor = , preferred, auto, 2
+    monitor = ,preferred, auto, 2
     ";
 }
