@@ -5,6 +5,7 @@
     ../modules/shells
     ../modules/services
     ../modules/wm/sway
+    ../modules/wm/hypr
     ../modules/framework
   ];
 

@@ -5,6 +5,7 @@
     ../../components/secureboot.nix
     ../../components/greetd-sway.nix
     ../../components/sway.nix
+    ../../components/hyprland.nix
     ../../components/tlp.nix
     ../../components/tty.nix
   ];
