@@ -11,7 +11,7 @@
     };
   };
 
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
 
   # Bluetooth
   hardware = {
@@ -31,17 +31,17 @@
   # Printing
   services.printing.enable = true;
 
-  # OpenGL
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      libva
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-    extraPackages32 = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+  # # OpenGL
+  # hardware.opengl = {
+  #   enable = true;
+  #   extraPackages = with pkgs; [
+  #     libva
+  #     vaapiVdpau
+  #     libvdpau-va-gl
+  #   ];
+  #   extraPackages32 = with pkgs; [
+  #     vaapiVdpau
+  #     libvdpau-va-gl
+  #   ];
+  # };
 }

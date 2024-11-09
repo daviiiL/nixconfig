@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./hardware-configuration.nix
     ../../components/nixos/secureboot.nix
     ../../components/nixos/system-templates/workstation.nix
     ../../components/nixos/system-templates/hyprland.nix
