@@ -12,32 +12,32 @@
       ];
       icons = true;
     };
-  };
-  fastfetch = {
-    enable = true;
-    settings = {
-      logo = {
-        source = "nixos_small";
-        padding = {
-          right = 1;
+    fastfetch = {
+      enable = true;
+      settings = {
+        logo = {
+          source = "nixos_small";
+          padding = {
+            right = 1;
+          };
         };
-      };
-      display = {
-        size = {
-          binaryPrefix = "si";
+        display = {
+          size = {
+            binaryPrefix = "si";
+          };
+          color = "blue";
+          separator = "  ";
         };
-        color = "blue";
-        separator = "  ";
+        modules = [
+          "OS"
+          "Kernel"
+          "CPU"
+          "Display"
+          "Shell"
+          "WM"
+          "Colors"
+        ];
       };
-      modules = [
-        "OS"
-        "Kernel"
-        "CPU"
-        "Display"
-        "Shell"
-        "WM"
-        "Colors"
-      ];
     };
   };
 }
