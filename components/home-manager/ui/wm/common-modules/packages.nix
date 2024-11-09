@@ -18,5 +18,12 @@
     swayidle
     wofi
     cliphist
+    xdg-utils
+    gnome.seahorse
+    libnotify
+    alsa-utils
+    playerctl
+    gnome.nautilus
+    gnome.gnome-calendar
   ];
 }
