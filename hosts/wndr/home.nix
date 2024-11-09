@@ -1,4 +1,13 @@
 {
+  pkgs,
+  inputs,
+  ...
+}: let
+  unstable-pkgs = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in {
   imports = [
     ../../components/home-manager/general.nix
     ../../components/home-manager/programs
@@ -9,6 +18,9 @@
   home = {
     username = "rudeus";
     homeDirectory = "/home/rudeus";
+    packages = with unstable-pkgs; [
+      python312Packages.materialyoucolor
+    ];
   };
 
   programs.zsh.shellAliases = {
@@ -51,5 +63,14 @@
       workspace = 8, monitor:DP-1
       workspace = 9, monitor:DP-1
       workspace = 10, monitor:DP-1
+
+      decoration {
+        blur {
+          enabled true
+          passes 4
+          size 5
+          vibrancy 0.169600
+        }
+      }
     ";
 }

@@ -41,6 +41,12 @@
 
   wayland.windowManager.hyprland.extraConfig = "
     monitor = ,preferred, auto, 2
-    exec-once = hyprpanel
+    
+    decoration {
+        blur {
+          enabled false 
+        }
+      }
+
     ";
 }
