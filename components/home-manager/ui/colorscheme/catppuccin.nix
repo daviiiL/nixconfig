@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   catppuccin = {
-    enable = true;
+    enable = lib.mkDefault true;
     accent = "sapphire";
     flavor = "mocha";
   };
@@ -15,5 +19,13 @@
       size = "compact";
       variant = "mocha";
     };
+  };
+
+  programs = {
+    helix.catppuccin.enable = lib.mkDefault true;
+    tmux.catppuccin.enable = lib.mkDefault true;
+    foot.catppuccin.enable = lib.mkDefault true;
+    kitty.catppuccin.enable = lib.mkDefault true;
+    btop.catppuccin.enable = lib.mkDefault true;
   };
 }

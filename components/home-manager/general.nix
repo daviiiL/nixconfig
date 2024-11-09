@@ -1,4 +1,9 @@
 {
+  imports = [
+    ./packages.nix
+    ./programs
+  ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;

@@ -1,10 +1,9 @@
-{config, ...}: {
+{
   imports = [
-    ../home.nix
-    # ../modules/ui
-    ../modules/shells
-    ../modules/programs
-    # ../modules/wm/hypr
+    ../../components/home-manager/general.nix
+    ../../components/home-manager/programs
+    ../../components/home-manager/ui/wm/hypr
+    ../../components/home-manager/ui/colorscheme/catppuccin.nix
   ];
 
   home = {

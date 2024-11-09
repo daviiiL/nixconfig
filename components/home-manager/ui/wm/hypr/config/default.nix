@@ -10,6 +10,8 @@
     ./general.nix
     ./windowrule.nix
     ./keybind.nix
+    ./hypridle.nix
+    ./hyprlock.nix
   ];
 
   home.packages = [
