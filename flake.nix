@@ -75,17 +75,16 @@
           catppuccin.nixosModules.catppuccin
         ];
       };
-      # wndrportal =
-      #   nixpkgs.lib.nixosSystem
-      #   {
-      #     specialArgs = {inherit inputs outputs;};
-      #     modules = [
-      #       ./nixos/configuration.nix
-      #       ./nixos/hosts/wndrportal/wndrportal.nix
-      #       lanzaboote.nixosModules.lanzaboote
-      #       catppuccin.nixosModules.catppuccin
-      #     ];
-      #   };
+      wndrportal =
+        nixpkgs.lib.nixosSystem
+        {
+          specialArgs = {inherit inputs outputs;};
+          modules = [
+            ./hosts/wndrportal/configuration.nix
+            lanzaboote.nixosModules.lanzaboote
+            catppuccin.nixosModules.catppuccin
+          ];
+        };
       # nvictus =
       #   nixpkgs.lib.nixosSystem
       #   {
@@ -132,14 +131,14 @@
           catppuccin.homeManagerModules.catppuccin
         ];
       };
-      # "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
-      #   pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      #   extraSpecialArgs = {inherit inputs outputs;};
-      #   modules = [
-      #     ./home-manager/hosts/wndrportal.nix
-      #     catppuccin.homeManagerModules.catppuccin
-      #   ];
-      # };
+      "rudeus@wndrportal" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/wndrportal/home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
+      };
       # "rudeus@nvictus" = home-manager.lib.homeManagerConfiguration {
       #   pkgs = nixpkgs.legacyPackages.x86_64-linux;
       #   extraSpecialArgs = {inherit inputs outputs;};
