@@ -4,6 +4,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
+    ../../system/cachix
     ../../system/core
     ../../system/hardware
     ../../system/packages
@@ -13,23 +14,10 @@
 
   networking.hostName = "wndr";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   users.users.chronos = {
     isNormalUser = true;
     description = "chronos";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "wireshark" "plugdev" "libvirt" "seat" "users" "video" "kvm" "input"];
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?

@@ -10,9 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # wm
-    hyprland.url = "github:hyprwm/Hyprland";
-
     # neovim
     nixvim.url = "github:daviiiL/nixvim";
   };
