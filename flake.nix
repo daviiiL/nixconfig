@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # neovim
     nixvim.url = "github:daviiiL/nixvim";
   };
@@ -31,6 +36,7 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
     nixosConfigurations = {
       wndr = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
@@ -38,10 +44,23 @@
           ./hosts/wndr/configuration.nix
         ];
       };
+      portal = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/portal/configuration.nix
+        ];
+      };
     };
 
     homeConfigurations = {
       "chronos@wndr" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/wndr/home.nix
+        ];
+      };
+      "chronos@portal" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
