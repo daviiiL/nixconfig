@@ -9,13 +9,7 @@
 
   home.packages = with pkgs; [
     brightnessctl
-    brillo
-    wl-clipboard
-    fuzzel
     sassc
-    blueberry
-    matugen
-    gnome-control-center
   ];
 
   programs.ags = {

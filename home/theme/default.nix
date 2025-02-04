@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     adw-gtk3
-    hyprcursor
+    matugen
   ];
 
   home.pointerCursor = {
@@ -17,7 +17,7 @@
 
     font = {
       name = "Noto Sans";
-      package = pkgs.noto-fonts;
+      package = pkgs.inter-nerdfont;
       size = 11;
     };
 
