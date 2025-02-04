@@ -1,7 +1,7 @@
 {
   imports = [
     ./audio.nix
-    ./wireless.nix
     ./power.nix
+    ./bluetooth.nix
   ];
 }

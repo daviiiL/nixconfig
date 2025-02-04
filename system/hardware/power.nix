@@ -3,7 +3,7 @@
 
   # NOTE: disable power-profiles-daemon cuz those two are in conflict
   services.tlp = {
-    enable = false;
+    enable = true;
     settings = {
       TLP_ENABLE = 1;
       TLP_WARN_LEVEL = 3;
@@ -45,11 +45,6 @@
       CPU_BOOST_ON_BAT = 0;
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
-      RESTORE_DEVICE_STATE_ON_STARTUP = 0;
-      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
-      DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-      DEVICES_TO_ENABLE_ON_AC = "bluetooth wifi wwan";
-      DEVICES_TO_DISABLE_ON_BAT = "bluetooth wwan";
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi wwan";
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
       DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
