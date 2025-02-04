@@ -3,5 +3,6 @@
     ./utils
     ./browser
     ./shell
+    ./communications
   ];
 }

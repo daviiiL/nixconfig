@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     brightnessctl
     sassc
+    playerctl
   ];
 
   programs.ags = {

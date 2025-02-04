@@ -31,6 +31,7 @@ in {
         "$line_break"
         "[❯](bold purple)"
         ''''${custom.space}''
+        "\n"
       ];
       custom.space = {
         when = ''! test $env'';
