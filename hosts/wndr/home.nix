@@ -8,6 +8,7 @@
   imports = [
     ../../home/programs
     ../../home/services
+    ../../home/theme
   ];
 
   nixpkgs = {
