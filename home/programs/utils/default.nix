@@ -18,6 +18,7 @@ in {
     devenv
 
     #system tools
+    tre-command
     eza
     brillo
     fuzzel
@@ -25,6 +26,8 @@ in {
     yad
     bc
     cliphist
+    powertop
+    btop
 
     #wayland necessity
     swww
@@ -33,5 +36,7 @@ in {
     anyrun
     blueberry
     gnome-control-center
+    hypridle
+    hyprlock
   ];
 }

@@ -32,7 +32,7 @@
       WIFI_PWR_ON_BAT = "on";
       WOL_DISABLE = "Y";
       PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "low_power";
+      PLATFORM_PROFILE_ON_BAT = "low-power";
       MEM_SLEEP_ON_AC = "s2idle";
       MEM_SLEEP_ON_BAT = "deep";
       CPU_DRIVER_OPMODE_ON_AC = "active";
@@ -41,10 +41,17 @@
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 30;
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      RESTORE_DEVICE_STATE_ON_STARTUP = 0;
+      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
+      DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi wwan";
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
       DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
@@ -59,6 +66,8 @@
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_AUDIO = 1;
       USB_EXCLUDE_BTUSB = 1;
+      USB_EXCLUDE_PHONE = 0;
+      USB_EXCLUDE_PRINTER = 0;
     };
   };
 }

@@ -6,7 +6,9 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -l";
+      ls = "eza --icons --group-directories-first";
+      la = "eza -la --icons --group-directories-first";
+      tree = "tre";
       nixrebuild = "cd $HOME/nixconfig & sudo nixos-rebuild switch --flake .#$(hostname)";
       switchhome = "cd $HOME/nixconfig & home-manager switch --flake .#$USER@$(hostname)";
     };

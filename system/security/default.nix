@@ -1,4 +1,8 @@
 {lib, ...}: {
+  nix.extraOptions = ''
+    trusted-users = root chronos
+  '';
+
   security.rtkit.enable = true;
   boot = {
     kernel.sysctl = {
