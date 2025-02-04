@@ -16,17 +16,21 @@ in {
     #dev
     gh
 
-    #wm
-    anyrun
+    #system tools
+    eza
+    brillo
     fuzzel
     wl-clipboard
-    swww
     yad
     bc
     cliphist
 
+    #wayland necessity
+    swww
+
+    #wm
+    anyrun
     blueberry
     gnome-control-center
-    brillo
   ];
 }

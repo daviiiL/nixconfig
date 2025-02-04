@@ -3,7 +3,7 @@
 
   # NOTE: disable power-profiles-daemon cuz those two are in conflict
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       TLP_ENABLE = 1;
       TLP_WARN_LEVEL = 3;
@@ -60,7 +60,7 @@
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
       PCIE_ASPM_ON_AC = "default";
-      PCIE_ASPM_ON_BAT = "default";
+      PCIE_ASPM_ON_BAT = "powersupersave";
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_AUDIO = 1;
       USB_EXCLUDE_BTUSB = 1;
