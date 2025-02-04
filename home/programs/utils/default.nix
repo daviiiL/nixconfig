@@ -15,6 +15,7 @@ in {
   home.packages = with unstable-pkgs; [
     #dev
     gh
+    devenv
 
     #system tools
     eza

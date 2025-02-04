@@ -5,11 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    #standalone home-manager to seperate userspace utils from system
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    #for laptops
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    #ags scaffolding for astal; setup with home manager without bundling
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
