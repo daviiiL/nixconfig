@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    adw-gtk3
+  ];
+
   gtk = {
     enable = true;
 

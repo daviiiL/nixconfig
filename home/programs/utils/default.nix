@@ -11,7 +11,15 @@
 # in
 {
   home.packages = with pkgs; [
+    #dev
     gh
+
+    #wm
     anyrun
+    fuzzel
+    wl-clipboard
+    swww
+    yad
+    bc
   ];
 }

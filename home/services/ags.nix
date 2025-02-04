@@ -13,8 +13,8 @@
     wl-clipboard
     fuzzel
     sassc
-    # upower
     blueberry
+    matugen
     gnome-control-center
   ];
 
