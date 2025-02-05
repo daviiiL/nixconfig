@@ -16,6 +16,11 @@ in {
     #dev
     gh
     devenv
+    vscode-fhs
+
+    #boring stuff
+    libreoffice
+    zathura
 
     #system tools
     tre-command
@@ -28,6 +33,10 @@ in {
     cliphist
     powertop
     btop
+    xdg-utils
+    hyprshot
+    zip
+    unzip
 
     #wayland necessity
     swww
