@@ -37,6 +37,9 @@ in {
     hyprshot
     zip
     unzip
+    nautilus
+    gnome-calendar
+    ghostty
 
     #wayland necessity
     swww
