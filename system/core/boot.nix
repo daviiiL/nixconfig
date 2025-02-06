@@ -11,8 +11,8 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     #plymouth
-    plymouth = {
-      enable = true;
-    };
+    # plymouth = {
+    #   enable = true;
+    # };
   };
 }

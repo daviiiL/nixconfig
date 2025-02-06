@@ -2,7 +2,7 @@
   inputs,
   # outputs,
   # config,
-  # pkgs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -21,7 +21,7 @@
     username = "chronos";
     homeDirectory = "/home/chronos";
     packages = [
-      inputs.nixvim.packages.x86_64-linux.default
+      # inputs.nixvim.packages.${pkgs.system}.default
     ];
   };
 

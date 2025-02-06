@@ -10,6 +10,7 @@
 in {
   imports = [
     ./starship.nix
+    ./nixvim.nix
   ];
 
   home.packages = with unstable-pkgs; [

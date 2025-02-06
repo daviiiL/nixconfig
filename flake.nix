@@ -21,7 +21,7 @@
     };
 
     # neovim
-    nixvim.url = "github:daviiiL/nixvim";
+    nixviii.url = "github:daviiiL/nixviii";
   };
 
   outputs = {
