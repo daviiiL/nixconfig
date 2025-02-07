@@ -41,7 +41,7 @@ in {
     unzip
     nautilus
     gnome-calendar
-    ghostty
+    neofetch
 
     #wayland necessity
     swww
