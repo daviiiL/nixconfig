@@ -1,9 +1,10 @@
 ## Hosts
 
-| Hosts     | dir    |
-| --------- | ------ |
-| framework | portal |
-| desktop   | wndr   |
+| Hosts     | dir     |
+| --------- | ------- |
+| framework | portal  |
+| desktop   | wndr    |
+| macbook   | neptune |
 
 ## file structure
 
