@@ -19,9 +19,10 @@ in {
     devenv
     vscode-fhs
 
-    #boring stuff
+    #boring but abs necessity
     libreoffice
     zathura
+    obsidian
 
     #system tools
     tre-command
