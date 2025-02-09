@@ -52,5 +52,6 @@ in {
     gnome-control-center
     hypridle
     hyprlock
+    hyprshot
   ];
 }

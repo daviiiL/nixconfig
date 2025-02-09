@@ -63,6 +63,12 @@
           ./hosts/portal/configuration.nix
         ];
       };
+      invictia = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/invictia/configuration.nix
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -78,6 +84,13 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/portal/home.nix
+        ];
+      };
+      "chronos@invictia" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/invictia/home.nix
         ];
       };
       "davidliu@Neptune" = home-manager.lib.homeManagerConfiguration {
