@@ -6,6 +6,7 @@
   imports = [
     ./hyprland.nix
     ./fonts.nix
+    ./theme.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

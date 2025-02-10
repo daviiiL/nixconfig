@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     #darwin for the win...macos
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -35,7 +37,6 @@
     nixpkgs,
     home-manager,
     nix-darwin,
-    nixviii,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -9,10 +9,5 @@
 
     #using the latest kernel instead of 6.6
     kernelPackages = pkgs.linuxPackages_latest;
-
-    #plymouth
-    # plymouth = {
-    #   enable = true;
-    # };
   };
 }
