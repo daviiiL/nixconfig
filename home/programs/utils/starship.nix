@@ -67,18 +67,19 @@ in {
         truncation_length = 6;
         truncation_symbol = "~/󰇘/";
       };
-      # directory.substitutions = {
-      #   "Documents" = "󰈙 ";
-      #   "Downloads" = " ";
-      #   "Music" = " ";
-      #   "Pictures" = " ";
-      #   "Videos" = " ";
-      #   "Projects" = "󱌢 ";
-      #   "School" = "󰑴 ";
-      #   "GitHub" = "";
-      #   ".config" = " ";
-      #   "Vault" = "󱉽 ";
-      # };
+      directory.substitutions = {
+        "Documents" = "󰈙 ";
+        "Downloads" = " ";
+        "Music" = " ";
+        "Pictures" = " ";
+        "Videos" = " ";
+        "Projects" = "󱌢 ";
+        "Codespace" = "󱌢 ";
+        "School" = "󰑴 ";
+        "GitHub" = "";
+        ".config" = " ";
+        "Vault" = "󱉽 ";
+      };
       git_branch = {
         symbol = "";
         style = "";
