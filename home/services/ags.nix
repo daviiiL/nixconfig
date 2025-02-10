@@ -11,6 +11,7 @@
     brightnessctl
     sassc
     playerctl
+    libnotify
   ];
 
   programs.ags = {
