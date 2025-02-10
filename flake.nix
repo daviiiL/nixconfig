@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    #standalone home-manager to seperate userspace utils from system
+    #standalone home-manager: avoid nixos rebuilds for userspace changes
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
