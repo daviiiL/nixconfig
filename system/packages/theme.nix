@@ -3,5 +3,7 @@
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  console.catppuccin.enable = true;
+  catppuccin = {
+    tty.enable = true;
+  };
 }
