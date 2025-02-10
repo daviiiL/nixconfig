@@ -72,6 +72,17 @@
       };
     };
 
+    darwinConfigurations = {
+      Neptune = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/neptune/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs self outputs;
+        };
+      };
+    };
+
     homeConfigurations = {
       "chronos@wndr" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -100,17 +111,6 @@
         modules = [
           ./hosts/neptune/home.nix
         ];
-      };
-    };
-
-    darwinConfigurations = {
-      Neptune = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./hosts/neptune/configuration.nix
-        ];
-        specialArgs = {
-          inherit inputs self outputs;
-        };
       };
     };
   };
