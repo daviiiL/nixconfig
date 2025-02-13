@@ -1,12 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  inputs = [
-    ./homebrew.nix
-  ];
-
+{...}: {
   environment.systemPackages = [
     # inputs.nixviii.packages.${pkgs.system}.default
   ];
