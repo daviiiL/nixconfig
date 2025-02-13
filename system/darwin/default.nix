@@ -8,7 +8,7 @@
   ];
 
   environment.systemPackages = [
-    inputs.nixviii.packages.${pkgs.system}.default
+    # inputs.nixviii.packages.${pkgs.system}.default
   ];
 
   nix = {
