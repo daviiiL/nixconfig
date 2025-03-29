@@ -9,12 +9,12 @@
     config.allowUnfree = true;
   };
 in {
-  boot.kernelPackages =  pkgs.linuxPackagesFor (
-    pkgs.linuxKernel.kernels.linux_6_12.override {
+  boot.kernelPackages = pkgs.linuxPackagesFor (
+    lib.mkForce pkgs.linuxKernel.kernels.linux_6_12.override {
       argsOverride = rec {
         src = pkgs.fetchurl {
-          url = "mirror://kernel/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";
-	  hash = "sha256-6Y1C0X73Bjs/LW12kr8kiZ4uAhz4MtGbVTCOyOjgjv8=";
+          url = "https://cdn.kernel.org/pub/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";
+          sha256 = "1zwfw3lci3ihandx2cpq3h12x7l94jzr4xkd5lzkn1ppgv8l52g9";
         };
         version = "6.12.12";
         modDirVersion = "6.12.12";

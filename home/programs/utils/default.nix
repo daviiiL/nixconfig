@@ -42,6 +42,7 @@ in {
     nautilus
     gnome-calendar
     neofetch
+    bemenu
 
     #wayland necessity
     swww

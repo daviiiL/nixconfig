@@ -11,7 +11,7 @@
     ../../system/services
   ];
 
-  boot.initrd.luks.devices."luks-f373743c-cda1-4347-81f8-1a7eb5f176e8".device = "/dev/disk/by-uuid/f373743c-cda1-4347-81f8-1a7eb5f176e8";
+  boot.initrd.luks.devices."luks-0764ce18-d651-43e8-875e-ba3fec52d432".device = "/dev/disk/by-uuid/0764ce18-d651-43e8-875e-ba3fec52d432";
   networking.hostName = "invictia"; # Define your hostname.
   users.users.chronos = {
     isNormalUser = true;
