@@ -13,7 +13,7 @@
 
     # pinned version for nvidia
     kernelPackages = pkgs.linuxPackagesFor (
-      lib.mkForce pkgs.linuxKernel.kernels.linux_6_12.override {
+      pkgs.linuxKernel.kernels.linux_6_12.override {
         argsOverride = rec {
           src = pkgs.fetchurl {
             url = "https://cdn.kernel.org/pub/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";

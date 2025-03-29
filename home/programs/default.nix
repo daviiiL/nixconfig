@@ -1,5 +1,5 @@
 {
-  # nixpkgs.allowUnfreePredicate = _:true;
+  nixpkgs.config.allowUnfreePredicate = _:true;
 
   imports = [
     ./utils

@@ -17,8 +17,8 @@
       ls = "eza --icons --group-directories-first";
       la = "eza -la --icons --group-directories-first";
       tree = "tre";
-      nixrebuild = "cd $HOME/nixconfig & sudo nixos-rebuild switch --flake .#$(hostname)";
-      switchhome = "cd $HOME/nixconfig & home-manager switch --flake .#$USER@$(hostname)";
+      nixrebuild = "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)";
+      switchhome = "home-manager switch --flake $HOME/nixconfig#$USER@$(hostname)";
     };
 
     history.size = 10000;
