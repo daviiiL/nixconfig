@@ -8,7 +8,7 @@
     ../../system/hardware/nvidia.nix
     ../../system/packages
     ../../system/security
-    ../../system/services
+    ../../system/services/gnome-full.nix
   ];
 
   boot.initrd.luks.devices."luks-0764ce18-d651-43e8-875e-ba3fec52d432".device = "/dev/disk/by-uuid/0764ce18-d651-43e8-875e-ba3fec52d432";

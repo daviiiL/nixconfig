@@ -7,16 +7,13 @@
 }: {
   imports = [
     ../../home/programs
+    ../../home/programs/gnome
     ../../home/services
-    ../../home/theme
   ];
 
   home = {
     username = "chronos";
     homeDirectory = "/home/chronos";
-    packages = [
-      # inputs.nixvim.packages.${pkgs.system}.default
-    ];
   };
 
   programs = {

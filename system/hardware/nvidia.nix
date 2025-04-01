@@ -9,25 +9,15 @@
     config.allowUnfree = true;
   };
 in {
-  boot.kernelPackages = pkgs.linuxPackagesFor (
-    lib.mkForce pkgs.linuxKernel.kernels.linux_6_12.override {
-      argsOverride = rec {
-        src = pkgs.fetchurl {
-          url = "https://cdn.kernel.org/pub/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";
-          sha256 = "1zwfw3lci3ihandx2cpq3h12x7l94jzr4xkd5lzkn1ppgv8l52g9";
-        };
-        version = "6.12.12";
-        modDirVersion = "6.12.12";
-      };
-    }
-  );
+  boot.kernelPackages =
+    lib.mkForce pkgs.linuxPackages_6_12;
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
     };
     nvidia = {
-      package = unstable.linuxPackages.nvidiaPackages.beta;
+      # package = unstable.linuxPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement = {
         enable = true;
@@ -43,5 +33,14 @@ in {
       };
     };
   };
-  services.xserver.videoDrivers = ["nvidia"];
+
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    videoDrivers = ["nvidia"];
+  };
 }

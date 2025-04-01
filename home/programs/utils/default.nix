@@ -11,6 +11,7 @@ in {
   imports = [
     ./starship.nix
     ./nixvim.nix
+    ./ghostty.nix
   ];
 
   home.packages = with unstable-pkgs; [

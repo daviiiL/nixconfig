@@ -2,6 +2,8 @@
   services.upower.enable = true;
 
   # NOTE: disable power-profiles-daemon cuz those two are in conflict
+
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {
