@@ -19,6 +19,7 @@ in {
     gh
     devenv
     vscode-fhs
+    claude-code
 
     #boring but abs necessity
     libreoffice

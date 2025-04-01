@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./gnome-services.nix
     ./printing.nix
@@ -9,4 +9,11 @@
       enable = true;
     };
   };
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-user-docs
+    gnome-contacts
+    gnome-logs
+    gnome-software
+  ];
 }
