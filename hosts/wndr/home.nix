@@ -1,5 +1,7 @@
 {...}: {
   imports = [
+    ../../home/programs/common
+    ../../home/programs/gnome
     ../../home/programs/hyprland
     ../../home/services
     ../../home/theme

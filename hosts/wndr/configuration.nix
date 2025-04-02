@@ -5,8 +5,8 @@
     ../../system/core
     ../../system/hardware
     ../../system/packages
+    ../../system/services/gnome-full.nix
     ../../system/security
-    ../../system/services
   ];
 
   networking.hostName = "wndr";

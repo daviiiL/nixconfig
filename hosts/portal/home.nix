@@ -1,6 +1,8 @@
 {...}: {
   imports = [
+    ../../home/programs/common
     ../../home/programs/hyprland
+    ../../home/programs/gnome
     ../../home/services
     ../../home/theme
     ../../home/theme/font.nix

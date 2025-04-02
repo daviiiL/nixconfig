@@ -9,7 +9,7 @@
     ../../system/hardware/framework.nix
     ../../system/packages
     ../../system/security
-    ../../system/services
+    ../../system/services/gnome-full.nix
   ];
 
   networking.hostName = "portal";
