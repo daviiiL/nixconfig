@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../system/cachix
     ../../system/core
@@ -12,12 +11,12 @@
   ];
 
   boot.initrd.luks.devices."luks-0764ce18-d651-43e8-875e-ba3fec52d432".device = "/dev/disk/by-uuid/0764ce18-d651-43e8-875e-ba3fec52d432";
-  networking.hostName = "invictia"; # Define your hostname.
+  networking.hostName = "invictia";
   users.users.chronos = {
     isNormalUser = true;
     description = "David Liu";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "video" "input"];
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 }

@@ -1,4 +1,3 @@
-# TODO: this file needs to be broken down eventually
 {
   inputs,
   pkgs,
@@ -9,15 +8,13 @@
     config.allowUnfree = true;
   };
 in {
-  home.packages = with unstable-pkgs; [
-    gnome-tweaks
+  imports = [
+    ../common
   ];
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };
+  home.packages = with unstable-pkgs; [
+    gnome-tweaks
+    gnome-browser-connector
+    gnomeExtensions.dash-to-dock
+  ];
 }

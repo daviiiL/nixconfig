@@ -8,7 +8,6 @@
 
     dirHashes = {
       docs = "$HOME/Documents/";
-      bf = "$HOME/Documents/bf/";
       codespace = "$HOME/Codespace/";
       nixconfig = "$HOME/nixconfig/";
     };

@@ -29,32 +29,11 @@ in {
     #system tools
     tre-command
     eza
-    brillo
-    fuzzel
-    wl-clipboard
-    yad
-    bc
-    cliphist
     powertop
     btop
     xdg-utils
-    hyprshot
     zip
     unzip
-    nautilus
-    gnome-calendar
     neofetch
-    bemenu
-
-    #wayland necessity
-    swww
-
-    #wm
-    anyrun
-    blueberry
-    gnome-control-center
-    hypridle
-    hyprlock
-    hyprshot
   ];
 }

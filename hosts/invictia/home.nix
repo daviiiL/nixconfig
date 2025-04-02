@@ -1,14 +1,8 @@
 {
-  # inputs,
-  # outputs,
-  # config,
-  # pkgs,
-  ...
-}: {
   imports = [
-    ../../home/programs
     ../../home/programs/gnome
-    ../../home/services
+    ../../home/theme
+    # ../../home/services
   ];
 
   home = {
@@ -20,7 +14,6 @@
     home-manager.enable = true;
   };
 
-  # reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
