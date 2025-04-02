@@ -2,7 +2,6 @@
   imports = [
     ../../home/programs/gnome
     ../../home/theme
-    # ../../home/services
   ];
 
   home = {
