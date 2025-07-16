@@ -17,5 +17,5 @@
     extraGroups = ["networkmanager" "wheel" "wireshark" "plugdev" "libvirt" "seat" "users" "video" "kvm" "input"];
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = import ../state-version.nix;
 }

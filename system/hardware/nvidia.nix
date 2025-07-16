@@ -24,7 +24,7 @@ in {
         finegrained = true;
       };
       # will switch to open source driver once its more stable
-      open = false;
+      open = true;
       nvidiaSettings = true;
       prime = {
         offload.enable = true;
