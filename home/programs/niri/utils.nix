@@ -34,18 +34,6 @@ in {
     kdePackages.qtdeclarative
     kdePackages.qt5compat
 
-    (inputs.quickshell.packages.${pkgs.system}.default.override
-      {
-        withJemalloc = true;
-        withQtSvg = true;
-        withWayland = true;
-        withX11 = false;
-        withPipewire = true;
-        withPam = true;
-        withHyprland = true;
-        withI3 = false;
-      })
-
     # settings & controls
     blueberry
     gnome-control-center

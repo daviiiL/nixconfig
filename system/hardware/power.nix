@@ -3,9 +3,9 @@
 
   # NOTE: disable power-profiles-daemon cuz those two are in conflict
 
-  services.power-profiles-daemon.enable = false;
+  services.power-profiles-daemon.enable = true;
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       TLP_ENABLE = 1;
       TLP_WARN_LEVEL = 3;
