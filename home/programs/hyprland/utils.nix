@@ -9,6 +9,8 @@
   };
 in {
   home.packages = with unstable-pkgs; [
+    xdg-desktop-portal-hyprland
+
     # screen stuff
     brillo
     swww

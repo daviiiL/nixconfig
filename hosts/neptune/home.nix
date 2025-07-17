@@ -16,9 +16,6 @@
   home = {
     username = "davidliu";
     homeDirectory = "/Users/davidliu";
-    packages = [
-      # inputs.nixvim.packages.${pkgs.system}.default
-    ];
   };
 
   programs = {
