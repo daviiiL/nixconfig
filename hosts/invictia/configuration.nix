@@ -6,6 +6,7 @@
     ../../system/hardware/laptop.nix
     ../../system/hardware/nvidia.nix
     ../../system/packages
+    ../../system/packages/docker.nix
     ../../system/security
     ../../system/services/gnome-full.nix
   ];

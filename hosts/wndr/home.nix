@@ -1,4 +1,4 @@
-{...}: {
+{user, ...}: {
   imports = [
     ../../home/programs/common
     ../../home/programs/gnome
@@ -14,8 +14,8 @@
   };
 
   home = {
-    username = "chronos";
-    homeDirectory = "/home/chronos";
+    username = builtins.toString user;
+    homeDirectory = "/home/${builtins.toString user}";
   };
 
   programs = {

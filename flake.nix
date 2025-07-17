@@ -54,24 +54,35 @@
       "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    username = "chronos";
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
       wndr = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          user = username;
+        };
         modules = [
           ./hosts/wndr/configuration.nix
         ];
       };
       portal = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          user = username;
+        };
         modules = [
           ./hosts/portal/configuration.nix
         ];
       };
       invictia = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          user = username;
+        };
         modules = [
           ./hosts/invictia/configuration.nix
         ];
