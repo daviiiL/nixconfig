@@ -36,6 +36,14 @@
 
     # neovim
     nixviii.url = "github:daviiiL/nixviii";
+
+    ## development flake inputs
+
+    # docker-compose
+    compose2nix = {
+      url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
