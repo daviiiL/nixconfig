@@ -439,11 +439,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1752773732,
-        "narHash": "sha256-3bW0D3WORpBu47M76Ff3M4iMLwT8w4uzKLx9rd3ZFWo=",
+        "lastModified": 1752775330,
+        "narHash": "sha256-x42s/oIEXc4mhyCTH36SZBOm1LVPyTfbXkXDeRK5k6o=",
         "owner": "daviiiL",
         "repo": "nixviii",
-        "rev": "0c38013c81d42eb316fde56a864e130e3d2b0a50",
+        "rev": "4ac5be54f89336c34364de5af293faded8e89d0e",
         "type": "github"
       },
       "original": {
