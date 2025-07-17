@@ -29,11 +29,6 @@ in {
     # notifications
     libnotify
 
-    # shell services
-    kdePackages.qtbase
-    kdePackages.qtdeclarative
-    kdePackages.qt5compat
-
     # settings & controls
     blueberry
     gnome-control-center
