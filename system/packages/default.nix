@@ -1,12 +1,13 @@
 {pkgs, ...}: {
   imports = [
-    ./hyprland.nix
+    # ./hyprland.nix
+    ./niri.nix
     ./fonts.nix
     # ./theme.nix
   ];
   nixpkgs.config = {
     allowUnfree = true;
-    allowUnfreePredicate = _:true;
+    allowUnfreePredicate = _: true;
   };
   environment.systemPackages = with pkgs; [
     git

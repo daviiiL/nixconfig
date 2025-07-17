@@ -2,8 +2,7 @@
   imports = [
     ../../home/programs/gnome
     ../../home/programs/common
-    ../../home/programs/hyprland
-    ../../home/services
+    ../../home/programs/niri
     ../../home/theme
   ];
 
