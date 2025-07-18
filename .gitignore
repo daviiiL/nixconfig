@@ -1,2 +1,5 @@
 hardware-configuration.nix
 **/hardware-configuration.nix
+
+system/packages/docker/compose/*
+!system/packages/docker/compose/default.nix
