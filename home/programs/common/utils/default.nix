@@ -20,6 +20,8 @@ in {
     devenv
     vscode-fhs
     claude-code
+    zed-editor
+    php
 
     #boring but abs necessity
     libreoffice
