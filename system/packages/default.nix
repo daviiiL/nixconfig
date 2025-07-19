@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    # ./hyprland.nix
     ./niri.nix
     ./fonts.nix
-    # ./theme.nix
   ];
   nixpkgs.config = {
     allowUnfree = true;

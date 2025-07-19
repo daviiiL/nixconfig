@@ -62,7 +62,6 @@
       "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
-
     username = "chronos";
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);

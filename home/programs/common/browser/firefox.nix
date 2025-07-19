@@ -92,13 +92,13 @@ in {
         force = true;
         default = "Kagi";
         privateDefault = "DuckDuckGo";
-        order = ["Kagi" "DuckDuckGo" "Google"];
+        order = ["Kagi" "ddg" "google"];
         engines = {
           "Kagi" = {
             urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
-            iconUpdateURL = "https://kagi.com/favicon.ico";
+            icon = "https://kagi.com/favicon.ico";
           };
-          "Bing".metaData.hidden = true;
+          "bing".metaData.hidden = true;
         };
       };
       # bookmarks = [
@@ -116,9 +116,6 @@ in {
 
       name = "David";
       settings = {
-        # "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-
-        # For Firefox GNOME theme:
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.tabs.drawInTitlebar" = true;
         "svg.context-properties.content.enabled" = true;

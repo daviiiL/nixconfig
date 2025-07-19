@@ -3,7 +3,10 @@
     trusted-users = root chronos
   '';
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    doas.enable = true;
+  };
   boot = {
     kernel.sysctl = {
       "kernel.kptr_restrict" = 1;
