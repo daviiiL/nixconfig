@@ -1,6 +1,8 @@
 # daviiiL's nixos config
 
-> _the old dotfiles are at [nixconfig-legacy](https://github.com/daviiiL/nixconfig-legacy)_
+> the old dotfiles are at [nixconfig-legacy](https://github.com/daviiiL/nixconfig-legacy)
+
+> `trim-generations.sh` is from the NixOS wiki.
 
 ## overview
 
