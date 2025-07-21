@@ -28,6 +28,7 @@ in {
 
     # notifications
     libnotify
+    swaynotificationcenter
 
     # settings & controls
     blueberry

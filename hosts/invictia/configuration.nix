@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../system/cachix
@@ -7,6 +7,7 @@
     ../../system/hardware/nvidia.nix
     ../../system/packages
     ../../system/packages/docker
+    ../../system/packages/microvm.nix
     ../../system/security
     ../../system/services/gnome-full.nix
   ];

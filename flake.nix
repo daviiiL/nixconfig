@@ -44,6 +44,11 @@
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # microvm
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+    };
   };
 
   outputs = {

@@ -10,7 +10,7 @@
   };
 in {
   boot.kernelPackages =
-    lib.mkForce pkgs.linuxPackages_6_12;
+    lib.mkForce pkgs.linuxPackages_6_15;
   hardware = {
     graphics = {
       enable = true;

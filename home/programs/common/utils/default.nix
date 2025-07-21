@@ -12,6 +12,7 @@ in {
     ./starship.nix
     ./nixvim.nix
     ./ghostty.nix
+    ./fastfetch.nix
   ];
 
   home.packages = with unstable-pkgs; [
