@@ -54,6 +54,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     nix-darwin,
     ...
@@ -102,7 +103,7 @@
     };
 
     darwinConfigurations = {
-      Neptune = nix-darwin.lib.darwinSystem {
+      neptune = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/neptune/configuration.nix
         ];
@@ -134,7 +135,7 @@
           ./hosts/invictia/home.nix
         ];
       };
-      "davidliu@Neptune" = home-manager.lib.homeManagerConfiguration {
+      "davidas@neptune" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [

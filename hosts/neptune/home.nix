@@ -14,13 +14,12 @@
   };
 
   home = {
-    username = "davidliu";
-    homeDirectory = "/Users/davidliu";
+    username = "davidas";
+    homeDirectory = "/Users/davidas/";
   };
 
   programs = {
     home-manager.enable = true;
   };
-
   home.stateVersion = import ../state-version.nix;
 }

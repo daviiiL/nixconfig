@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -16,7 +16,10 @@
       ls = "eza --icons --group-directories-first";
       la = "eza -la --icons --group-directories-first";
       tree = "tre";
-      nixrebuild = "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)";
+      nixrebuild =
+        if pkgs.stdenv.isDarwin
+        then "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)"
+        else "sudo darwin-rebuild switch --flake $HOME/nixconfig#$(hostname)";
       switchhome = "home-manager switch --flake $HOME/nixconfig#$USER@$(hostname)";
     };
 

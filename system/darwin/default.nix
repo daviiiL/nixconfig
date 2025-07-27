@@ -6,14 +6,12 @@
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
-      # auto-optimise-store = true;
     };
   };
 
-  services.nix-daemon.enable = true;
-
   security = {
     #NOTE: need to rebuild to reapply after every os update
-    pam.enableSudoTouchIdAuth = true;
+    pam.services.sudo_local.touchIdAuth =
+      true;
   };
 }
