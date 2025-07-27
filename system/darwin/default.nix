@@ -2,11 +2,26 @@
   environment.systemPackages = [
     # inputs.nixviii.packages.${pkgs.system}.default
   ];
-
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+      loginwindow.SHOWFULLNAME = true;
     };
+  };
+
+  system = {
+    primaryUser = "davidas";
+    startup.chime = true;
+    defaults = {
+      trackpad = {
+        TrackpadThreeFingerDrag = true;
+      };
+    };
+  };
+
+  services = {
+    openssh.enable = true;
   };
 
   security = {

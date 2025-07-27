@@ -18,8 +18,8 @@
       tree = "tre";
       nixrebuild =
         if pkgs.stdenv.isDarwin
-        then "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)"
-        else "sudo darwin-rebuild switch --flake $HOME/nixconfig#$(hostname)";
+        then "sudo darwin-rebuild switch --flake $HOME/nixconfig#$(hostname)"
+        else "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)";
       switchhome = "home-manager switch --flake $HOME/nixconfig#$USER@$(hostname)";
     };
 
