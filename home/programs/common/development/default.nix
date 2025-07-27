@@ -12,4 +12,6 @@ in {
     # vscode-fhs
     zed-editor
   ];
+
+  imports = [./alacritty.nix];
 }
