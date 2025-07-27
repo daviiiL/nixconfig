@@ -14,6 +14,8 @@ in {
     ../programs/common/utils/starship.nix
     ../programs/common/utils/fastfetch.nix
     ../programs/common/shell
+    ../programs/common/browser/firefox.nix
+    ../programs/common/communications
     ./utils
   ];
 
