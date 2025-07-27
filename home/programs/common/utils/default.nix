@@ -19,20 +19,14 @@ in {
     #dev
     gh
     devenv
-    vscode-fhs
     claude-code
-    zed-editor
     php
 
     #boring but abs necessity
-    libreoffice
     zathura
-    obsidian
 
     #system tools
-    tre-command
     eza
-    powertop
     btop
     xdg-utils
     zip

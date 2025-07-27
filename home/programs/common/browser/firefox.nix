@@ -91,7 +91,7 @@ in {
       search = {
         force = true;
         default = "Kagi";
-        privateDefault = "DuckDuckGo";
+        privateDefault = "ddg";
         order = ["Kagi" "ddg" "google"];
         engines = {
           "Kagi" = {

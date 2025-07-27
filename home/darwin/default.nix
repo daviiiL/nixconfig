@@ -16,13 +16,15 @@ in {
     ../programs/common/shell
     ../programs/common/browser/firefox.nix
     ../programs/common/communications
+    ../programs/common/development
     ./utils
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     # dev tools
     devenv
     gh
+    claude-code
 
     # system tools
     eza

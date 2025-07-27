@@ -15,7 +15,7 @@
     shellAliases = {
       ls = "eza --icons --group-directories-first";
       la = "eza -la --icons --group-directories-first";
-      tree = "tre";
+      tree = "eza --tree --icons";
       nixrebuild =
         if pkgs.stdenv.isDarwin
         then "sudo darwin-rebuild switch --flake $HOME/nixconfig#$(hostname)"
