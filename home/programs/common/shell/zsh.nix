@@ -27,5 +27,11 @@
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+
+    initContent = ''
+      if [ -f "$HOME/.zprofile" ]; then
+        source "$HOME/.zprofile"
+      fi
+    '';
   };
 }
