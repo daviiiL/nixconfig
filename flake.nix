@@ -54,7 +54,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     nix-darwin,
     ...

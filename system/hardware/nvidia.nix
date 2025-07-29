@@ -17,13 +17,11 @@ in {
       enable32Bit = true;
     };
     nvidia = {
-      # package = unstable.linuxPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement = {
         enable = true;
         finegrained = true;
       };
-      # will switch to open source driver once its more stable
       open = true;
       nvidiaSettings = true;
       prime = {

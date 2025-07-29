@@ -5,7 +5,10 @@
   pkgs,
   ...
 }: {
-  imports = [../../home/darwin];
+  imports = [
+    ../../home/darwin
+    ../../home/programs/common/fun
+  ];
 
   nixpkgs = {
     config = {
