@@ -13,6 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #standalone home-manager: avoid nixos rebuilds for userspace changes
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -54,9 +58,9 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     nix-darwin,
+    lix-module,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -88,6 +92,7 @@
           user = username;
         };
         modules = [
+          lix-module.nixosModules.default
           ./hosts/portal/configuration.nix
         ];
       };
@@ -98,6 +103,7 @@
         };
         modules = [
           ./hosts/invictia/configuration.nix
+          lix-module.nixosModules.default
         ];
       };
     };
@@ -106,6 +112,7 @@
       neptune = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/neptune/configuration.nix
+          lix-module.nixosModules.default
         ];
         specialArgs = {
           inherit inputs self outputs;
