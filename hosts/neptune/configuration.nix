@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../system/darwin.nix
+    ../../system/presets/macbook.nix
   ];
 
   system = {

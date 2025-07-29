@@ -4,11 +4,8 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../system/cachix
-    ../../system/core
+    ../../system/presets/x86-linux-laptop.nix
     ../../system/hardware/framework.nix
-    ../../system/packages
-    ../../system/security
     ../../system/services/gnome-full.nix
   ];
 

@@ -1,12 +1,8 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../system/cachix
-    ../../system/core
-    ../../system/hardware
-    ../../system/packages
+    ../../system/presets/x86-linux-desktop.nix
     ../../system/services/gnome-full.nix
-    ../../system/security
   ];
 
   networking.hostName = "wndr";

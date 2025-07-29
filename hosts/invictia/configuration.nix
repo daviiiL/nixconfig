@@ -1,14 +1,9 @@
 {inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../system/cachix
-    ../../system/core
-    ../../system/hardware/laptop.nix
+    ../../system/presets/x86-linux-laptop.nix
     ../../system/hardware/nvidia.nix
-    ../../system/packages
-    ../../system/packages/docker
-    ../../system/packages/microvm.nix
-    ../../system/security
+    ../../system/presets/vm-docker.nix
     ../../system/services/gnome-full.nix
   ];
 
