@@ -1,4 +1,3 @@
-# not used
 {
   lib,
   pkgs,

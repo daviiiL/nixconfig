@@ -4,13 +4,14 @@
   ...
 }: {
   imports = [
-    ../../system/darwin
+    ../../system/darwin.nix
   ];
-  nix.enable = false;
 
-  system.configurationRevision = self.rev or self.dirtyRev or null;
-  security.pam.services.sudo_local.touchIdAuth = true;
+  system = {
+    configurationRevision = self.rev or self.dirtyRev or null;
+    primaryUser = "davidas";
+  };
 
-  system.stateVersion = 6;
   nixpkgs.hostPlatform = "aarch64-darwin";
+  system.stateVersion = 6;
 }

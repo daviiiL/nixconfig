@@ -9,12 +9,17 @@
   };
 in {
   programs.ghostty = {
-    enable = true;
+    # disablese ghostty if darwin for now
+    enable =
+      if pkgs.stdenv.isDarwin
+      then false
+      else true;
     enableFishIntegration = true;
     installVimSyntax = true;
     package =
-      if pkgs.stdenv.isDarwin
-      then unstable.ghostty-bin
-      else pkgs.ghostty;
+      # if pkgs.stdenv.isDarwin
+      # then unstable.ghostty-bin
+      # else
+      pkgs.ghostty;
   };
 }
