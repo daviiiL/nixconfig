@@ -11,6 +11,7 @@ in {
   home.packages = with unstable-pkgs; [
     # vscode-fhs
     zed-editor
+    gnupg
   ];
 
   imports = [./alacritty.nix];
