@@ -149,6 +149,14 @@
           ./hosts/neptune/home.nix
         ];
       };
+
+      "davidl@mars" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/mars/home.nix
+        ];
+      };
     };
   };
 }

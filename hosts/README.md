@@ -6,6 +6,7 @@
 | xps 15    | invictia |
 | desktop   | wndr     |
 | macbook   | neptune  |
+| non-nixOS | mars     |
 
 ## file structure
 
