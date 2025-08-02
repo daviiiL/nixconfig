@@ -82,6 +82,9 @@ in {
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
         "signon.rememberSignons" = lock-false;
+        "signon.autofillForms" = lock-false;
+        "signon.passwordEditCapture.enabled" = lock-false;
+        "signon.generation.enabled" = lock-false;
         # "widget.gtk.global-menu.wayland.enable" = lock-true;
         # "widget.wayland.fractional-scale.enable" = lock-true;
         "layout.css.devPixelsPerPx" = 1.75;
