@@ -28,5 +28,6 @@ in {
 
     # system tools
     eza
+    btop
   ];
 }

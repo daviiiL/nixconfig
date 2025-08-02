@@ -14,5 +14,8 @@ in {
     gnupg
   ];
 
-  imports = [./alacritty.nix];
+  imports = [
+    ./alacritty.nix
+    ./android-dev.nix
+  ];
 }
