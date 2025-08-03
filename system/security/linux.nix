@@ -21,7 +21,8 @@
       "net.ipv4.conf.all.rp_filter" = "1";
       "net.ipv4.conf.default.log_martians" = true;
       "net.ipv4.conf.default.rp_filter" = "1";
-      "net.ipv4.icmp_echo_ignore_all" = "1";
+      # allows echoes to accommodate public wifi configs
+      "net.ipv4.icmp_echo_ignore_all" = "0";
       "net.ipv4.conf.all.accept_redirects" = false;
       "net.ipv4.conf.all.secure_redirects" = false;
       "net.ipv4.conf.default.accept_redirects" = false;

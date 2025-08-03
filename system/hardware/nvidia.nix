@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: let
   unstable = import inputs.nixpkgs-unstable {
@@ -17,6 +18,8 @@ in {
       enable32Bit = true;
     };
     nvidia = {
+      # testing if the beta nvidia package build against the 6.16 kernel
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement = {
         enable = true;
