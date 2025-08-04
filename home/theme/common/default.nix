@@ -1,15 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ./catppuccin.nix
-  ];
-
-  home.packages = with pkgs; [
-    adw-gtk3
-    matugen
+    ./gtk.nix
+    ./font.nix
   ];
 
   home.pointerCursor = {
@@ -22,7 +14,6 @@
 
   gtk = {
     enable = true;
-
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;

@@ -1,9 +1,8 @@
 {
   imports = [
-    ../../home/programs/gnome
     ../../home/programs/common
-    ../../home/programs/niri
-    ../../home/theme
+    ../../home/programs/gnome
+    ../../home/theme/catppuccin
   ];
 
   home = {

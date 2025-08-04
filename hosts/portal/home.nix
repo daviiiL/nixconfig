@@ -3,8 +3,7 @@
     ../../home/programs/common
     ../../home/programs/hyprland
     ../../home/programs/gnome
-    ../../home/theme
-    ../../home/theme/font.nix
+    ../../home/theme/matugen
   ];
 
   nixpkgs = {
