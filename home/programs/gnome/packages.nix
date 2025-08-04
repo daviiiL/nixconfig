@@ -12,6 +12,7 @@ in {
     gnome-tweaks
     gnome-browser-connector
     dconf-editor
+    gnome-control-center
 
     #extensios
     gnomeExtensions.appindicator
