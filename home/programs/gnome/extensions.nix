@@ -9,29 +9,24 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
-          # dash to dock
           pkgs.gnomeExtensions.dash-to-dock.extensionUuid
-
-          # blur my shell
           # pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-
-          # launcher
           pkgs.gnomeExtensions.search-light.extensionUuid
         ];
       };
-      #
+
       # "org/gnome/shell/extensions/blur-my-shell" = {
       #   brightness = 0.75;
       #   noise-amount = 0;
       # };
-      #
+
       "org/gnome/shell/extensions/search-light" = {
         background-color = lib.hm.gvariant.mkTuple [0.0 0.0 0.0 1.0];
         border-radious = 2.5;
       };
 
       "org/gnome/shell/extensions/dash-to-dock" = {
-        show-apps-at-top = true;
+        show-apps-at-top = false;
         show-running = true;
         show-favorites = true;
         isolate-workspaces = true;
