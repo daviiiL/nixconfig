@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./catppuccin.nix
+  ];
+
   home.packages = with pkgs; [
     adw-gtk3
     matugen
