@@ -10,12 +10,20 @@
 
           # blur my shell
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
+
+          # launcher
+          pkgs.gnomeExtensions.search-light.extensionUuid
         ];
       };
 
       "org/gnome/shell/extensions/blur-my-shell" = {
         brightness = 0.75;
         noise-amount = 0;
+      };
+
+      "org/gnome/shell/extensions/search-light" = {
+        background-color = "(0.0, 0.0, 0.0, 1.0)";
+        border-radious = 2.5;
       };
     };
   };
