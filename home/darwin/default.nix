@@ -13,8 +13,9 @@ in {
     ../programs/common/utils/nixvim.nix
     ../programs/common/utils/starship.nix
     ../programs/common/utils/fastfetch.nix
+    ../programs/common/utils/leetgo.nix
     ../programs/common/shell
-    ../programs/common/browser/firefox.nix
+    ../programs/common/browsers/firefox.nix
     ../programs/common/communications
     ../programs/common/development
     ./utils

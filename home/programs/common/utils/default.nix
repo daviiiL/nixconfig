@@ -13,6 +13,7 @@ in {
     ./nixvim.nix
     ./ghostty.nix
     ./fastfetch.nix
+    ./leetgo.nix
   ];
 
   home.packages = with unstable-pkgs; [

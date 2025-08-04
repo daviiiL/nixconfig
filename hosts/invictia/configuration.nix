@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.dell-xps-15-9530-nvidia
     ../../system/presets/x86-linux-laptop.nix
     ../../system/hardware/nvidia.nix
     ../../system/presets/vm-docker.nix

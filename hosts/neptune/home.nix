@@ -7,7 +7,6 @@
 }: {
   imports = [
     ../../home/darwin
-    ../../home/programs/common/fun
   ];
 
   nixpkgs = {

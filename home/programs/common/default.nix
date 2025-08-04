@@ -1,10 +1,9 @@
 {
   imports = [
-    ./browser
+    ./browsers
     ./communications
     ./development
     ./shell
     ./utils
-    ./fun
   ];
 }

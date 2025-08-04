@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    #darwin for the win...macos
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -21,39 +20,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #standalone home-manager: avoid nixos rebuilds for userspace changes
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #for laptops
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    #ags scaffolding for astal; setup with home manager without bundling
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     quickshell = {
-      # add ?ref=<tag> to track a tag
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # neovim
     nixviii.url = "github:daviiiL/nixviii";
 
-    ## development flake inputs
-
-    # docker-compose
     compose2nix = {
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # microvm
     microvm = {
       url = "github:microvm-nix/microvm.nix";
     };
