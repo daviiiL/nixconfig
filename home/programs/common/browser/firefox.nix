@@ -8,14 +8,6 @@ let
     Status = "locked";
   };
 in {
-  # home.file."firefox-gnome-theme" = {
-  #   target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
-  #   source = fetchTarball {
-  #     url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
-  #     sha256 = "sha256-MOE9NeU2i6Ws1GhGmppMnjOHkNLl2MQMJmGhaMzdoJM=";
-  #   };
-  # };
-
   programs.firefox = {
     enable = true;
     policies = {
@@ -34,7 +26,7 @@ in {
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       DontCheckDefaultBrowser = true;
-      DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+      DisplayBookmarksToolbar = "newtab"; # alternatives: "always" or "newtab"
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
       ExtensionSettings = {
@@ -104,18 +96,6 @@ in {
           "bing".metaData.hidden = true;
         };
       };
-      # bookmarks = [
-      #   {
-      #     name = "aA Student Portal";
-      #     tags = ["aa"];
-      #     keyword = "aaportal";
-      #     url = "my.appacademy.io";
-      #   }
-      #   {
-      #     name = "NixOS Search";
-      #     url = "search.nixos.org";
-      #   }
-      # ];
 
       name = "David";
       settings = {
@@ -123,10 +103,6 @@ in {
         "browser.tabs.drawInTitlebar" = true;
         "svg.context-properties.content.enabled" = true;
       };
-      # userChrome = ''
-      #   @import "firefox-gnome-theme/userChrome.css";
-      # '';
-      # @import "firefox-gnome-theme/theme/colors/dark.css";
     };
   };
 }

@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   dconf = {
     enable = true;
     settings = {
@@ -22,7 +26,7 @@
       # };
       #
       "org/gnome/shell/extensions/search-light" = {
-        background-color = lib.hm.gvariant.mkTuple [ 0.0 0.0 0.0 1.0 ];
+        background-color = lib.hm.gvariant.mkTuple [0.0 0.0 0.0 1.0];
         border-radious = 2.5;
       };
 
@@ -33,6 +37,7 @@
         isolate-workspaces = true;
         dock-fixed = false;
         intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+        background-color = "rgb(0,0,0)";
       };
     };
   };
