@@ -30,5 +30,6 @@ in {
     # system tools
     eza
     btop
+    fzf
   ];
 }
