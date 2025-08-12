@@ -10,7 +10,7 @@
 in {
   home.packages = with unstable-pkgs; [
     # vscode-fhs
-    zed-editor
+    # zed-editor
     gnupg
   ];
 
