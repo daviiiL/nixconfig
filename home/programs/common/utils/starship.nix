@@ -15,7 +15,7 @@ in {
       add_newline = true;
       format = lib.strings.concatStrings [
         "$nix_shell"
-        "$os"
+        # "$os"
         "$directory"
         "$container"
         "$git_branch $git_status"
