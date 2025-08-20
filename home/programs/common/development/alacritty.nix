@@ -4,7 +4,7 @@
 
     settings = {
       font = {
-        size = 16;
+        size = 14;
         normal = {
           family = "SauceCodePro Nerd Font Mono";
           style = "Regular";
