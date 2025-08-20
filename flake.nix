@@ -106,7 +106,7 @@
       neptune = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/neptune/configuration.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
         ];
         specialArgs = {
           inherit inputs self outputs;
