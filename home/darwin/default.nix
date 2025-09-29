@@ -9,11 +9,9 @@
   };
 in {
   imports = [
-    ../programs/common/utils/ghostty.nix
     ../programs/common/utils/nixvim.nix
     ../programs/common/utils/starship.nix
     ../programs/common/utils/fastfetch.nix
-    ../programs/common/utils/leetgo.nix
     ../programs/common/shell
     ../programs/common/browsers/firefox.nix
     ../programs/common/communications

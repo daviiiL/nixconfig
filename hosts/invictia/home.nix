@@ -2,7 +2,7 @@
   imports = [
     ../../home/programs/common
     ../../home/programs/gnome
-    ../../home/theme/catppuccin
+    ../../home/theme/gnome-custom
   ];
 
   home = {

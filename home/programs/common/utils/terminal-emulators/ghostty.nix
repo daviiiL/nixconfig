@@ -12,5 +12,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     package = pkgs.ghostty;
+
+    settings.confirm-close-surface = false;
   };
 }

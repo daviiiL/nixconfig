@@ -11,9 +11,10 @@ in {
   imports = [
     ./starship.nix
     ./nixvim.nix
-    ./ghostty.nix
     ./fastfetch.nix
     ./leetgo.nix
+
+    ./terminal-emulators
   ];
 
   home.packages = with unstable-pkgs; [
