@@ -12,6 +12,10 @@
           pkgs.gnomeExtensions.dash-to-dock.extensionUuid
           # pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.search-light.extensionUuid
+          pkgs.gnomeExtensions.kimpanel.extensionUuid
+          pkgs.gnomeExtensions.rounded-window-corners-reborn.extensionUuid
+
+          pkgs.gnomeExtensions.removable-drive-menu.extensionUuid
         ];
       };
 

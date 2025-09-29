@@ -19,5 +19,8 @@ in {
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
     gnomeExtensions.search-light
+    gnomeExtensions.kimpanel
+    gnomeExtensions.rounded-window-corners-reborn
+    gnomeExtensions.removable-drive-menu
   ];
 }

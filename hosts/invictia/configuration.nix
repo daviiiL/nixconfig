@@ -6,6 +6,7 @@
     ../../system/hardware/nvidia.nix
     ../../system/presets/vm-docker.nix
     ../../system/services/gnome-full.nix
+    ../../system/services/input-methods.nix
   ];
 
   networking.hostName = "invictia";
