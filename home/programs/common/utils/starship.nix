@@ -75,7 +75,6 @@ in {
         "Videos" = " ";
         "Projects" = "󱌢 ";
         "Codespace" = "󱌢 ";
-        "School" = "󰑴 ";
         "GitHub" = "";
         ".config" = " ";
         "Vault" = "󱉽 ";
@@ -90,14 +89,7 @@ in {
         format = "$symbol";
       };
       os.symbols = {
-        Arch = os "" "bright-blue";
-        Debian = os "" "red)";
-        EndeavourOS = os "" "purple";
-        Fedora = os "" "blue";
         NixOS = os "" "blue";
-        openSUSE = os "" "green";
-        SUSE = os "" "green";
-        Ubuntu = os "" "bright-purple";
       };
       python = lang "" "yellow";
       nodejs = lang " " "yellow";

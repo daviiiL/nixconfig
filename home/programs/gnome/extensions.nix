@@ -1,28 +1,39 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
-}: {
+}: let
+  unstable-pkgs = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in {
+  home.packages = with unstable-pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.search-light
+    gnomeExtensions.kimpanel
+    gnomeExtensions.rounded-window-corners-reborn
+    gnomeExtensions.removable-drive-menu
+    gnomeExtensions.tray-icons-reloaded
+  ];
+
   dconf = {
     enable = true;
     settings = {
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = [
-          pkgs.gnomeExtensions.dash-to-dock.extensionUuid
-          # pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-          pkgs.gnomeExtensions.search-light.extensionUuid
-          pkgs.gnomeExtensions.kimpanel.extensionUuid
-          pkgs.gnomeExtensions.rounded-window-corners-reborn.extensionUuid
-
-          pkgs.gnomeExtensions.removable-drive-menu.extensionUuid
+        enabled-extensions = with unstable-pkgs.gnomeExtensions; [
+          dash-to-dock.extensionUuid
+          search-light.extensionUuid
+          kimpanel.extensionUuid
+          rounded-window-corners-reborn.extensionUuid
+          removable-drive-menu.extensionUuid
+          tray-icons-reloaded.extensionUuid
         ];
       };
-
-      # "org/gnome/shell/extensions/blur-my-shell" = {
-      #   brightness = 0.75;
-      #   noise-amount = 0;
-      # };
 
       "org/gnome/shell/extensions/search-light" = {
         background-color = lib.hm.gvariant.mkTuple [0.0 0.0 0.0 1.0];

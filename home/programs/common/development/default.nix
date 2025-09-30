@@ -9,13 +9,13 @@
   };
 in {
   home.packages = with unstable-pkgs; [
-    # vscode-fhs
-    # zed-editor
     gnupg
+    direnv
   ];
 
   imports = [
     ./alacritty.nix
     ./android-dev.nix
+    ./vscode.nix
   ];
 }
