@@ -7,6 +7,8 @@
   pad = {
     left = "";
     right = "";
+    # left = "  ";
+    # right = "  ";
   };
 in {
   programs.starship = {

@@ -14,7 +14,6 @@ in {
   ];
 
   imports = [
-    ./alacritty.nix
     ./android-dev.nix
     ./vscode.nix
   ];

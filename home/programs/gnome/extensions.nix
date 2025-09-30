@@ -18,6 +18,7 @@ in {
     gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.user-themes
   ];
 
   dconf = {
@@ -32,6 +33,7 @@ in {
           rounded-window-corners-reborn.extensionUuid
           removable-drive-menu.extensionUuid
           tray-icons-reloaded.extensionUuid
+          user-themes.extensionUuid
         ];
       };
 

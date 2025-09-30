@@ -3,6 +3,7 @@ let
 in {
   imports = [
     ./ghostty.nix
+    ./alacritty.nix
   ];
 
   dconf.settings = {

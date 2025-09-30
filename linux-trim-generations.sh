@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ## Defaults
-keepGensDef=30; keepDaysDef=30
+keepGensDef=5; keepDaysDef=5
 keepGens=$keepGensDef; keepDays=$keepDaysDef
 
 ## Usage

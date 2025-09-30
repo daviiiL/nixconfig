@@ -16,6 +16,7 @@ in {
     ../programs/common/browsers/firefox.nix
     ../programs/common/communications
     ../programs/common/development
+    ../programs/common/utils/terminal-emulators/alacritty.nix
     ./utils
   ];
 
