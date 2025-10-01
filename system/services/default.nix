@@ -5,5 +5,6 @@
     ./printing.nix
     ./webcam.nix
     ./input-methods.nix
+    ./flatpak.nix
   ];
 }
