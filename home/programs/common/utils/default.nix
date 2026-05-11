@@ -33,6 +33,5 @@ in {
     xdg-utils
     zip
     unzip
-    neofetch
   ];
 }

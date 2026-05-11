@@ -11,9 +11,9 @@
 
   networking.hostName = "portal";
 
-  users.users.chronos = {
+  users.users.rudeus = {
     isNormalUser = true;
-    description = "chronos";
+    description = "rudeus";
     extraGroups = ["networkmanager" "wheel" "wireshark" "plugdev" "libvirt" "seat" "users" "video" "kvm" "input"];
   };
 

@@ -28,7 +28,7 @@ in {
     hyprshot
 
     # settings & controls
-    blueberry
+    blueman
     gnome-control-center
 
     # gnome apps

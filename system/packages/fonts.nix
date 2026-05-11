@@ -2,7 +2,6 @@
   fonts.packages = with pkgs; [
     inter-nerdfont
     noto-fonts
-    noto-fonts-extra
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     liberation_ttf

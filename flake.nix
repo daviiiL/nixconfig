@@ -10,10 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lix-module = {
+    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -92,10 +92,9 @@
           portal = nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit inputs outputs;
-              user = username;
+              user = "rudeus";
             };
             modules = [
-              lix-module.nixosModules.default
               ./hosts/portal/configuration.nix
             ];
           };
@@ -126,21 +125,21 @@
         homeConfigurations = {
           "chronos@wndr" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs;};
+            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
             modules = [
               ./hosts/wndr/home.nix
             ];
           };
-          "chronos@portal" = home-manager.lib.homeManagerConfiguration {
+          "rudeus@portal" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs;};
+            extraSpecialArgs = {inherit inputs outputs; user = "rudeus";};
             modules = [
               ./hosts/portal/home.nix
             ];
           };
           "chronos@invictia" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs;};
+            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
             modules = [
               ./hosts/invictia/home.nix
             ];
