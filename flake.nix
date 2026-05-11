@@ -92,7 +92,7 @@
           portal = nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit inputs outputs;
-              user = "rudeus";
+              user = username;
             };
             modules = [
               ./hosts/portal/configuration.nix
@@ -130,9 +130,9 @@
               ./hosts/wndr/home.nix
             ];
           };
-          "rudeus@portal" = home-manager.lib.homeManagerConfiguration {
+          "chronos@portal" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs; user = "rudeus";};
+            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
             modules = [
               ./hosts/portal/home.nix
             ];

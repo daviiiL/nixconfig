@@ -1,21 +1,30 @@
 {
+  config,
   user,
   inputs,
-  pkgs,
+  lib,
   ...
-}: {
-  virtualisation.docker = {
-    enable = true;
-    # rootless = {
-    #   enable = true;
-    #   setSocketVariable = true;
-    # };
+}: let
+  cfg = config.localSystem.packages.docker;
+in {
+  options.localSystem.packages.docker = {
+    enable = lib.mkEnableOption "Docker daemon and compose2nix";
+    rootless = lib.mkEnableOption "rootless Docker";
   };
 
-  environment.systemPackages = [
-    inputs.compose2nix.packages.x86_64-linux.default
-    pkgs.docker-compose
-  ];
+  config = lib.mkIf cfg.enable {
+    virtualisation.docker = {
+      enable = true;
+      rootless = lib.mkIf cfg.rootless {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
 
-  users.users.${user}.extraGroups = ["docker"];
+    environment.systemPackages = [
+      inputs.compose2nix.packages.x86_64-linux.default
+    ];
+
+    users.users.${user}.extraGroups = ["docker"];
+  };
 }

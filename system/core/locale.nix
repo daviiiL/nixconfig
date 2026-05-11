@@ -1,15 +1,19 @@
 {
-  services.automatic-timezoned.enable = true;
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  config,
+  lib,
+  ...
+}: {
+  options.localSystem.core.locale = {
+    enable = lib.mkEnableOption "automatic timezone and default locale";
+    defaultLocale = lib.mkOption {
+      type = lib.types.str;
+      default = "en_US.UTF-8";
+      description = "Default system locale.";
+    };
+  };
+
+  config = lib.mkIf config.localSystem.core.locale.enable {
+    services.automatic-timezoned.enable = true;
+    i18n.defaultLocale = config.localSystem.core.locale.defaultLocale;
   };
 }

@@ -1,104 +1,81 @@
-{lib, ...}: {
-  nix.extraOptions = ''
-    trusted-users = root chronos
-  '';
-
-  security = {
-    rtkit.enable = true;
-    doas.enable = true;
+{
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.localSystem.security.linux;
+in {
+  options.localSystem.security.linux = {
+    enable = lib.mkEnableOption "Linux hardening (kernel sysctls, module blacklist, AppArmor, firewall)";
+    doas = lib.mkEnableOption "doas instead of sudo";
+    apparmor = lib.mkEnableOption "AppArmor with kill-unconfineds";
+    firewall = lib.mkEnableOption "nftables firewall";
   };
-  boot = {
-    kernel.sysctl = {
-      "kernel.kptr_restrict" = 1;
-      "kernel.printk" = "3 3 3 3";
 
-      "dev.tty.ldisc_autoload" = 0;
-      "kernel.sysrq" = 4;
+  config = lib.mkIf cfg.enable {
+    nix.extraOptions = ''
+      trusted-users = root chronos
+    '';
+    nix.settings.allowed-users = lib.mkDefault ["@users"];
 
-      # "net.ipv4.tcp_syncookies" = 1;
-      # "net.ipv4.tcp_rfc1337" = 1;
-      # "net.ipv4.conf.all.log_martians" = true;
-      # "net.ipv4.conf.all.rp_filter" = "1";
-      # "net.ipv4.conf.default.log_martians" = true;
-      # "net.ipv4.conf.default.rp_filter" = "1";
-      # # allows echoes to accommodate public wifi configs
-      # "net.ipv4.icmp_echo_ignore_all" = "1";
-      # "net.ipv4.conf.all.accept_redirects" = false;
-      # "net.ipv4.conf.all.secure_redirects" = false;
-      # "net.ipv4.conf.default.accept_redirects" = false;
-      # "net.ipv4.conf.default.secure_redirects" = false;
-      # "net.ipv6.conf.all.accept_redirects" = false;
-      # "net.ipv6.conf.default.accept_redirects" = false;
-      # "net.ipv4.conf.all.send_redirects" = false;
-      # "net.ipv4.conf.default.send_redirects" = false;
-      "kernel.yama.ptrace_scope" = 2;
-      "net.core.bpf_jit_enable" = false;
-      "kernel.ftrace_enabled" = false;
+    security = {
+      rtkit.enable = true;
+      doas.enable = cfg.doas;
+      protectKernelImage = lib.mkDefault true;
+      apparmor = lib.mkIf cfg.apparmor {
+        enable = lib.mkDefault true;
+        killUnconfinedConfinables = lib.mkDefault true;
+      };
     };
 
-    blacklistedKernelModules = [
-      # Obscure network protocols
-      "ax25"
-      "netrom"
-      "rose"
-      # Old or rare or insufficiently audited filesystems
-      "adfs"
-      "affs"
-      "bfs"
-      "befs"
-      "cramfs"
-      "efs"
-      "erofs"
-      "exofs"
-      "freevxfs"
-      "f2fs"
-      "vivid"
-      "gfs2"
-      "ksmbd"
-      "nfsv4"
-      "nfsv3"
-      "cifs"
-      "nfs"
-      "cramfs"
-      "freevxfs"
-      "jffs2"
-      "hfs"
-      "hfsplus"
-      "squashfs"
-      "udf"
-      "hpfs"
-      "jfs"
-      "minix"
-      "nilfs2"
-      "omfs"
-      "qnx4"
-      "qnx6"
-      "sysv"
-    ];
-  };
+    boot = {
+      kernel.sysctl = {
+        "kernel.kptr_restrict" = 1;
+        "kernel.printk" = "3 3 3 3";
+        "dev.tty.ldisc_autoload" = 0;
+        "kernel.sysrq" = 4;
+        "kernel.yama.ptrace_scope" = 2;
+        "net.core.bpf_jit_enable" = false;
+        "kernel.ftrace_enabled" = false;
+      };
 
-  # enable firewall
-  networking = {
-    firewall.enable = true;
-  };
-
-  nix.settings.allowed-users = lib.mkDefault ["@users"];
-
-  security = {
-    # lockKernelModules = lib.mkDefault true;
-    protectKernelImage = lib.mkDefault true;
-
-    apparmor = {
-      enable = lib.mkDefault true;
-      killUnconfinedConfinables = lib.mkDefault true;
+      blacklistedKernelModules = [
+        "ax25"
+        "netrom"
+        "rose"
+        "adfs"
+        "affs"
+        "bfs"
+        "befs"
+        "cramfs"
+        "efs"
+        "erofs"
+        "exofs"
+        "freevxfs"
+        "f2fs"
+        "vivid"
+        "gfs2"
+        "ksmbd"
+        "nfsv4"
+        "nfsv3"
+        "cifs"
+        "nfs"
+        "jffs2"
+        "hfs"
+        "hfsplus"
+        "squashfs"
+        "udf"
+        "hpfs"
+        "jfs"
+        "minix"
+        "nilfs2"
+        "omfs"
+        "qnx4"
+        "qnx6"
+        "sysv"
+      ];
     };
-  };
 
-  # dunno if needed but here's an antivirus daemon
-  # services = {
-  #   clamav = {
-  #     daemon.enable = true;
-  #     updater.enable = true;
-  #   };
-  # };
+    networking.firewall.enable = cfg.firewall;
+  };
 }

@@ -1,16 +1,21 @@
 {
+  config,
+  lib,
   pkgs,
-  inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    alacritty
-  ];
+  options.localSystem.packages.niri = {
+    enable = lib.mkEnableOption "niri compositor (system-level)";
+  };
 
-  qt.enable = true;
+  config = lib.mkIf config.localSystem.packages.niri.enable {
+    programs.niri.enable = true;
+    qt.enable = true;
 
-  programs.niri.enable = true;
-  programs.niri.package = pkgs.niri;
+    environment.systemPackages = with pkgs; [
+      alacritty
+    ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  };
 }

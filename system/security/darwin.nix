@@ -1,11 +1,14 @@
-{...}: {
-  services = {
-    openssh.enable = false;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.localSystem.security.darwin = {
+    enable = lib.mkEnableOption "Darwin hardening (SSH disabled, Touch ID for sudo)";
   };
 
-  security = {
-    #NOTE: need to rebuild to reapply after every os update
-    pam.services.sudo_local.touchIdAuth =
-      true;
+  config = lib.mkIf config.localSystem.security.darwin.enable {
+    services.openssh.enable = false;
+    security.pam.services.sudo_local.touchIdAuth = true;
   };
 }

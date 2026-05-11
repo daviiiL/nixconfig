@@ -1,13 +1,22 @@
-{pkgs, ...}: {
-  services = {
-    # needed for GNOME services outside of GNOME Desktop
-    dbus.packages = with pkgs; [
-      gcr
-      gnome-settings-daemon
-    ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options.localSystem.services.gnome.services = {
+    enable = lib.mkEnableOption "GNOME-adjacent services (keyring, gvfs, gcr) — usable outside the full GNOME desktop";
+  };
 
-    gnome.gnome-keyring.enable = true;
+  config = lib.mkIf config.localSystem.services.gnome.services.enable {
+    services = {
+      dbus.packages = with pkgs; [
+        gcr
+        gnome-settings-daemon
+      ];
 
-    gvfs.enable = true;
+      gnome.gnome-keyring.enable = true;
+      gvfs.enable = true;
+    };
   };
 }

@@ -1,10 +1,11 @@
 {
   imports = [
-    ./greetd.nix
+    ./flatpak.nix
+    ./gnome-full.nix
     ./gnome-services.nix
+    ./greetd.nix
+    ./input-methods.nix
     ./printing.nix
     ./webcam.nix
-    ./input-methods.nix
-    ./flatpak.nix
   ];
 }
