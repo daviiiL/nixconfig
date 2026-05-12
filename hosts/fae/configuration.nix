@@ -6,6 +6,7 @@
 
   localSystem = {
     services.gnome.full.enable = true;
+    packages.niri.enable = true;
     hardware.intelArc = {
       enable = true;
       compute.enable = true;

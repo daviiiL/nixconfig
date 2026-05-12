@@ -6,6 +6,7 @@
 
   localHome = {
     wm.gnome.enable = true;
+    wm.niri.enable = true;
     theme.gnome-custom.enable = true;
   };
 
