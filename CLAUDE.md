@@ -4,118 +4,83 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is daviiiL's NixOS configuration repository using Nix Flakes. The configuration supports multiple hosts (both NixOS and Darwin) with modular system and home configurations.
+daviiiL's NixOS / nix-darwin / home-manager configuration as a single Nix flake. Pins `nixpkgs` and `home-manager` to `25.11` (see `flake.nix`, `hosts/state-version.nix`). Built with `flake-parts`; the formatter is `alejandra`.
 
 ## Core Commands
 
-### Formatting
 ```bash
-# Format all Nix files using alejandra formatter
+# Format all Nix files (alejandra, wired via flake-parts perSystem.formatter)
 nix fmt
-```
 
-### Building and Switching
-```bash
-# Build and switch NixOS configuration
-sudo nixos-rebuild switch --flake .#<hostname>
+# Build & switch — pick the matching command for the target
+sudo nixos-rebuild switch --flake .#<hostname>          # wndr | portal | invictia
+darwin-rebuild switch --flake .#<hostname>              # neptune
+home-manager switch --flake .#<user>@<hostname>         # chronos@{wndr,portal,invictia}, davidas@neptune, davidl@mars
 
-# Build and switch Darwin configuration (macOS)
-darwin-rebuild switch --flake .#<hostname>
-
-# Build and switch home-manager configuration
-home-manager switch --flake .#<user>@<hostname>
-```
-
-### Generation Management
-```bash
-# Clean up old generations using the provided script
-./trim-generations.sh
-
-# Manual generation cleanup with custom parameters
-./trim-generations.sh <keep-generations> <keep-days> <profile>
-```
-
-### Flake Operations
-```bash
-# Update flake inputs
+# Validate / inspect the flake
+nix flake check
+nix flake show
 nix flake update
 
-# Show flake outputs
-nix flake show
-
-# Check flake
-nix flake check
+# Trim old generations (script lives at repo root, NOT named trim-generations.sh)
+./linux-trim-generations.sh                              # interactive, defaults to 5 gens / 5 days
+./linux-trim-generations.sh <keep-gens> <keep-days> <profile>   # profile: user | home-manager | channels | system
 ```
 
-## Repository Architecture
+## Architecture
 
-### Directory Structure
-```
-.
-├── flake.nix          # Main flake configuration
-├── hosts/             # Per-host configurations
-│   ├── wndr/          # Desktop (x86_64-linux)
-│   ├── portal/        # Framework laptop (x86_64-linux)
-│   ├── invictia/      # XPS 15 laptop (x86_64-linux)
-│   ├── neptune/       # MacBook (aarch64-darwin)
-│   └── mars/          # Non-NixOS host (home-manager only)
-├── system/            # NixOS system configurations
-│   ├── core/          # Core system settings (boot, locale, network, etc.)
-│   ├── hardware/      # Hardware-specific modules
-│   ├── packages/      # System package configurations
-│   ├── presets/       # System presets for different machine types
-│   ├── security/      # Security configurations
-│   └── services/      # System services
-└── home/              # Home Manager configurations
-    ├── darwin/        # Darwin-specific home configurations
-    ├── programs/      # Program configurations organized by type
-    └── theme/         # Theming configurations
+### The `localSystem.*` options pattern (the central abstraction)
+
+Every module under `system/` follows the same shape: declare a feature option under the `localSystem.*` namespace, gate its body with `lib.mkIf`. Hosts compose by **flipping toggles**, not by importing leaf modules directly. Example:
+
+```nix
+# system/services/greetd.nix declares: options.localSystem.services.greetd.enable
+# system/presets/x86-linux-base.nix imports ../services (which imports all leaf modules)
+# A host then writes:
+localSystem.services.greetd.enable = true;
 ```
 
-### Key Flake Inputs
-- `nixpkgs`: Main package repository (25.05 stable)
-- `nixpkgs-unstable`: Unstable packages when needed
-- `home-manager`: User environment management
-- `nix-darwin`: macOS system management
-- `catppuccin`: Catppuccin theme integration
-- `ags`/`quickshell`: Shell/bar configurations
-- `nixviii`: Custom Neovim configuration
-- `lix-module`: Alternative Nix implementation
+Consequences when editing:
+- **Adding a new module** under `system/` requires both writing the `options.localSystem.*` schema *and* adding it to the appropriate `default.nix` aggregator (e.g. `system/services/default.nix`). It will not auto-load.
+- **Cross-module implications** are wired by having one module set another's `localSystem.*` toggle (with `lib.mkDefault`) inside its own `config` block — see `system/hardware/framework.nix` enabling `localSystem.hardware.laptop`, and `system/services/gnome-full.nix` enabling `gnome.services` + `printing`.
+- **Two host styles coexist**: `portal` uses the toggle style (`localSystem.services.gnome.full.enable = true`); `wndr` directly imports `system/services/gnome-full.nix`. Both work; prefer toggles for new hosts.
 
-### Host Configurations
+### Preset hierarchy
 
-| Host | Type | Platform | Description |
-|------|------|----------|-------------|
-| wndr | Desktop | x86_64-linux | Desktop system |
-| portal | Laptop | x86_64-linux | Framework laptop |
-| invictia | Laptop | x86_64-linux | XPS 15 |
-| neptune | Laptop | aarch64-darwin | MacBook |
-| mars | Non-NixOS | x86_64-linux | Home-manager only |
+Hosts import exactly one preset:
+- `system/presets/x86-linux-base.nix` — cachix, core, packages.core+fonts, security.linux defaults
+- `system/presets/x86-linux-desktop.nix` — base + hardware (audio, bluetooth, graphics.amd)
+- `system/presets/x86-linux-laptop.nix` — desktop + laptop power/lid tweaks
+- `system/presets/macbook.nix` — Darwin equivalent
 
-### Modular System Design
+Hardware specializations (e.g. `framework.nix`) layer on top via their own `localSystem.hardware.*.enable` toggle.
 
-The configuration uses a highly modular approach:
+### Host → user mappings (from `flake.nix`)
 
-- **System presets**: `system/presets/` contains base configurations for different machine types (desktop, laptop, macbook)
-- **Hardware modules**: `system/hardware/` handles hardware-specific configurations (nvidia, bluetooth, audio, etc.)
-- **Program organization**: `home/programs/` separates programs by desktop environment (common, hyprland, niri, gnome)
-- **Theming**: Centralized theme management in `home/theme/` with support for dynamic colorscheme generation
+| Host | System type | Home-manager user |
+|------|-------------|-------------------|
+| wndr | nixosSystem (x86_64-linux) | `chronos@wndr` |
+| portal | nixosSystem (x86_64-linux, Framework) | `chronos@portal` |
+| invictia | nixosSystem (x86_64-linux, XPS 15) | `chronos@invictia` |
+| neptune | darwinSystem (aarch64-darwin) | `davidas@neptune` |
+| mars | (no system config, non-NixOS) | `davidl@mars` |
 
-### Special Features
+`hosts/<name>/configuration.nix` is the system entry point; `hosts/<name>/home.nix` is the per-host home-manager entry. `hardware-configuration.nix` is **gitignored** — each machine has its own.
 
-- **Dynamic theming**: Some programs are excluded from home-manager for dynamic colorscheme generation
-- **Multi-platform support**: Configurations for both Linux (NixOS) and macOS (Darwin)
-- **Wayland compositors**: Support for Hyprland, Niri, and GNOME
-- **Development environments**: Android development, various programming languages
-- **Container support**: Docker configurations with compose2nix integration
+### Home-manager layout
 
-### Development Workflow
+`home/programs/{common,gnome,hyprland,niri}` group programs by desktop environment. Each host's `home.nix` imports whichever subsets apply. `home/theme/` holds theming: `catppuccin`, `matugen` (dynamic colorscheme generation), `gnome-custom`, `common`. Some programs are intentionally **not** managed by home-manager so `matugen` can rewrite their configs at runtime — don't migrate those into home-manager.
 
-When making changes:
-1. Test locally with `nixos-rebuild switch --flake .#<hostname>` or appropriate command
-2. Format code with `nix fmt` before committing
-3. Use `nix flake check` to validate the flake
-4. Update flake lock with `nix flake update` when updating inputs
+### Shared state version
 
-### Username Convention
-The default username is `chronos` for Linux hosts and varies for Darwin hosts (see flake.nix for specific mappings).
+All NixOS/home-manager hosts read `hosts/state-version.nix` (currently `"25.11"`) via `import ../state-version.nix`. Bump this single file when migrating across NixOS releases; do not hardcode versions per host.
+
+## Known constraints & gotchas
+
+- **`system/packages/theme.nix` is opt-in** — explicitly excluded from `system/packages/default.nix` because its `gtk` submodule references `services.displayManager.generic`, which only exists in `nixpkgs-unstable` and breaks 25.11 evaluation. Hosts that want catppuccin theming must import it directly.
+- **`hardware-configuration.nix` is gitignored** — never commit it; per-host hardware files stay local.
+- **Always run `nix fmt` before committing.** alejandra is the formatter set by `perSystem.formatter`; CI/`nix flake check` will surface unformatted files.
+
+## Active flake inputs
+
+`nixpkgs` (25.11), `nixpkgs-unstable`, `home-manager` (release-25.11), `nix-darwin`, `nixos-hardware`, `flake-parts`, `catppuccin`, `ags`, `quickshell`, `nixviii` (custom Neovim from `github:daviiiL/nixviii`), `compose2nix`, `microvm`.

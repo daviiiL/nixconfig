@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # lix-module = {
-    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +25,12 @@
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    qml-niri = {
+      url = "github:imiric/qml-niri/main";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.quickshell.follows = "quickshell";
     };
 
     nixviii.url = "github:daviiiL/nixviii";
@@ -75,7 +76,7 @@
       };
 
       flake = let
-        inherit (inputs) self nixpkgs home-manager nix-darwin lix-module;
+        inherit (inputs) self nixpkgs home-manager nix-darwin;
         inherit (self) outputs;
         username = "chronos";
       in {
@@ -105,7 +106,6 @@
             };
             modules = [
               ./hosts/invictia/configuration.nix
-              lix-module.nixosModules.default
             ];
           };
         };
@@ -114,7 +114,6 @@
           neptune = nix-darwin.lib.darwinSystem {
             modules = [
               ./hosts/neptune/configuration.nix
-              # lix-module.nixosModules.default
             ];
             specialArgs = {
               inherit inputs self outputs;
@@ -125,21 +124,30 @@
         homeConfigurations = {
           "chronos@wndr" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              user = "chronos";
+            };
             modules = [
               ./hosts/wndr/home.nix
             ];
           };
           "chronos@portal" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              user = "chronos";
+            };
             modules = [
               ./hosts/portal/home.nix
             ];
           };
           "chronos@invictia" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs; user = "chronos";};
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              user = "chronos";
+            };
             modules = [
               ./hosts/invictia/home.nix
             ];

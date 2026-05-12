@@ -1,12 +1,11 @@
 {
   inputs,
-  # outputs,
-  # config,
   pkgs,
   ...
 }: {
   imports = [
-    ../../home/darwin
+    ../../home
+    ../../home/presets/macbook.nix
   ];
 
   nixpkgs = {
@@ -20,9 +19,6 @@
     homeDirectory = "/Users/davidas/";
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
-
+  programs.home-manager.enable = true;
   home.stateVersion = import ../state-version.nix;
 }

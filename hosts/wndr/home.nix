@@ -1,10 +1,14 @@
 {user, ...}: {
   imports = [
-    ../../home/programs/common
-    ../../home/programs/gnome
-    ../../home/programs/hyprland
-    ../../home/theme/matugen
+    ../../home
+    ../../home/presets/linux-desktop.nix
   ];
+
+  localHome = {
+    wm.hyprland.enable = true;
+    wm.gnome.enable = true;
+    theme.matugen.enable = true;
+  };
 
   nixpkgs = {
     config = {
@@ -17,11 +21,7 @@
     homeDirectory = "/home/${builtins.toString user}";
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
-
+  programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
-
   home.stateVersion = import ../state-version.nix;
 }
