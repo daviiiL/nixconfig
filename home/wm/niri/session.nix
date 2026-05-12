@@ -25,12 +25,11 @@ in {
       wl-clipboard
       cliphist
 
-      # notifications
+      # notifications (daemon provided by quickshell; libnotify gives notify-send)
       libnotify
-      swaynotificationcenter
 
       # settings & controls
-      blueberry
+      blueman
       gnome-control-center
 
       # gnome apps

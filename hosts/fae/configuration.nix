@@ -14,6 +14,11 @@
     };
   };
 
+  boot.initrd.luks = {
+    reusePassphrases = true;
+    devices."luks-80f98bd2-cded-407a-a0fc-9bfbce219dfd".device = "/dev/disk/by-uuid/80f98bd2-cded-407a-a0fc-9bfbce219dfd";
+  };
+
   networking.hostName = "fae";
 
   users.users.chronos = {
