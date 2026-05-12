@@ -3,3 +3,4 @@
 
 system/packages/docker/compose/*
 !system/packages/docker/compose/default.nix
+.superpowers/

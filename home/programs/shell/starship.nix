@@ -4,11 +4,10 @@
   ...
 }: let
   cfg = config.localHome.programs.shell.starship;
-  lang = icon: color: {
+  lang = icon: {
     symbol = icon;
-    format = "[$symbol ](${color})";
+    format = "[$symbol ](fg:mono_2)";
   };
-  os = icon: fg: "[${icon} ](fg:${fg})";
   pad = {
     left = "";
     right = "";
@@ -22,90 +21,144 @@ in {
       enable = true;
       settings = {
         add_newline = true;
+        palette = "mono";
+        palettes.mono = {
+          mono_0 = "#ffffff";
+          mono_1 = "#d0d0d0";
+          mono_2 = "#a0a0a0";
+          mono_3 = "#707070";
+          mono_4 = "#3a3a3a";
+        };
+
         format = lib.strings.concatStrings [
+          "$time"
           "$nix_shell"
-          "$directory"
           "$container"
-          "$git_branch $git_status"
           "$python"
           "$nodejs"
           "$lua"
           "$rust"
-          "$java"
-          "$c"
           "$golang"
+          "$java"
+          "$scala"
+          "$c"
+          "$ruby"
+          "$php"
+          "$perl"
+          "$haskell"
+          "$elixir"
+          "$erlang"
+          "$swift"
+          "$dart"
+          "$elm"
+          "$git_branch"
+          "$git_status"
           "$cmd_duration"
           "$status"
           "$line_break"
-          "[❯](bold purple)"
-          ''''${custom.space}''
-          "\n"
+          "$username"
+          "[@](fg:mono_3)"
+          "$hostname"
+          "[:](fg:mono_3) "
+          "$directory"
+          " $character"
         ];
-        custom.space = {
-          when = ''! test $env'';
-          format = "  ";
-        };
-        continuation_prompt = "∙  ┆ ";
+
+        continuation_prompt = "[∙  ┆ ](fg:mono_3)";
         line_break = {disabled = false;};
-        status = {
-          symbol = "✗";
-          not_found_symbol = "󰍉 Not Found";
-          not_executable_symbol = " Can't Execute E";
-          sigint_symbol = "󰂭 ";
-          signal_symbol = "󱑽 ";
-          success_symbol = "";
-          format = "[$symbol](fg:red)";
-          map_symbol = true;
-          disabled = false;
+
+        username = {
+          show_always = true;
+          format = "[$user]($style)";
+          style_user = "fg:mono_2";
+          style_root = "fg:mono_0 bold";
         };
-        cmd_duration = {
-          min_time = 1000;
-          format = "[$duration ](fg:yellow)";
+
+        hostname = {
+          ssh_only = false;
+          format = "[$hostname]($style)";
+          style = "fg:mono_1";
         };
+
+        directory = {
+          format = "[${pad.left}](fg:mono_4)[$path](bg:mono_4 fg:mono_0)[${pad.right}](fg:mono_4)";
+          truncation_length = 4;
+          truncation_symbol = "…/";
+          truncate_to_repo = false;
+          substitutions = {
+            "Documents" = "󰈙 ";
+            "Downloads" = " ";
+            "Music" = " ";
+            "Pictures" = " ";
+            "Videos" = " ";
+            "Projects" = "󱌢 ";
+            "Codespace" = "󱌢 ";
+            "GitHub" = "";
+            ".config" = " ";
+            "Vault" = "󱉽 ";
+          };
+        };
+
         nix_shell = {
           disabled = false;
-          format = "[${pad.left}](fg:white)[ ](bg:white fg:black)[${pad.right}](fg:white) ";
+          symbol = "";
+          format = "[${pad.left}](fg:mono_4)[ $symbol ](bg:mono_4 fg:mono_0)[${pad.right}](fg:mono_4) ";
         };
+
         container = {
           symbol = " 󰏖";
-          format = "[$symbol ](yellow dimmed)";
+          format = "[$symbol ](fg:mono_3)";
         };
-        directory = {
-          format = " [${pad.left}](fg:bright-black)[$path](bg:bright-black fg:white)[${pad.right}](fg:bright-black)";
-          truncation_length = 6;
-          truncation_symbol = "~/󰇘/";
-        };
-        directory.substitutions = {
-          "Documents" = "󰈙 ";
-          "Downloads" = " ";
-          "Music" = " ";
-          "Pictures" = " ";
-          "Videos" = " ";
-          "Projects" = "󱌢 ";
-          "Codespace" = "󱌢 ";
-          "GitHub" = "";
-          ".config" = " ";
-          "Vault" = "󱉽 ";
-        };
+
         git_branch = {
           symbol = "";
-          style = "";
-          format = "[ $symbol $branch](fg:purple)(:$remote_branch)";
+          format = "[ $symbol $branch](fg:mono_2)";
         };
-        os = {
+
+        git_status = {
+          format = "[ $all_status$ahead_behind](fg:mono_3)";
+        };
+
+        cmd_duration = {
+          min_time = 1000;
+          format = "[ $duration](fg:mono_3)";
+        };
+
+        status = {
+          symbol = "✗";
+          format = "[ $symbol](fg:mono_0 bold)";
+          success_symbol = "";
           disabled = false;
-          format = "$symbol";
         };
-        os.symbols = {
-          NixOS = os "" "blue";
+
+        character = {
+          success_symbol = "[❯](fg:mono_1)";
+          error_symbol = "[❯](fg:mono_0 bold)";
         };
-        python = lang "" "yellow";
-        nodejs = lang " " "yellow";
-        lua = lang "󰢱" "blue";
-        rust = lang "" "red";
-        java = lang "" "red";
-        c = lang "" "blue";
-        golang = lang "" "blue";
+
+        time = {
+          disabled = false;
+          time_format = "%R";
+          format = "[ $time](fg:mono_3) ";
+        };
+
+        python = lang "";
+        nodejs = lang " ";
+        lua = lang "󰢱";
+        rust = lang "";
+        golang = lang "";
+        java = lang "";
+        scala = lang "";
+        c = lang "";
+        ruby = lang "";
+        php = lang "";
+        perl = lang "";
+        haskell = lang "";
+        elixir = lang "";
+        erlang = lang "";
+        swift = lang "";
+        dart = lang "";
+        elm = lang "";
       };
     };
   };
