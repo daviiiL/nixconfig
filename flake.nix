@@ -108,6 +108,15 @@
               ./hosts/invictia/configuration.nix
             ];
           };
+          fae = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs outputs;
+              user = username;
+            };
+            modules = [
+              ./hosts/fae/configuration.nix
+            ];
+          };
         };
 
         darwinConfigurations = {
@@ -150,6 +159,16 @@
             };
             modules = [
               ./hosts/invictia/home.nix
+            ];
+          };
+          "chronos@fae" = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              user = "chronos";
+            };
+            modules = [
+              ./hosts/fae/home.nix
             ];
           };
           "davidas@neptune" = home-manager.lib.homeManagerConfiguration {
