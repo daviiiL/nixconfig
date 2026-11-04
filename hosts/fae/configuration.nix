@@ -45,5 +45,5 @@
 
   networking.hostName = host.name;
 
-  system.stateVersion = import ../state-version.nix;
+  system.stateVersion = host.stateVersion;
 }

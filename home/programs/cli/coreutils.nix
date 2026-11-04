@@ -10,14 +10,17 @@ in {
     lib.mkEnableOption "everyday CLI bag (gh, eza, btop, fzf, zip, …)";
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      gh
-      eza
-      btop
-      fzf
-      xdg-utils
-      zip
-      unzip
-    ];
+    home.packages = with pkgs;
+      [
+        gh
+        eza
+        btop
+        fzf
+        zip
+        unzip
+        p7zip
+        watch
+      ]
+      ++ lib.optionals stdenv.hostPlatform.isLinux [xdg-utils];
   };
 }

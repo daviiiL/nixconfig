@@ -7,9 +7,12 @@
   cfg = config.localHome.programs.development.languages.php;
 in {
   options.localHome.programs.development.languages.php.enable =
-    lib.mkEnableOption "PHP interpreter";
+    lib.mkEnableOption "PHP interpreter + phpactor language server";
 
   config = lib.mkIf cfg.enable {
-    home.packages = [pkgs.php];
+    home.packages = with pkgs; [
+      php
+      phpactor
+    ];
   };
 }

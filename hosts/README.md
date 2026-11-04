@@ -9,6 +9,7 @@ Identity (`user`, `system`, `kind`) for every host is the `hosts` attrset in
 | framework | portal   | nixos |
 | xps 15    | invictia | nixos |
 | intel arc | fae      | nixos |
+| macbook   | neptune  | darwin |
 | non-nixOS | mars     | home  |
 
 ## file structure
@@ -17,6 +18,6 @@ Identity (`user`, `system`, `kind`) for every host is the `hosts` attrset in
 .
 └── hostname
     ├── configuration.nix          # localSystem.* toggles only (flake.nix imports system/ + hardware)
-    ├── hardware-configuration.nix
+    ├── hardware-configuration.nix # nixos hosts only
     └── home.nix                   # localHome.* toggles only (flake.nix imports home/)
 ```

@@ -12,6 +12,7 @@ home-manager configuration, mirrors `system/`'s `localSystem.*` options pattern 
   (+ quickshell), `gnome/`. `wayland.nix` is the userland shared by hyprland and
   niri (launchers, lock/idle, clipboard, apps) and has no toggle of its own
 - `theme/` — theming (`base/` foundation, `catppuccin.nix`, `matugen.nix`, `gnome-custom/`)
+- `platform/` — OS-specific glue (`darwin-applications.nix`)
 - `default.nix` — imports everything and holds the shared host boilerplate
   (identity from the `host` arg, allowUnfree, overlays, stateVersion)
 

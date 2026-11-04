@@ -1,10 +1,14 @@
 {
+  lib,
   outputs,
   host,
   ...
-}: {
+}: let
+  isDarwin = host.kind == "darwin";
+in {
   imports = [
     ./programs
+    ./platform
     ./wm
     ./theme
   ];
@@ -16,10 +20,13 @@
 
   home = {
     username = host.user;
-    homeDirectory = "/home/${host.user}";
-    stateVersion = import ../hosts/state-version.nix;
+    homeDirectory =
+      if isDarwin
+      then "/Users/${host.user}"
+      else "/home/${host.user}";
+    inherit (host) stateVersion;
   };
 
   programs.home-manager.enable = true;
-  systemd.user.startServices = "sd-switch";
+  systemd.user.startServices = lib.mkIf (!isDarwin) "sd-switch";
 }
