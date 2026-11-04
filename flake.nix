@@ -5,11 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,141 +47,91 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {flake-parts, ...}:
+  outputs = inputs @ {flake-parts, ...}: let
+    # Machine identity; passed to host files as `host` ({name, user, system, kind}).
+    # kind "nixos" also gets a nixosConfiguration; "home" is home-manager only.
+    # hardware: nixos-hardware module names (imports can't be toggled by options).
+    hosts = {
+      wndr = {
+        user = "chronos";
+        system = "x86_64-linux";
+        kind = "nixos";
+      };
+      portal = {
+        user = "chronos";
+        system = "x86_64-linux";
+        kind = "nixos";
+        hardware = ["framework-intel-core-ultra-series1"];
+      };
+      invictia = {
+        user = "chronos";
+        system = "x86_64-linux";
+        kind = "nixos";
+        hardware = ["dell-xps-15-9530-nvidia"];
+      };
+      fae = {
+        user = "chronos";
+        system = "x86_64-linux";
+        kind = "nixos";
+      };
+      mars = {
+        user = "davidl";
+        system = "x86_64-linux";
+        kind = "home";
+      };
+    };
+  in
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [];
 
       systems = [
-        "aarch64-linux"
-        "i686-linux"
         "x86_64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
-      perSystem = {
-        config,
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
       };
 
       flake = let
-        inherit (inputs) self nixpkgs home-manager nix-darwin;
+        inherit (inputs) self nixpkgs home-manager;
         inherit (self) outputs;
-        username = "chronos";
+        inherit (nixpkgs) lib;
+
+        withName = name: h: h // {inherit name;};
+        hostsOfKind = kind: lib.filterAttrs (_: h: h.kind == kind) hosts;
       in {
-        nixosConfigurations = {
-          wndr = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs;
-              user = username;
-            };
-            modules = [
-              ./hosts/wndr/configuration.nix
-            ];
-          };
-          portal = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs;
-              user = username;
-            };
-            modules = [
-              ./hosts/portal/configuration.nix
-            ];
-          };
-          invictia = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs;
-              user = username;
-            };
-            modules = [
-              ./hosts/invictia/configuration.nix
-            ];
-          };
-          fae = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs;
-              user = username;
-            };
-            modules = [
-              ./hosts/fae/configuration.nix
-            ];
-          };
-        };
+        overlays.default = import ./overlays {inherit inputs;};
 
-        darwinConfigurations = {
-          neptune = nix-darwin.lib.darwinSystem {
-            modules = [
-              ./hosts/neptune/configuration.nix
-            ];
+        nixosConfigurations = lib.mapAttrs (name: h:
+          nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit inputs self outputs;
+              inherit inputs outputs;
+              host = withName name h;
             };
-          };
-        };
+            modules =
+              [
+                ./system
+                ./hosts/${name}/hardware-configuration.nix
+                ./hosts/${name}/configuration.nix
+              ]
+              ++ map (m: inputs.nixos-hardware.nixosModules.${m}) (h.hardware or []);
+          })
+        (hostsOfKind "nixos");
 
-        homeConfigurations = {
-          "chronos@wndr" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        homeConfigurations = lib.mapAttrs' (name: h:
+          lib.nameValuePair "${h.user}@${name}" (home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.${h.system};
             extraSpecialArgs = {
               inherit inputs outputs;
-              user = "chronos";
+              host = withName name h;
             };
             modules = [
-              ./hosts/wndr/home.nix
+              ./home
+              ./hosts/${name}/home.nix
             ];
-          };
-          "chronos@portal" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {
-              inherit inputs outputs;
-              user = "chronos";
-            };
-            modules = [
-              ./hosts/portal/home.nix
-            ];
-          };
-          "chronos@invictia" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {
-              inherit inputs outputs;
-              user = "chronos";
-            };
-            modules = [
-              ./hosts/invictia/home.nix
-            ];
-          };
-          "chronos@fae" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {
-              inherit inputs outputs;
-              user = "chronos";
-            };
-            modules = [
-              ./hosts/fae/home.nix
-            ];
-          };
-          "davidas@neptune" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-            extraSpecialArgs = {inherit inputs outputs;};
-            modules = [
-              ./hosts/neptune/home.nix
-            ];
-          };
-
-          "davidl@mars" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs outputs;};
-            modules = [
-              ./hosts/mars/home.nix
-            ];
-          };
-        };
+          }))
+        hosts;
       };
     };
 }

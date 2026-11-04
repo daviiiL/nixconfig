@@ -1,19 +1,25 @@
 {
-  inputs,
-  pkgs,
+  outputs,
+  host,
   ...
 }: {
   imports = [
     ./programs
     ./wm
     ./theme
-    ./platform
   ];
 
-  # Single shared nixpkgs-unstable handle for any leaf that needs bleeding-edge
-  # packages. Exposed once at the top of home/ so subtrees don't collide.
-  _module.args.unstablePkgs = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
+  nixpkgs = {
     config.allowUnfree = true;
+    overlays = [outputs.overlays.default];
   };
+
+  home = {
+    username = host.user;
+    homeDirectory = "/home/${host.user}";
+    stateVersion = import ../hosts/state-version.nix;
+  };
+
+  programs.home-manager.enable = true;
+  systemd.user.startServices = "sd-switch";
 }

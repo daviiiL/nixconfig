@@ -3,12 +3,14 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.localSystem.packages.fonts;
+in {
   options.localSystem.packages.fonts = {
     enable = lib.mkEnableOption "system fonts (Inter, Noto CJK, Liberation, Fira Code, Mplus, etc.)";
   };
 
-  config = lib.mkIf config.localSystem.packages.fonts.enable {
+  config = lib.mkIf cfg.enable {
     fonts.packages = with pkgs; [
       inter-nerdfont
       noto-fonts

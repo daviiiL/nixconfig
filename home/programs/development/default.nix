@@ -1,7 +1,9 @@
 {
   imports = [
-    ./core.nix
-    ./vscode.nix
     ./android.nix
+    ./devenv.nix
+    ./direnv.nix
+    ./gnupg.nix
+    ./languages
   ];
 }

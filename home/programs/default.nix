@@ -7,6 +7,6 @@
     ./development
     ./communications
     ./cli
-    ./desktop-shells
+    ./documents
   ];
 }

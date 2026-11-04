@@ -1,21 +1,24 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.localHome.wm.niri;
 in {
   imports = [
-    ./session.nix
+    ./quickshell.nix
   ];
 
   options.localHome.wm.niri.enable =
-    lib.mkEnableOption "niri session userland (wayland packages)";
+    lib.mkEnableOption "niri session (quickshell shell, launchers, wayland userland)";
 
   config = lib.mkIf cfg.enable {
-    localHome.programs.desktop-shells.quickshell = {
-      enable = lib.mkDefault true;
-      niriPlugin.enable = lib.mkDefault true;
-    };
+    # quickshell is the notification daemon; libnotify provides notify-send
+    home.packages = with pkgs; [
+      brightnessctl
+      libnotify
+      playerctl
+    ];
   };
 }

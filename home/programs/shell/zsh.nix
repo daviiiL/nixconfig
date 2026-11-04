@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   cfg = config.localHome.programs.shell.zsh;
@@ -27,10 +26,7 @@ in {
         ls = "eza --icons --group-directories-first";
         la = "eza -la --icons --group-directories-first";
         tree = "eza --tree --icons";
-        nixrebuild =
-          if pkgs.stdenv.isDarwin
-          then "sudo darwin-rebuild switch --flake $HOME/nixconfig#$(hostname)"
-          else "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)";
+        nixrebuild = "sudo nixos-rebuild switch --flake $HOME/nixconfig#$(hostname)";
         switchhome = "home-manager switch --flake $HOME/nixconfig#$USER@$(hostname)";
       };
 

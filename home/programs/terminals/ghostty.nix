@@ -11,7 +11,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     programs.ghostty = {
-      enable = !pkgs.stdenv.isDarwin;
+      enable = true;
       enableFishIntegration = true;
       enableZshIntegration = true;
       installVimSyntax = true;

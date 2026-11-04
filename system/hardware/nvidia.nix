@@ -37,12 +37,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    hardware = {
-      graphics = {
-        enable = true;
-        enable32Bit = true;
-      };
+    localSystem.hardware.graphics.enable = lib.mkDefault true;
 
+    hardware = {
       nvidia = lib.mkMerge [
         {
           modesetting.enable = true;
@@ -66,13 +63,6 @@ in {
       ];
     };
 
-    services.xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      videoDrivers = ["nvidia"];
-    };
+    services.xserver.videoDrivers = ["nvidia"];
   };
 }

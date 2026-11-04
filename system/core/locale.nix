@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.localSystem.core.locale;
+in {
   options.localSystem.core.locale = {
     enable = lib.mkEnableOption "automatic timezone and default locale";
     defaultLocale = lib.mkOption {
@@ -12,8 +14,8 @@
     };
   };
 
-  config = lib.mkIf config.localSystem.core.locale.enable {
+  config = lib.mkIf cfg.enable {
     services.automatic-timezoned.enable = true;
-    i18n.defaultLocale = config.localSystem.core.locale.defaultLocale;
+    i18n.defaultLocale = cfg.defaultLocale;
   };
 }

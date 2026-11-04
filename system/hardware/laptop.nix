@@ -2,16 +2,14 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.localSystem.hardware.laptop;
+in {
   options.localSystem.hardware.laptop = {
-    enable = lib.mkEnableOption "laptop preset (libinput + audio + power + bluetooth)";
+    enable = lib.mkEnableOption "laptop input (libinput touchpad + flat mouse accel)";
   };
 
-  config = lib.mkIf config.localSystem.hardware.laptop.enable {
-    localSystem.hardware.audio.enable = lib.mkDefault true;
-    localSystem.hardware.power.enable = lib.mkDefault true;
-    localSystem.hardware.bluetooth.enable = lib.mkDefault true;
-
+  config = lib.mkIf cfg.enable {
     services.libinput = {
       enable = true;
       mouse.accelProfile = "flat";

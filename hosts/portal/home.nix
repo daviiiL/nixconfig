@@ -1,29 +1,44 @@
-{user, ...}: {
-  imports = [
-    ../../home
-    ../../home/presets/linux-laptop.nix
-  ];
-
+{
   localHome = {
-    wm.hyprland.enable = true;
-    wm.gnome.enable = true;
-    theme.matugen.enable = true;
-    programs.development.android.enable = true;
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
+    wm = {
+      hyprland.enable = true;
+      gnome.enable = true;
+    };
+    theme = {
+      base.enable = true;
+      matugen.enable = true;
+    };
+    programs = {
+      shell = {
+        zsh.enable = true;
+        starship.enable = true;
+      };
+      cli = {
+        coreutils.enable = true;
+        claude-code.enable = true;
+        fastfetch.enable = true;
+      };
+      development = {
+        gnupg.enable = true;
+        direnv.enable = true;
+        android.enable = true;
+        devenv.enable = true;
+        languages.php.enable = true;
+      };
+      editors = {
+        nixvim.enable = true;
+        vscode.enable = true;
+      };
+      documents.zathura.enable = true;
+      terminals = {
+        alacritty.enable = true;
+        ghostty.enable = true;
+      };
+      browsers = {
+        firefox.enable = true;
+        chromium.enable = true;
+      };
+      communications.vesktop.enable = true;
     };
   };
-
-  home = {
-    username = builtins.toString user;
-    homeDirectory = "/home/${builtins.toString user}";
-  };
-
-  programs.home-manager.enable = true;
-  systemd.user.startServices = "sd-switch";
-  home.stateVersion = import ../state-version.nix;
 }

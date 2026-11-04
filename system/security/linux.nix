@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  host,
   ...
 }: let
   cfg = config.localSystem.security.linux;
@@ -14,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     nix.extraOptions = ''
-      trusted-users = root chronos
+      trusted-users = root ${host.user}
     '';
     nix.settings.allowed-users = lib.mkDefault ["@users"];
 

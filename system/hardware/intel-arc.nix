@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.localSystem.hardware.intelArc;
+  cfg = config.localSystem.hardware.intel-arc;
 in {
-  options.localSystem.hardware.intelArc = {
+  options.localSystem.hardware.intel-arc = {
     enable = lib.mkEnableOption "Intel Arc / Xe GPU (VAAPI/QSV via iHD)";
 
     compute.enable = lib.mkEnableOption "Intel compute runtime (OpenCL NEO + Level Zero)";
@@ -22,31 +22,22 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    localSystem.hardware.graphics.enable = lib.mkDefault true;
+
     hardware = {
-      graphics = {
-        enable = true;
-        enable32Bit = true;
-        extraPackages = with pkgs;
-          [
-            intel-media-driver
-            vpl-gpu-rt
-          ]
-          ++ lib.optionals cfg.compute.enable [
-            intel-compute-runtime
-          ];
-      };
+      graphics.extraPackages = with pkgs;
+        [
+          intel-media-driver
+          vpl-gpu-rt
+        ]
+        ++ lib.optionals cfg.compute.enable [
+          intel-compute-runtime
+        ];
 
       enableRedistributableFirmware = true;
     };
 
-    services.xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      videoDrivers = ["modesetting"];
-    };
+    services.xserver.videoDrivers = ["modesetting"];
 
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";

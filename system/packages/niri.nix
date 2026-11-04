@@ -3,12 +3,14 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.localSystem.packages.niri;
+in {
   options.localSystem.packages.niri = {
     enable = lib.mkEnableOption "niri compositor (system-level)";
   };
 
-  config = lib.mkIf config.localSystem.packages.niri.enable {
+  config = lib.mkIf cfg.enable {
     programs.niri.enable = true;
     qt.enable = true;
 

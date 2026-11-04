@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  unstablePkgs,
+  pkgs,
   ...
 }: let
   cfg = config.localHome.programs.cli.leetgo;
@@ -10,6 +10,6 @@ in {
     lib.mkEnableOption "leetgo (leetcode CLI)";
 
   config = lib.mkIf cfg.enable {
-    home.packages = [unstablePkgs.leetgo];
+    home.packages = [pkgs.leetgo];
   };
 }

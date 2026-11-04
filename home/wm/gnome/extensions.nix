@@ -1,29 +1,25 @@
 {
   config,
   lib,
-  unstablePkgs,
+  pkgs,
   ...
 }: let
-  cfg = config.localHome.wm.gnome;
+  cfg = config.localHome.wm.gnome.extensions;
 in {
-  config = lib.mkIf cfg.enable {
-    home.packages = with unstablePkgs; [
-      # tweaks & inspectors
-      gnome-tweaks
-      gnome-browser-connector
-      dconf-editor
-      gnome-control-center
+  options.localHome.wm.gnome.extensions.enable =
+    lib.mkEnableOption "GNOME Shell extensions and their settings";
 
-      # extensions
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.search-light
-      gnomeExtensions.kimpanel
-      gnomeExtensions.rounded-window-corners-reborn
-      gnomeExtensions.removable-drive-menu
-      gnomeExtensions.tray-icons-reloaded
-      gnomeExtensions.user-themes
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs.gnomeExtensions; [
+      appindicator
+      dash-to-dock
+      blur-my-shell
+      search-light
+      kimpanel
+      rounded-window-corners-reborn
+      removable-drive-menu
+      tray-icons-reloaded
+      user-themes
     ];
 
     dconf = {
@@ -31,7 +27,7 @@ in {
       settings = {
         "org/gnome/shell" = {
           disable-user-extensions = false;
-          enabled-extensions = with unstablePkgs.gnomeExtensions; [
+          enabled-extensions = with pkgs.gnomeExtensions; [
             dash-to-dock.extensionUuid
             search-light.extensionUuid
             kimpanel.extensionUuid

@@ -3,7 +3,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.localSystem.packages.theme;
+in {
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
   ];
@@ -12,7 +14,7 @@
     enable = lib.mkEnableOption "Catppuccin system theming (TTY)";
   };
 
-  config = lib.mkIf config.localSystem.packages.theme.enable {
+  config = lib.mkIf cfg.enable {
     catppuccin.tty.enable = true;
   };
 }

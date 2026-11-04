@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.localSystem.core.settings;
+in {
   options.localSystem.core.settings = {
     enable = lib.mkEnableOption "nix daemon settings (gc, optimisation, flakes)";
     gcRetention = lib.mkOption {
@@ -12,7 +14,7 @@
     };
   };
 
-  config = lib.mkIf config.localSystem.core.settings.enable {
+  config = lib.mkIf cfg.enable {
     nix = {
       optimise.automatic = true;
       settings.experimental-features = ["nix-command" "flakes"];
@@ -20,7 +22,7 @@
       gc = {
         automatic = true;
         dates = "daily";
-        options = "--delete-older-than ${config.localSystem.core.settings.gcRetention}";
+        options = "--delete-older-than ${cfg.gcRetention}";
       };
     };
   };

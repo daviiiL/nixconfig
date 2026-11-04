@@ -2,12 +2,14 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.localSystem.hardware.audio;
+in {
   options.localSystem.hardware.audio = {
     enable = lib.mkEnableOption "PipeWire audio stack";
   };
 
-  config = lib.mkIf config.localSystem.hardware.audio.enable {
+  config = lib.mkIf cfg.enable {
     services.pulseaudio.enable = false;
 
     services.pipewire = {

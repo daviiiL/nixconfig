@@ -6,7 +6,7 @@
   cfg = config.localHome.theme.gnome-custom;
 in {
   imports = [
-    ./program-themes
+    ./ghostty.nix
   ];
 
   options.localHome.theme.gnome-custom.enable =
@@ -14,5 +14,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     localHome.theme.base.font.enable = lib.mkDefault true;
+    localHome.theme.gnome-custom.ghostty.enable = lib.mkDefault true;
   };
 }

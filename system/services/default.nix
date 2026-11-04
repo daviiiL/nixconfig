@@ -1,8 +1,7 @@
 {
   imports = [
     ./flatpak.nix
-    ./gnome-full.nix
-    ./gnome-services.nix
+    ./gnome
     ./greetd.nix
     ./input-methods.nix
     ./printing.nix

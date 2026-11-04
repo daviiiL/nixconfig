@@ -7,11 +7,14 @@
   cfg = config.localHome.programs.development.android;
 in {
   options.localHome.programs.development.android.enable =
-    lib.mkEnableOption "Android tooling (android-tools, android-studio-full on Linux)";
+    lib.mkEnableOption "Android tooling (android-tools, android-studio-full)";
 
   config = lib.mkIf cfg.enable {
-    home.packages =
-      [pkgs.android-tools]
-      ++ lib.optional (!pkgs.stdenv.isDarwin) pkgs.android-studio-full;
+    nixpkgs.config.android_sdk.accept_license = true;
+
+    home.packages = with pkgs; [
+      android-tools
+      android-studio-full
+    ];
   };
 }
