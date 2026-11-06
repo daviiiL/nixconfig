@@ -30,12 +30,11 @@ in {
         experimental-features = ["scale-monitor-framebuffer"];
       };
 
-      # system keyboard shortcuts
       "org/gnome/desktop/wm/keybindings" = {
         close = ["<Super>q"];
       };
 
-      # Super+Return launches ghostty
+      # super+return -> ghostty
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"

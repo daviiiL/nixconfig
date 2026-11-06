@@ -5,5 +5,6 @@
     ./nix.nix
     ./node.nix
     ./php.nix
+    ./python.nix
   ];
 }

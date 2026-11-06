@@ -12,7 +12,7 @@ in {
   config = lib.mkIf cfg.enable {
     localHome.theme.base.enable = lib.mkDefault true;
 
-    # adw-gtk3 (matugen's GTK target) comes from theme.base's gtk.theme.
+    # adw-gtk3 already comes from theme.base
     home.packages = [pkgs.matugen];
   };
 }

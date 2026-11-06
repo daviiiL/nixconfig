@@ -1,4 +1,3 @@
-# Shared GPU plumbing; amd/intel-arc/nvidia enable it and add driver bits.
 {
   config,
   lib,
@@ -8,10 +7,10 @@
   cfg = config.localSystem.hardware.graphics;
 in {
   options.localSystem.hardware.graphics = {
-    enable = lib.mkEnableOption "hardware graphics acceleration + X server (us keyboard)";
+    enable = lib.mkEnableOption "hardware graphics acceleration + X server";
 
     amd = {
-      enable = lib.mkEnableOption "AMD GPU (amdgpu) driver with Mesa/Vulkan/VAAPI/ROCm userspace";
+      enable = lib.mkEnableOption "amdgpu driver with Mesa/Vulkan/VAAPI/ROCm userspace";
       extraKernelParams = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = ["amdgpu.sg_display=0"];

@@ -21,6 +21,7 @@
           node.enable = true;
           dart.enable = true;
           php.enable = true;
+          python.enable = true;
           latex.enable = true;
           nix.enable = true;
         };

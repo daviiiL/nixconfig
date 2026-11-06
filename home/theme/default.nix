@@ -5,6 +5,6 @@
     ./gnome-custom
   ];
 
-  # ./catppuccin.nix is opt-in (import it from the host): its module breaks on
-  # a stale `programs.antigravity` option when programs.vscode is enabled.
+  # catppuccin.nix gets imported per host. its module trips over a stale
+  # programs.antigravity option whenever vscode is on
 }

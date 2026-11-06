@@ -1,7 +1,8 @@
-# Imports every system module for the host's platform; hosts only flip toggles.
-# Platforms are split by import, not mkIf: options like boot.* don't exist on
-# darwin (and homebrew.* not on NixOS), so even disabled definitions would fail.
+# hosts only flip toggles, everything for the platform gets imported here.
+# split by import instead of mkIf: boot.* doesn't exist on darwin (homebrew.*
+# not on nixos), so even disabled definitions fail eval
 {
+  lib,
   outputs,
   host,
   ...
@@ -11,6 +12,7 @@
       nixos = [
         ./cachix
         ./core
+        ./disko
         ./hardware
         ./packages
         ./security
@@ -23,6 +25,7 @@
     };
 
   nixpkgs = {
+    hostPlatform = lib.mkDefault host.system;
     overlays = [outputs.overlays.default];
     config = {
       allowUnfree = true;

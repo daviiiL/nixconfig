@@ -14,7 +14,7 @@ in {
     lib.mkEnableOption "niri session (quickshell shell, launchers, wayland userland)";
 
   config = lib.mkIf cfg.enable {
-    # quickshell is the notification daemon; libnotify provides notify-send
+    # quickshell does notifications, libnotify is just for notify-send
     home.packages = with pkgs; [
       brightnessctl
       libnotify

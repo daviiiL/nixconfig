@@ -9,8 +9,8 @@
     format = "[$symbol ](fg:mono_2)";
   };
   pad = {
-    left = "";
-    right = "";
+    left = "";
+    right = "";
   };
 in {
   options.localHome.programs.shell.starship.enable =
@@ -86,22 +86,22 @@ in {
           truncation_symbol = "…/";
           truncate_to_repo = false;
           substitutions = {
-            "Documents" = "󰈙 ";
-            "Downloads" = " ";
-            "Music" = " ";
-            "Pictures" = " ";
-            "Videos" = " ";
-            "Projects" = "󱌢 ";
-            "Codespace" = "󱌢 ";
-            "GitHub" = "";
-            ".config" = " ";
-            "Vault" = "󱉽 ";
+            "Documents" = "󰈙";
+            "Downloads" = "";
+            "Music" = "";
+            "Pictures" = "";
+            "Videos" = "";
+            "Projects" = "󱌢";
+            "Codespace" = "󱌢";
+            "GitHub" = "";
+            ".config" = "";
+            "Vault" = "󱉽";
           };
         };
 
         nix_shell = {
           disabled = false;
-          symbol = "";
+          symbol = "";
           format = "[${pad.left}](fg:mono_4)[ $symbol ](bg:mono_4 fg:mono_0)[${pad.right}](fg:mono_4) ";
         };
 
@@ -111,7 +111,7 @@ in {
         };
 
         git_branch = {
-          symbol = "";
+          symbol = "";
           format = "[ $symbol $branch](fg:mono_2)";
         };
 
@@ -142,23 +142,23 @@ in {
           format = "[ $time](fg:mono_3) ";
         };
 
-        python = lang "";
-        nodejs = lang " ";
+        python = lang "";
+        nodejs = lang " ";
         lua = lang "󰢱";
-        rust = lang "";
-        golang = lang "";
-        java = lang "";
-        scala = lang "";
-        c = lang "";
-        ruby = lang "";
-        php = lang "";
-        perl = lang "";
-        haskell = lang "";
-        elixir = lang "";
-        erlang = lang "";
-        swift = lang "";
-        dart = lang "";
-        elm = lang "";
+        rust = lang "";
+        golang = lang "";
+        java = lang "";
+        scala = lang "";
+        c = lang "";
+        ruby = lang "";
+        php = lang "";
+        perl = lang "";
+        haskell = lang "";
+        elixir = lang "";
+        erlang = lang "";
+        swift = lang "";
+        dart = lang "";
+        elm = lang "";
       };
     };
   };

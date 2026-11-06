@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.localHome.wm.niri;
-  # qml-niri's quickshell build bundles the niri QML plugin
+  # qml-niri's build ships the niri qml plugin
   quickshellPkg = inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
 in {
   config = lib.mkIf cfg.enable {

@@ -1,76 +1,86 @@
 # daviiiL's nix config
 
-NixOS, nix-darwin and standalone home-manager hosts in one flake.
+Machine specific Nix config flake.
 
-> the old dotfiles are at [nixconfig-legacy](https://github.com/daviiiL/nixconfig-legacy); the
-> darwin config used to live in [nixconfig-darwin](https://github.com/daviiiL/nixconfig-darwin).
+## history
 
-> `linux-trim-generations.sh` is from the NixOS wiki.
+This repo has been restructured enough times to have ancestors:
 
-## overview
+- [nixconfig-legacy](https://github.com/daviiiL/nixconfig-legacy): prev nix dotfiles.
+- [nixconfig-darwin](https://github.com/daviiiL/nixconfig-darwin): old darwin dotfiles 
+
+`linux-trim-generations.sh` is grabbed from the official nix website 
+
+## hosts
+
+| host | desc | category |
+| --- | --- | --- |
+| wndr | desktop build 015 | nixos |
+| portal | FW13 Pro | nixos |
+| invictia | XPS 15 | nixos |
+| fae | Laptop | nixos |
+| neptune | MBP | darwin |
+| mars | nix manager on arch | home |
+
+## layout
 
 ```sh
 .
-├── flake.nix      # inputs + `hosts` attrset (user, system, kind, channel, stateVersion)
-├── overlays       # package pins (unstable versions); modules use plain pkgs.<name>
-├── hosts          # per-host entry points (see hosts/README.md)
-├── system         # `localSystem.*` toggles; NixOS modules by category, darwin ones in system/darwin/
-└── home           # home-manager modules, `localHome.*` toggles (see home/README.md)
+├── flake.nix      # inputs, hosts attrset 
+├── overlays       # package pins 
+├── hosts          # per-host entrypoint
+├── system         # sys-level 
+└── home           # userspace home manager
 ```
 
 ## commands
 
 ```sh
-nixrebuild    # sudo nixos-rebuild / darwin-rebuild switch (picked per host)
-switchhome    # home-manager switch
+nixrebuild    # sudo nixos-rebuild/darwin-rebuild switch 
 nixupdate     # nix flake update
+switchhome    # home-manager switch
 nix fmt       # alejandra
 ```
 
-The zsh functions use the repo you're standing in, falling back to `~/.config/nixconfig`.
-New files must be `git add`ed before nix sees them.
+The first three are zsh functions. Subs in the nixconfig location when ran; falls back to `~/.config/nixconfig`
 
 ## channels
 
-Hosts default to `channel = "stable"` (nixos-25.11 + home-manager release-25.11).
-`channel = "unstable"` (neptune) uses nixpkgs-unstable + home-manager master; nix-darwin
-always follows unstable. Stable hosts still get selected newer packages through
-`overlays/default.nix`.
+Stable channels mostly for all hosts, except nix-darwin builds are on unstable.
+`overlays/default.nix` defines all the overlays for the package exceptions. 
 
-## recipes
+## modules
 
-There are no preset modules. Every host file lists its toggles explicitly. These are
-the usual combinations to copy from (paths are under `localSystem` / `localHome`).
-WMs are the exception: each `wm.*` toggle is a whole session, not a list of apps.
+Each module is an `enable` toggle under `localSystem.*` (`system/`) or `localHome.*` (`home/`).
+No presets; host files set toggles explicitly.
 
-### system (`hosts/<name>/configuration.nix`)
+### system
 
-| for | enable | used by |
-| --- | --- | --- |
-| every NixOS host | `cachix`, `core.{boot,locale,network,settings,shell,user}`, `packages.{core,fonts,microvm}`, `security.linux` (+ `doas`, `apparmor`, `firewall`) | all |
-| laptop | `hardware.{laptop,audio,power,bluetooth}` | portal, invictia, fae |
-| desktop | `hardware.{audio,bluetooth}` | wndr |
-| AMD GPU | `hardware.graphics.amd` | wndr |
-| Intel Arc GPU | `hardware.intel-arc` (+ `compute`; `enableGuc = false` if GuC firmware misbehaves) | fae |
-| NVIDIA GPU | `hardware.nvidia` (+ `prime` on hybrid laptops), or a nixos-hardware module | invictia (via nixos-hardware) |
-| GNOME desktop | `services.gnome.full`, `services.printing` | portal, fae |
-| niri | `packages.niri` | portal, fae |
-| hyprland | `packages.hyprland` | — |
-| containers | `packages.docker` | invictia |
-| macOS | `darwin.{settings,defaults,security,packages}`, `darwin.homebrew` (+ `brews`/`casks`) | neptune |
+| category | covers |
+| --- | --- |
+| core | boot, locale, network, nix settings, shell, user |
+| hardware | laptop, audio, power, bluetooth, integrated and discrete graphics |
+| packages | core, fonts, theme, microvm, docker, niri, hyprland |
+| security | doas, apparmor, firewall |
+| services | gnome, printing, greetd, flatpak, input methods, webcam |
+| darwin | settings, defaults, security, packages, homebrew |
+| cachix | binary caches |
 
-Vendor hardware (Framework, XPS, …) goes in the host's `hardware` list in
-`flake.nix` as a [nixos-hardware](https://github.com/NixOS/nixos-hardware) module name.
+Vendor hardware goes in the host's `hardware` list in `flake.nix` as a
+[nixos-hardware](https://github.com/NixOS/nixos-hardware) module name.
 
-### home (`hosts/<name>/home.nix`)
+### home
 
-| for | enable | used by |
-| --- | --- | --- |
-| macOS | `platform.darwin.applications` (links GUI apps into ~/Applications) | neptune |
-| CLI baseline | `programs.shell.{zsh,starship}`, `programs.cli.{coreutils,claude-code,fastfetch}`, `programs.development.{devenv,languages.php}`, `programs.editors.nixvim`, `programs.documents.zathura` | all |
-| desktop baseline | CLI baseline + `programs.development.{gnupg,direnv}`, `programs.editors.vscode`, `programs.terminals.{alacritty,ghostty}`, `programs.browsers.{firefox,chromium}`, `programs.communications.vesktop`, `theme.base` | wndr, portal, invictia, fae |
-| GNOME session | `wm.gnome` + `theme.gnome-custom` (or `theme.matugen`) | all desktops |
-| hyprland session | `wm.hyprland` (whole session: ags shell, launchers, lock/idle, clipboard, wayland apps) + `theme.matugen` | wndr, portal |
-| niri session | `wm.niri` (whole session: quickshell shell, launchers, lock/idle, clipboard, wayland apps) | fae |
+| category | covers |
+| --- | --- |
+| programs | shell, cli, editors, terminals, browsers, development, communications, documents |
+| wm | full sessions: gnome, hyprland (ags), niri (quickshell) |
+| theme | base, catppuccin, matugen, gnome-custom |
+| platform | darwin GUI app linking |
 
-> special thanks to fufexan, ryan4yin, and misterio77 for their dotfiles as references.
+Conventions: `home/README.md`.
+
+## credits
+
+fufexan, ryan4yin, and misterio77.
+Specific docs are generated with the help of anthropic.

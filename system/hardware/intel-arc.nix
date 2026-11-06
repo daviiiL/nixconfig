@@ -7,9 +7,9 @@
   cfg = config.localSystem.hardware.intel-arc;
 in {
   options.localSystem.hardware.intel-arc = {
-    enable = lib.mkEnableOption "Intel Arc / Xe GPU (VAAPI/QSV via iHD)";
+    enable = lib.mkEnableOption "Intel Arc";
 
-    compute.enable = lib.mkEnableOption "Intel compute runtime (OpenCL NEO + Level Zero)";
+    compute.enable = lib.mkEnableOption "Intel compute runtime";
 
     enableGuc = lib.mkOption {
       type = lib.types.bool;

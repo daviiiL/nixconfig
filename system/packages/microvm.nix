@@ -14,6 +14,6 @@ in {
     enable = lib.mkEnableOption "microvm.nix host";
   };
 
-  # Upstream defaults microvm.host.enable to true; drive it from our toggle.
+  # upstream defaults this to true
   config.microvm.host.enable = cfg.enable;
 }

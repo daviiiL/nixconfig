@@ -14,7 +14,7 @@
       host.kind
     }
     or null;
-  # home-only hosts (kind = "home") have no system to rebuild
+  # kind = "home" has nothing to rebuild
   rebuildFn = lib.optionalString (rebuild != null) ''
     nixrebuild() { ${rebuild} --flake "$(_nixconfig_root)" "$@"; }
   '';
@@ -64,13 +64,11 @@ in {
           source "$HOME/.zprofile"
         fi
 
-        # Ported from pre-nix .zshrc; starship + direnv hooks are
-        # injected by home-manager, so they are omitted here.
+        # old pre-nix zshrc. starship/direnv init comes from hm
         [ -f "$HOME/.config/zshconfig/index.zsh" ] && source "$HOME/.config/zshconfig/index.zsh"
 
-        # Prefer the repo we're standing in (e.g. a worktree or second clone),
-        # but only if it's this flake (has hosts/<this host>), so running these
-        # inside an unrelated flake project doesn't build it.
+        # use the checkout we're in (worktrees etc) if it's actually this flake,
+        # otherwise running these inside some other flake builds the wrong thing
         _nixconfig_root() {
           local root
           root=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -88,8 +86,7 @@ in {
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-        # Appended, not prepended: Flutter bundles its own (older) Dart SDK, and
-        # the Nix-managed `dart` in ~/.nix-profile/bin must win on PATH.
+        # append, not prepend. flutter ships an older dart and the nix one has to win
         export PATH="$PATH:$HOME/Dev/tooling/flutter/bin"
 
         export BUN_INSTALL="$HOME/.bun"
@@ -100,7 +97,7 @@ in {
         [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
         command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
-        # SDKMAN insists on being last.
+        # sdkman wants to be last
         export SDKMAN_DIR="$HOME/.sdkman"
         [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
       '';

@@ -25,6 +25,6 @@
   };
 
   nixpkgs.hostPlatform = host.system;
-  # nix-darwin's own state version (an integer, unrelated to host.stateVersion).
+  # nix-darwin's own counter, not host.stateVersion
   system.stateVersion = 6;
 }

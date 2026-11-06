@@ -28,7 +28,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # Installs the Homebrew prefix itself (/opt/homebrew) from a pinned source.
     nix-homebrew = {
       enable = true;
       user = config.system.primaryUser;
@@ -41,16 +40,15 @@ in {
       };
     };
 
-    # Generates a Brewfile from the lists below and runs `brew bundle` on activation.
     homebrew = {
       enable = true;
       taps = builtins.attrNames config.nix-homebrew.taps;
       inherit (cfg) brews casks;
 
       onActivation = {
-        # Remove anything not declared here, including cask leftovers.
+        # uninstall anything not listed
         cleanup = "zap";
-        # Keep `darwin-rebuild switch` idempotent; upgrade explicitly with `brew upgrade`.
+        # no surprise upgrades on switch, run brew upgrade by hand
         autoUpdate = false;
         upgrade = false;
         extraEnv = {

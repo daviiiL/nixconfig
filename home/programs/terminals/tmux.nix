@@ -24,25 +24,21 @@ in {
         set -ga terminal-overrides ",xterm-256color:RGB"
         set -g renumber-windows on
 
-        # Reload config with prefix + r
         bind r source-file ~/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
 
-        # Intuitive split keys, opening in the current pane's directory
+        # keep cwd
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
         bind c new-window -c "#{pane_current_path}"
 
-        # Vim-style pane navigation with prefix + h/j/k/l
         bind h select-pane -L
         bind j select-pane -D
         bind k select-pane -U
         bind l select-pane -R
 
-        # Vi-style copy mode (prefix + [ to enter, v to select, y to yank)
         bind -T copy-mode-vi v send -X begin-selection
         bind -T copy-mode-vi y send -X copy-selection-and-cancel
 
-        # Status bar
         set -g status-position bottom
         set -g status-style "bg=colour235,fg=colour248"
         set -g status-left "#[bold] #S "

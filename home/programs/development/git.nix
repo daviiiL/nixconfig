@@ -16,14 +16,13 @@ in {
         email = "davidas99017@gmail.com";
       };
 
-      # Migrated from ~/.gitignore_global
       ignores = [
-        # AI assistant prompt/context files
+        # agent instructions
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
 
-        # AI assistant directories
+        # agent state
         ".aider/"
         ".claude/"
         ".claude/settings.local.json"
@@ -35,7 +34,7 @@ in {
         ".codex/"
         ".opencode/"
 
-        # AI session/transcript logs
+        # logs
         "*.jsonl"
         "*.log"
         ".aider.input.history"
@@ -44,15 +43,15 @@ in {
         ".claude-history"
         "gemini-debug.log"
 
-        # Specific AI-generated directories
+        # superpowers output
         "docs/superpowers/"
         ".superpowers/"
 
-        # Local development artifacts
+        # local
         ".local/"
         ".sdkmanrc"
 
-        # IDE / editor
+        # ide
         ".idea/"
       ];
     };

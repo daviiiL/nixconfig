@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # For hosts on channel = "unstable" (home-manager master tracks nixpkgs-unstable).
+
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -20,8 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # Homebrew: nix-homebrew installs and pins the prefix; taps are pinned as
-    # non-flake inputs so `brew tap` is never needed.
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -36,10 +34,19 @@
       flake = false;
     };
 
-    # opencode 2.2.5 has a darwin node_modules hash mismatch; drop once fixed upstream.
     nixpkgs-opencode.url = "github:nixos/nixpkgs/aa48d347080940b8a2b8d2f48228674e280a3514";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     ags = {
       url = "github:aylur/ags";
@@ -77,12 +84,6 @@
   };
 
   outputs = inputs @ {flake-parts, ...}: let
-    # Machine identity; passed to host and module files as `host`
-    # ({name, user, system, kind, channel, stateVersion, hardware}).
-    #   kind: "nixos" | "darwin" get a system config; "home" is home-manager only.
-    #   channel: "stable" (nixos-25.11) or "unstable" (nixpkgs-unstable + HM master).
-    #   stateVersion: home-manager (and NixOS) state version; never lower it.
-    #   hardware: nixos-hardware module names (imports can't be toggled by options).
     hosts = {
       wndr = {
         user = "chronos";
@@ -96,7 +97,7 @@
         hardware = ["framework-intel-core-ultra-series1"];
       };
       invictia = {
-        user = "chronos";
+        user = "venus";
         system = "x86_64-linux";
         kind = "nixos";
         hardware = ["dell-xps-15-9530-nvidia"];
@@ -168,10 +169,13 @@
             specialArgs = specialArgs host;
             modules =
               [
+                inputs.disko.nixosModules.disko
+                inputs.lanzaboote.nixosModules.lanzaboote
                 ./system
-                ./hosts/${name}/hardware-configuration.nix
                 ./hosts/${name}/configuration.nix
               ]
+              ++ lib.optional (builtins.pathExists ./hosts/${name}/hardware-configuration.nix)
+              ./hosts/${name}/hardware-configuration.nix
               ++ map (m: inputs.nixos-hardware.nixosModules.${m}) host.hardware;
           })
         (hostsOfKind "nixos");

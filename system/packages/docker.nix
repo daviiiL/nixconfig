@@ -16,6 +16,8 @@ in {
   config = lib.mkIf cfg.enable {
     virtualisation.docker = {
       enable = true;
+      # pinned to 29 for security fixes
+      package = pkgs.docker_29;
       rootless = lib.mkIf cfg.rootless {
         enable = true;
         setSocketVariable = true;

@@ -1,4 +1,4 @@
-# Userland shared by the standalone Wayland sessions; no toggle of its own.
+# shared by niri and hyprland, no toggle
 {
   config,
   lib,

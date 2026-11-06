@@ -13,7 +13,7 @@ in {
   ];
 
   config = lib.mkIf cfg.enable {
-    # sassc builds the styles; the rest are what the shell config shells out to
+    # sassc for styles, rest get called from the ags config
     home.packages = with pkgs; [
       sassc
       brightnessctl
