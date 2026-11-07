@@ -11,8 +11,10 @@
     homebrew = {
       enable = true;
       brews = [
-        "neovim"
         "teamookla/speedtest/speedtest"
+      ];
+      casks = [
+        "j178/tap/leetgo"
       ];
     };
   };

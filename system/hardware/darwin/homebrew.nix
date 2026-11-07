@@ -37,6 +37,7 @@ in {
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
         "teamookla/homebrew-speedtest" = inputs.homebrew-speedtest;
+        "j178/homebrew-tap" = inputs.homebrew-j178;
       };
     };
 

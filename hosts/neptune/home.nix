@@ -20,6 +20,7 @@
         languages = {
           node.enable = true;
           dart.enable = true;
+          go.enable = true;
           php.enable = true;
           python.enable = true;
           latex.enable = true;
@@ -30,7 +31,10 @@
           postgresql.enable = true;
         };
       };
-      editors.tree-sitter.enable = true;
+      editors = {
+        tree-sitter.enable = true;
+        nixvim.enable = true;
+      };
       terminals = {
         tmux.enable = true;
         zellij.enable = true;

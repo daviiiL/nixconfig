@@ -33,6 +33,10 @@
       url = "github:teamookla/homebrew-speedtest";
       flake = false;
     };
+    homebrew-j178 = {
+      url = "github:j178/homebrew-tap";
+      flake = false;
+    };
 
     nixpkgs-opencode.url = "github:nixos/nixpkgs/aa48d347080940b8a2b8d2f48228674e280a3514";
 

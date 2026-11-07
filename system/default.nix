@@ -18,7 +18,7 @@
         ./security
         ./services
       ];
-      darwin = [./darwin];
+      darwin = [./hardware/darwin];
     }
     .${
       host.kind
