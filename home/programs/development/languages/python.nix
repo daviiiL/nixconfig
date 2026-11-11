@@ -17,6 +17,7 @@ in {
           pandas
           polars
           pyarrow
+          openpyxl
           scipy
           scikit-learn
           statsmodels
