@@ -17,6 +17,14 @@ in {
 
   inherit (inputs.nixpkgs-opencode.legacyPackages.${final.stdenv.hostPlatform.system}) opencode;
 
+  tectonic-unwrapped = prev.tectonic-unwrapped.overrideAttrs (old: {
+    buildInputs =
+      (old.buildInputs or [])
+      ++ final.lib.optionals
+      (final.lib.versionAtLeast old.version "0.17.0" && !(builtins.elem final.aws-lc (old.buildInputs or [])))
+      [final.aws-lc];
+  });
+
   dart =
     if final.stdenv.hostPlatform.system == "aarch64-darwin"
     then
